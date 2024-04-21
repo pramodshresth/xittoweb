@@ -1,0 +1,50 @@
+.contact-us-image{
+    background: linear-gradient(0deg, #2f1e11, #00000090), url(../assets/firstimage.png);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    height:400px;
+    object-fit: cover;
+    object-position:center;
+}
+.contact-details{
+    background-color:#3d0557;
+    display:flex;
+    padding:50px;
+}
+
+.contactpage-location,.contactpage-mail,.contactpage-contactNo{
+    height:350px ;
+    background-color:#FDF5EB ;
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top:10px;
+}
+.contactpage-location:hover,.contactpage-mail:hover,.contactpage-contactNo:hover{
+    background-color: #FFF;
+    margin-top:0px;
+    transition: 1s ease;
+}
+.contactpage-mail{
+    height:400px;
+}
+.contactus-mail-gif{
+    width:100px;
+}
+.contactus-heading,.contact-us{
+    color: #fdbe13;
+    text-transform: capitalize;
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.contactus-paragraph{
+    font-size: 18px;
+    font-weight: 600;
+    font-family: 'Poppins';
+}
+.contact-us{
+    padding:30px;
+}

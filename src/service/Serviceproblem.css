@@ -1,0 +1,131 @@
+.card-img-top{
+    /* width:200px; */
+    height:200px;
+    object-fit:cover;
+
+}
+.card{
+    width:300px;
+    margin-right:10px;
+}
+.all-problems{
+    background-color: #3d0557;
+}
+.card-title{
+    color:#FFF;
+}
+.modal-backdrop{
+    z-index:unset;
+}
+.modal-content{
+   
+}
+.modal{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+.problemimage{
+    width:100%;
+}
+
+.user-location{
+    width:100%;
+    height:40px;
+    border-radius: 10px;
+    padding-left:20px;
+    /* background-color:;   */
+}
+.problem-description{
+    text-align: justify;
+    font-size: 12px;
+}
+.add,.subtract{
+    width:20px !important;
+    height:20px !important;
+    /* height:100px !important; */
+    background-color:#260536;
+    border-radius: 5px;
+    color:#FFF;
+    font-size: 10px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.addicon,.subtracticon{
+    font-size: 12px !important;
+   
+}
+.quantity{
+    font-size: 20px;
+}
+.quantitylist{
+    width:164px;
+    /* background-color:#fff; */
+    /* border:1px solid #dfdfdf; */
+    display:flex;
+    align-items: center;
+}
+.period{
+    width:150px;
+    height:50px;
+    /* background-color:#FFF; */
+    /* box-shadow: 0 2px 12px -2px #00000026; */
+    /* box-shadow:0 2px 12px -2px yellow; */
+    box-shadow:  0 15px 12px -2px #00000026;
+    /* margin-bottom:15px; */
+    display:flex;
+    align-items: center;
+    justify-content: center;
+   
+    /* padding:15px; */
+    
+}
+.Time_period{
+    /* display:flex;
+    flex-direction: row;
+    flex-wrap: wrap; */
+    display:grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); /* Adjust the min and max width as needed */
+    gap:10px;
+    
+  /* gap: 10px; Adjust the gap between grid items as needed */
+    /* display:grid;
+    grid-template-columns: repeat(3,1fr); */
+}
+.transactionmode{
+    margin-top:10px;
+   
+}
+.problemname{
+    font-size: 20px;
+    font-weight: 700;
+}
+.esttime,.quantity,.brands,.date,.time,.location{
+    font-size: 15px;
+    font-weight: 700;
+}
+.price{
+    font-size: 20px;
+    font-weight: 800;
+}
+.form-select{
+    margin-top:10px;
+    margin-bottom: 15px;
+}
+.booked-btn{
+    background-color: #3d0557;
+    color:#FFF;
+    width:150px;
+    height:50px;
+    border-radius: 10px;
+}
+/* .date{
+    background-color: #f1f4f4;
+} */
+.login-btn,.signup-btn{
+    color:#FFF;
+    padding-right:15px;
+    padding-left:10px;
+}
+.login-btn{
+    border-right:2px solid white;
+}
