@@ -79,6 +79,7 @@
   border-radius: 10px;
   object-fit: cover;
   object-position: center;
+  cursor: pointer;
   /* padding-bottom: 40px; */
 }
 .services-name{
@@ -385,15 +386,15 @@
     height:350px  !important;
   }
 }
-/* .show{
-  width:380px;
-    background-color:#FFF;
-    position: fixed;
-    right: 0px;
-    top: 0px;
-    height:100vh;
-    z-index: 100;
+.nav-link:hover{
+  color:#FFF;
 }
-.collapsing{
-  display:none;
-} */
+.btn-primary:hover{
+  background-color:#260536;
+  color:#FFF;
+  border:none;
+}
+.btn-primary{
+  background-color: #3d0557;
+  border:none;
+}

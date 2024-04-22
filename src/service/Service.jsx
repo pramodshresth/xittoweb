@@ -27,6 +27,9 @@ const Service = () => {
   const logout=()=>{
     
   }
+  const contactus=()=>{
+    navigate("/contactus");
+  }
   return (
     <>
     
@@ -44,7 +47,7 @@ const Service = () => {
      <div class="navbar-nav mx-auto">
        <a class="nav-link" aria-current="page" href="#services">Services</a>
        <a class="nav-link" href="#assistance">Assistance</a>
-       <a class="nav-link" href="#contact">Contact us</a>
+       <a class="nav-link" href="#contact"onClick={contactus}>Contact us</a>
       
        
 

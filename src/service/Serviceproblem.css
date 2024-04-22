@@ -129,3 +129,21 @@
 .login-btn{
     border-right:2px solid white;
 }
+.datepicker{
+    /* padding-left:20px; */
+    margin-left:20px;
+    border-radius:5px;
+}
+.clicked{
+    background-color:#260536;
+}
+
+.btn-primary:hover{
+    background-color:#260536;
+    color:#FFF;
+    border:none;
+  }
+  .btn-primary{
+    background-color: #801aaf;
+    border:none;
+  }

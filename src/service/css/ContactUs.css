@@ -38,7 +38,7 @@
     color: #fdbe13;
     text-transform: capitalize;
     font-family: 'Poppins', sans-serif;
-    text-align: center;
+    /* text-align: center; */
 }
 .contactus-paragraph{
     font-size: 18px;
@@ -48,3 +48,119 @@
 .contact-us{
     padding:30px;
 }
+.btn-warning{
+    width:190px;
+}
+.warning-btn{
+    display:flex;
+    justify-content: center;
+}
+.contactus-text{
+    border:1px solid #fdbe13 !important;
+    outline: none;
+    color:#FFF;
+}
+.contact-form-control{
+    background-color: #3d0557 !important;
+    outline: none;
+    border:none;
+    border-bottom: 2px solid #fdbe13;
+    color:#FFF;
+   
+}
+.form-control::placeholder{
+    /* color:#545454; */
+    color:#FFF;
+}
+.form-control{
+    color:#FFF !important;
+    outline: none;
+}
+.form-control:focus{
+    outline: none;
+    box-shadow: unset;
+    border-color:#fdbe13;
+    /* border:unset; */
+}
+.know-more-about-us{
+    background: linear-gradient(0deg, #00000060, #2f1e11),url(../assets/firstimage.png);
+    background-size: cover;
+    background-position: center;
+    /* padding:20px; */
+    /* height:430px; */
+}
+.ourservices{
+    display:flex;
+    flex-direction: column;
+    /* justify-content: center;
+    align-items: center;
+     */
+}
+a{
+    color: #fdbe13;
+    text-decoration: none;
+}
+.btn-link{
+    font-weight: 400;
+    color: #fdbe13;
+    text-decoration: none;
+    /* display: block; */
+    margin-bottom: 5px;
+    padding: 0;
+    text-align: left;
+    color: rgba(255, 255, 255, .5);
+    font-weight: normal;
+    text-transform: capitalize;
+    transition: .3s;
+    /* text-align: justify; */
+    /* padding-left:140px; */
+    /* text-align: center; */
+    /* display: flex;
+  flex-direction: column; */
+}
+.btn-link:hover{
+    color:#fdbe13;
+    margin-left:10px;
+}
+.footer{
+    height:50px;
+    background-color:#3d0557;
+    display:flex;
+    flex-direction: column;
+    justify-content:center;
+    /* display:flex;
+    align-items: center; */
+}
+.text-primary,.emerge-infosys{
+    color:#fdbe13 !important;
+}
+.mb-0{
+    color:#FFF;
+    /* padding-left:30px; */
+    display:flex;
+    justify-content: center;
+}
+.design{
+    color:#FFF;
+}
+.section-bg{
+    width:100%;
+}
+.em-3{
+    padding-left:60px;
+    /* display:flex;
+    align-items: center; */
+}
+.facebook,.instagram,.youtube{
+    /* background-color:Red; */
+    color:#FFF;
+    font-size:50px !important;
+}
+/* @media (max-width:992px){
+    .mb-0{
+        padding-left:unset;
+    }
+} */
+/* .btn-link:hover{
+    margin-left:10px;
+} */

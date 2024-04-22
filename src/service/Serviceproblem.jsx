@@ -54,6 +54,13 @@ const serviceprobem = () => {
 
   const [time,dispatch2]=useReducer(reducer2,initialState2);
   console.log("this is",time.time);
+
+  const services=()=>{
+    navigate('/#services');
+  }
+  const contactus=()=>{
+    navigate('/contactus');
+  }
   // console.log("this is selctedData",selectedDate);
   return (
     <div>
@@ -68,9 +75,9 @@ const serviceprobem = () => {
    </button>
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
      <div class="navbar-nav mx-auto">
-       <a class="nav-link" aria-current="page" href="#">Services</a>
+       <a class="nav-link" aria-current="page" href="#services"onClick={services}>Services</a>
        <a class="nav-link" href="#">Assistance</a>
-       <a class="nav-link" href="#">Contact us</a>
+       <a class="nav-link" href="#contactus"onClick={contactus}>Contact us</a>
        
 
        
@@ -155,25 +162,25 @@ const serviceprobem = () => {
 </select>
             </div>
           <div className='dateandtime'>
-              <span className='date'>Date</span>:<input onChange={handleDateChange} type='date'/>
+              <span className='date'>Date</span>:<input className='datepicker' onChange={handleDateChange} type='date'/>
             </div>
             
             <p className='time'>Time:</p>
             <div className='Time_period'>
               
-              <div className='period'onClick={() => dispatch2({ type: '9amto11pm' })}>
+              <div className={`${time.time==='9amto11pm'?"clicked":""} period`} onClick={() => dispatch2({ type: '9amto11pm' })}>
                 9:00Am to 11Am
               </div>
-              <div className='period'onClick={() => dispatch2({ type: '12amto2pm' })}>
+              <div className={`${time.time==='12amto2pm'?"clicked":""} period`} onClick={() => dispatch2({ type: '12amto2pm' })}>
                 12:AM to 2PM
               </div>
-              <div className='period'onClick={() => dispatch2({ type: '2amto2pm' })}>
+              <div className={`${time.time==='2amto2pm'?"clicked":""} period`} onClick={() => dispatch2({ type: '2amto2pm' })}>
                 2:AM to 2PM
               </div>
-              <div className='period'onClick={() => dispatch2({ type: '2pmto4pm' })}>
+              <div className={`${time.time==='2pmto4pm'?"clicked":""} period`}  onClick={() => dispatch2({ type: '2pmto4pm' })}>
                 2:PM to 4PM
               </div>
-              <div className='period'onClick={() => dispatch2({ type: '4pmto6pm' })}>
+              <div className={`${time.time==='4pmto6pm'?"clicked":""} period`}onClick={() => dispatch2({ type: '4pmto6pm' })}>
                 4:PM to 6PM
               </div>
             </div>
