@@ -3,14 +3,16 @@
   padding:0;
 }
 .navbar{
-  background-color: #260536 !important;
-  position: sticky;
+  background-color:#c8d5f0 !important;
+  position:fixed;
   top: 0px;
   z-index: 10;
+  height:80px;
+  width:100%;
 
 }
 .container-fluid{
-  background-color: #260536 !important;
+  background-color:#c8d5f0 !important;
   position:sticky;
   top:0;
   z-index: 100;
@@ -30,7 +32,7 @@
 }
 .nav-link{
   padding-right:100px !important;
-  color:#FFF;
+  color:#fff;
   font-weight: 600;
 }
 .secondpage,.firstpage{
@@ -44,11 +46,14 @@
 .firstpage,.secondpage,.thirdpage{
   object-fit: cover;
   object-position: center;
-  height:500px
+  height:500px;
+  margin: 48px;
+  padding-right: 98px;
+  border-radius:60px;
 
 }
 .bookservice{
-  color:#FFF;
+  color:#dcdcdc;
   display:flex;
   justify-content: center;
   font-size: 70px;
@@ -56,12 +61,19 @@
 }
 .sectionpadding{
   padding:40px 0px;
-  background-color: #260536;
+ 
   
 }
+.whyxitto-container{
+  background-color: #FFF;
+}
 .services{
+  /* display: grid;
+    grid-template-columns: repeat(8, 1fr); */
   display: grid;
-    grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Define grid columns */
+  grid-auto-rows: 185px; /* Define height of grid rows */
+  grid-auto-flow: row dense; /* Allow grid items to flow into multiple rows */
     justify-items: center;
    
     
@@ -71,30 +83,26 @@
 }
 
 .services-name{
-  color:#FFF;
+  color:#3D6FDC;
 }
 .services-logo{
-  width:100px;
-  height:100px;
+  width:50px;
+  height:50px;
   border-radius: 10px;
-  object-fit: cover;
-  object-position: center;
+  /* object-fit: cover;
+  object-position: center; */
   cursor: pointer;
   /* padding-bottom: 40px; */
 }
 .services-name{
-  display:flex;
-  justify-content: center;
+  text-align: center;
+  /* display:flex;
+  justify-content: center; */
   padding-top:15px;
   
 }
 @media (max-width:576px) {
-  .services{
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-    justify-items: center;
-      
-  }
+ 
   .bookservice{
     text-align: center;
     font-size: 40px;
@@ -141,9 +149,7 @@
 .card{
   background: transparent;
 }
-.services-section{
-  background-color: #3d0557;
-}
+
 .whyxitto-description{
   /* margin-left:30px; */
   padding-bottom:30px;
@@ -397,4 +403,19 @@
 .btn-primary{
   background-color: #3d0557;
   border:none;
+}
+.serviceslist{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  /* width: 250px; */
+  padding: 50px;
+}
+/* .serviceslist:hover{
+  background-color: red;
+} */
+.servicespadding{
+  /* padding:40px 0px; */
+  /* padding-left:40px;
+  padding-right:40px; */
 }

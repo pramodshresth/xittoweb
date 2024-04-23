@@ -1,7 +1,29 @@
 import React from 'react'
 import Firstimage from './assets/firstimage.png';
+import OfficeRenovation from './assets/Renovation.svg';
+import Electrician from './assets/Electrician.svg';
+import Inverter from './assets/Inverter.svg';
+import AirConditioner from './assets/Ac.svg';
+import Desktop from './assets/Desktop.svg';
+import Laptop from './assets/Laptop.svg';
+import Printer from './assets/printer.svg';
+import Networking from './assets/Networking.svg';
 import Secondimage from './assets/secondimage.png';
 import Thirdimage from './assets/thirdimage.png';
+import CCcamera from './assets/CC_Camera.svg';
+import Intercom from './assets/Intercom.svg';
+import Thumb from './assets/Thumb.svg';
+import NoteCounting from './assets/Note_Counting.svg';
+import Serverack from './assets/Server_Rack.svg';
+import FireExtinguisher from './assets/Fire_Extinguisher.svg';
+import DoorLock from './assets/Door_Lock.svg';
+import Projector from './assets/Projector.svg';
+import Fridge from './assets/Fridge.svg';
+import Micro_Oven from './assets/Micro_Oven.svg';
+
+import WashingMachine from './assets/Washing_machine.svg';
+import Generator from './assets/Generator.svg';
+
 import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import NavLogo from './assets/navlogo.png';
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -11,7 +33,8 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import { useNavigate, useLocation } from "react-router-dom";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-
+// import Top_shapes from './assets/Top_shapes.svg';
+import './css/Service.css';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -35,7 +58,10 @@ const Service = () => {
     
        
        <section>
-       <div className='container-fluid'>
+        {/* <img src={Top_shapes}/> */}
+        <div className='back-img-0'> 
+       <div className=''>
+        {/* */}
      <nav class="navbar navbar-expand-lg bg-body-tertiary">
  <div class="container">
  
@@ -202,50 +228,94 @@ const Service = () => {
 
  
  <p className='bookservice '>Our<span className='service'>&nbsp;Service</span></p>
- <div className='services'>
- <label>
- <img src={Firstimage}onClick={problem}className='services-logo'/>
+ <div className='services servicespadding'>
+ <label className="serviceslist">
+ <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
+ <p className='services-name'>Office Renovation</p>
+ </label>
+
+
+
+ 
+
+
+ <label className="serviceslist">
+ <img className='services-logo' src={Electrician}/>
+ <p className='services-name'>Electrician</p>
+ </label>
+
+ 
+ <label className="serviceslist">
+ <img className='services-logo' src={Inverter}/>
+ <p className='services-name'>Inverter and Battery</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={AirConditioner}/>
+ <p className='services-name'>Air Conditioner</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Desktop}/>
+ <p className='services-name'>Desktop Computer</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Laptop}/>
  <p className='services-name'>Laptop</p>
  </label>
-
-
-
- 
-
-
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>Computer</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={Printer}/>
+ <p className='services-name'>Printer</p>
  </label>
-
- 
- <label>
- <img className='services-logo' src={Secondimage}/>
- <p className='services-name'>Mobile</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={Networking}/>
+ <p className='services-name'>Networking</p>
  </label>
- <label>
- <img className='services-logo' src={Thirdimage}/>
- <p className='services-name'>Tab</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={CCcamera}/>
+ <p className='services-name'>CCTV Camera</p>
  </label>
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>mouse</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={Intercom}/>
+ <p className='services-name'>Intercom</p>
  </label>
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>Telephone</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={Thumb}/>
+ <p className='services-name'>Thumn Attendance</p>
  </label>
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>fan</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={DoorLock}/>
+ <p className='services-name'>Door Lock System</p>
  </label>
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>cooler</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={NoteCounting}/>
+ <p className='services-name'>Note Counting Machine</p>
  </label>
- <label>
- <img className='services-logo' src={Firstimage}/>
- <p className='services-name'>Ethernet</p>
+ <label className="serviceslist">
+ <img className='services-logo' src={Serverack}/>
+ <p className='services-name'>Server Rock</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={FireExtinguisher}/>
+ <p className='services-name'>Fire Extinguisher</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Projector}/>
+ <p className='services-name'>Projector</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Fridge}/>
+ <p className='services-name'>Refrigerator</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Micro_Oven}/>
+ <p className='services-name'>Microwave Oven</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={WashingMachine}/>
+ <p className='services-name'>Washing Machine</p>
+ </label>
+ <label className="serviceslist">
+ <img className='services-logo' src={Generator}/>
+ <p className='services-name'>Generator</p>
  </label>
  
 
@@ -256,9 +326,11 @@ const Service = () => {
  
 
 </div>
-</section> 
+</section>
+</div> 
+{/* </div> */}
 
-<section className='sectionpadding'>
+<section className='sectionpadding '>
  <div className='container'>
  {/* why xitto  */}
      <h1 className='whyxitto' >Why <span className='service'>Xittoo ?</span></h1>

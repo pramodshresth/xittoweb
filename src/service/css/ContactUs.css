@@ -73,7 +73,7 @@
     color:#FFF;
 }
 .form-control{
-    color:#FFF !important;
+    color:black!important;
     outline: none;
 }
 .form-control:focus{

@@ -1,0 +1,32 @@
+/* .services-section{
+    background:url(../assets/Top_shapes.svg);
+    background-size: cover;
+    background-position: top;
+     background-attachment: fixed
+    height:400px;
+    object-fit: cover;
+    object-position:center;
+    background-color:#f7f7f7;
+  } */
+/* .background-image{
+    background:url(../assets/Top_shapes.svg);
+    background-size: cover;
+    background-position: top;
+    background-attachment: fixed;
+    height:400px;
+    object-fit: cover;
+    object-position:center;
+    background-color:#f7f7f7;
+
+} */
+.back-img-0{
+    background:url(../assets/Top_shapes.svg);
+    background-size: cover;
+    /* background-position: top; */
+    background-attachment: fixed;
+    /* height:400px; */
+    object-fit: cover;
+    object-position:center;
+    background-color:#f7f7f7;
+
+}
