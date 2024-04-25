@@ -27,6 +27,75 @@
     /* height:400px; */
     object-fit: cover;
     object-position:center;
-    background-color:#f7f7f7;
+    /* background-color:#f7f7f7; */
 
 }
+.card-body{
+    padding:unset;
+}
+.our{
+    color:#3f70dc;
+}
+.ourpartner{
+    color:#612690 ;
+    text-align: center;
+    /* padding:20px; */
+    /* padding-top: 10px; */
+    /* color: #dcdcdc; */
+    display: flex;
+    justify-content: center;
+    font-size: 64px;
+    font-weight: 700;
+    padding-top:60px;
+
+}
+.ourpartnersection{
+    background: transparent linear-gradient(180deg, #F5F5F7 0%, #FFFFFF 100%) 0% 0% no-repeat padding-box;
+    
+    opacity: 1;
+    /* height:100px; */
+    border-radius: 25px;
+    /* padding-top: 100px; */
+    margin-left: 30px;
+    margin-right: 30px;
+    /* padding-bottom: 50px; */
+    /* height:300px; */
+    padding-bottom:100px;
+    margin-bottom:50px;
+    /* height:100px; */
+    
+
+
+}
+.partner-logo{
+    object-fit: contain;
+    width:250px;
+    font-size: 10px;
+}
+.partner-image{
+    /* display:flex;
+    justify-content: center; */
+    /* overflow-x: scroll; */
+    
+
+}
+/* .carousel-control-prev{
+    color:red;
+    background-color: red;
+} */
+.swiper{
+    padding-right:5px;
+    padding-left: 57px;
+}
+.swiper-pagination{
+    position:unset !important;
+}
+/* .partner-image::-webkit-scrollbar {
+    width: 70px;
+  }
+
+  .partner-image::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.50);; 
+    
+    border-radius: 10px;
+  } */

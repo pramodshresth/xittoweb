@@ -1,6 +1,6 @@
 import React from 'react'
 import NavLogo from './assets/navlogo.png';
-import Firstimage from './assets/firstimage.png';
+import Slider1 from './assets/Slider1.jpg';
 import "./Serviceproblem.css";
 import { useNavigate, useLocation } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
@@ -97,7 +97,7 @@ const serviceprobem = () => {
   <div className='container'>
 <div className='row'>
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -119,7 +119,7 @@ const serviceprobem = () => {
         <div className='row'>
           <div className='col-md-6'>
             <div>
-              <img src={Firstimage}className='problemimage'alt='firstimage'/>
+              <img src={Slider1}className='problemimage'alt='Slider1'/>
             </div>
             <div className='problemname'>
               Screen Problem
@@ -241,7 +241,7 @@ const serviceprobem = () => {
 
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -250,7 +250,7 @@ const serviceprobem = () => {
 </div>
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -259,7 +259,7 @@ const serviceprobem = () => {
 </div>
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -272,7 +272,7 @@ const serviceprobem = () => {
 
 <div className='row'>
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -281,7 +281,7 @@ const serviceprobem = () => {
 </div>
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -290,7 +290,7 @@ const serviceprobem = () => {
 </div>
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>
@@ -299,7 +299,7 @@ const serviceprobem = () => {
 </div>
 
 <div class="card col-md-3" style={{width:"18rem;"}}>
-  <img src={Firstimage} class="card-img-top" alt="..."/>
+  <img src={Slider1} class="card-img-top" alt="..."/>
   <div class="card-body">
     <h5 class="card-title">Laptop</h5>
     <p class="card-text">This is a dell laptop with processor i5 11th genearation.This laptop is best for programming.</p>

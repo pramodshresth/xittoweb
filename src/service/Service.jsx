@@ -1,5 +1,5 @@
-import React from 'react'
-import Firstimage from './assets/firstimage.png';
+import React,{useEffect} from 'react'
+import Slider1 from './assets/Slider1.jpg';
 import OfficeRenovation from './assets/Renovation.svg';
 import Electrician from './assets/Electrician.svg';
 import Inverter from './assets/Inverter.svg';
@@ -8,8 +8,8 @@ import Desktop from './assets/Desktop.svg';
 import Laptop from './assets/Laptop.svg';
 import Printer from './assets/printer.svg';
 import Networking from './assets/Networking.svg';
-import Secondimage from './assets/secondimage.png';
-import Thirdimage from './assets/thirdimage.png';
+import Slider2 from './assets/Slider2.jpg';
+import Slider3 from './assets/Slider3.jpg';
 import CCcamera from './assets/CC_Camera.svg';
 import Intercom from './assets/Intercom.svg';
 import Thumb from './assets/Thumb.svg';
@@ -34,7 +34,15 @@ import TwitterIcon from '@mui/icons-material/Twitter';
 import { useNavigate, useLocation } from "react-router-dom";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // import Top_shapes from './assets/Top_shapes.svg';
+import EmergeInfoLogo from './assets/EmergeInfoLogo.png';
+import Khalti from './assets/Khalti.png';
+import ConnectIps from './assets/ConnectIps.png';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import {Autoplay, FreeMode,Pagination} from 'swiper/modules';
 import './css/Service.css';
+import 'swiper/css/pagination';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -53,6 +61,9 @@ const Service = () => {
   const contactus=()=>{
     navigate("/contactus");
   }
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <>
     
@@ -200,13 +211,13 @@ const Service = () => {
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
  <div class="carousel-inner">
    <div class="carousel-item active">
-     <img src={Firstimage} class="firstpage d-block w-100" alt="..."/>
+     <img src={Slider1} class="firstpage d-block w-100" alt="..."/>
    </div>
    <div class="carousel-item">
-     <img src={Secondimage} class="secondpage d-block w-100" alt="..."/>
+     <img src={Slider2} class="secondpage d-block w-100" alt="..."/>
    </div>
    <div class="carousel-item">
-     <img src={Thirdimage} class="thirdpage d-block w-100" alt="..."/>
+     <img src={Slider3} class="thirdpage d-block w-100" alt="..."/>
    </div>
   
  </div>
@@ -222,13 +233,13 @@ const Service = () => {
 </section>
 
 
- <section id="services" className='services-section sectionpadding'>
+ <section id="services" className='services-section container'>
 <div>
 
 
  
- <p className='bookservice '>Our<span className='service'>&nbsp;Service</span></p>
- <div className='services servicespadding'>
+ <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
+ <div data-aos="fade-up" className='services servicespadding'>
  <label className="serviceslist">
  <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
  <p className='services-name'>Office Renovation</p>
@@ -330,9 +341,9 @@ const Service = () => {
 </div> 
 {/* </div> */}
 
-<section className='sectionpadding '>
+{/* <section className='sectionpadding '>
  <div className='container'>
- {/* why xitto  */}
+
      <h1 className='whyxitto' >Why <span className='service'>Xittoo ?</span></h1>
      <div className='row whyxitto-description'>
       <div className='col-md-6'>
@@ -405,25 +416,62 @@ const Service = () => {
 
    
 
-   {/* what our client says */}
    
    
  </div>
-</section>
+</section> */}
+<section data-aos="fade-up" className='ourpartnersection'>
+  {/* <div className=''> */}
+  <div className='container'>
+    <h1 className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
+    {/* <div className='row'>
+      
+    </div> */}
+<Swiper
+        slidesPerView={4}
+        spaceBetween={30}
+        freeMode={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        modules={[Autoplay,FreeMode, Pagination]}
+        className="mySwiper"
+      >
+        <div className='partner-image'>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={Khalti} className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={ConnectIps} className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
+        </div>
+      </Swiper>
 
+    {/* <div className='partner-image'>
+    <img src={EmergeInfoLogo}className='partner-logo'/>
+    <img src={Khalti} className='partner-logo'/>
+    <img src={ConnectIps} className='partner-logo'/>
+    </div> */}
+  {/* </div> */}
+  </div>
+</section>
+{/* 
 <section className='sectionpadding client-section'>
    <div className='client container'>
      <h1 className='client-heading'>What Our <span className='highlite'>Clients</span> Say ?</h1>
 
      <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-  {/* <div class="carousel-indicators">
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-  </div> */}
+ 
   <div class="carousel-inner">
     <div class="carousel-item active" data-bs-interval="3000">
-    <img src={Firstimage} className="client-photo d-block w-100" alt="..."/>
+    <img src={Slider1} className="client-photo d-block w-100" alt="..."/>
     <div class="carousel-caption d-none d-md-block">
        <h5>First slide label</h5>
        <p>Small business owner</p>
@@ -435,7 +483,7 @@ const Service = () => {
      </p>
     </div>
     <div class="carousel-item" data-bs-interval="3000">
-    <img src={Secondimage} className="client-photo d-block w-100" alt="..."/>
+    <img src={Slider2} className="client-photo d-block w-100" alt="..."/>
      <div class="carousel-caption d-none d-md-block">
        <h5>Second slide label</h5>
        <p>Small business owner</p>
@@ -446,7 +494,7 @@ const Service = () => {
      </p>
     </div>
     <div class="carousel-item"data-bs-interval="3000">
-    <img src={Thirdimage} className="client-photo d-block w-100" alt="..."/>
+    <img src={Slider3} className="client-photo d-block w-100" alt="..."/>
      <div class="carousel-caption d-none d-md-block">
        <h5>Third slide label</h5>
        <p>Small business owner</p>
@@ -471,7 +519,7 @@ const Service = () => {
 
    </div>
    
-   </section>
+   </section> */}
 
 <section className='sectionpadding'>
      <div className='container'>
