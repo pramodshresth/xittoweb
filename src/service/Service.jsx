@@ -20,6 +20,7 @@ import DoorLock from './assets/Door_Lock.svg';
 import Projector from './assets/Projector.svg';
 import Fridge from './assets/Fridge.svg';
 import Micro_Oven from './assets/Micro_Oven.svg';
+import Workflow from './assets/Workflow.png';
 
 import WashingMachine from './assets/Washing_machine.svg';
 import Generator from './assets/Generator.svg';
@@ -43,6 +44,12 @@ import 'swiper/css/free-mode';
 import {Autoplay, FreeMode,Pagination} from 'swiper/modules';
 import './css/Service.css';
 import 'swiper/css/pagination';
+import Comma from './assets/comma.svg';
+import Comma1 from './assets/comma1.svg';
+import FooterImage from './assets/FooterImage.png';
+import SiteVisitor from './assets/Sitevisitor.svg';
+import HappyClients from './assets/HappyClients.svg';
+import Support from './assets/Support.svg';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -420,16 +427,13 @@ const Service = () => {
    
  </div>
 </section> */}
-<section data-aos="fade-up" className='ourpartnersection'>
+<section data-aos="fade-up" className='sectionpadding ourpartnersection'>
   {/* <div className=''> */}
   <div className='container'>
     <h1 className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
-    {/* <div className='row'>
-      
-    </div> */}
-<Swiper
-        slidesPerView={4}
-        spaceBetween={30}
+      <Swiper
+        slidesPerView={1}
+        spaceBetween={10}
         freeMode={true}
         autoplay={{
           delay: 2500,
@@ -438,8 +442,34 @@ const Service = () => {
         pagination={{
           clickable: true,
         }}
+        breakpoints={{
+          280:{
+            slidesPerView:1,
+            spaceBetween: 20,
+            
+          },
+          447:{
+            slidesPerView:2,
+            spaceBetween: 20,
+
+          },
+          576: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          768: {
+            slidesPerView: 4,
+            spaceBetween: 140,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 150,
+          },
+        }}
         modules={[Autoplay,FreeMode, Pagination]}
         className="mySwiper"
+
+
       >
         <div className='partner-image'>
         <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
@@ -453,75 +483,266 @@ const Service = () => {
         <SwiperSlide><img src={EmergeInfoLogo}className='partner-logo'/></SwiperSlide>
         </div>
       </Swiper>
-
-    {/* <div className='partner-image'>
-    <img src={EmergeInfoLogo}className='partner-logo'/>
-    <img src={Khalti} className='partner-logo'/>
-    <img src={ConnectIps} className='partner-logo'/>
-    </div> */}
-  {/* </div> */}
   </div>
 </section>
-{/* 
-<section className='sectionpadding client-section'>
-   <div className='client container'>
-     <h1 className='client-heading'>What Our <span className='highlite'>Clients</span> Say ?</h1>
-
-     <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
- 
-  <div class="carousel-inner">
-    <div class="carousel-item active" data-bs-interval="3000">
-    <img src={Slider1} className="client-photo d-block w-100" alt="..."/>
-    <div class="carousel-caption d-none d-md-block">
-       <h5>First slide label</h5>
-       <p>Small business owner</p>
-    
-     </div>
-     <p className='client-reply'>
-     <p className='quote'><FormatQuoteIcon/></p>
-     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-     </p>
-    </div>
-    <div class="carousel-item" data-bs-interval="3000">
-    <img src={Slider2} className="client-photo d-block w-100" alt="..."/>
-     <div class="carousel-caption d-none d-md-block">
-       <h5>Second slide label</h5>
-       <p>Small business owner</p>
-    
-     </div>
-     <p className='client-reply'>
-     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-     </p>
-    </div>
-    <div class="carousel-item"data-bs-interval="3000">
-    <img src={Slider3} className="client-photo d-block w-100" alt="..."/>
-     <div class="carousel-caption d-none d-md-block">
-       <h5>Third slide label</h5>
-       <p>Small business owner</p>
-    
-     </div>
-     <p className='client-reply'>
-     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
-     </p>
-    </div>
-  </div>
-  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-
-
-
-   </div>
-   
-   </section> */}
 
 <section className='sectionpadding'>
+  <img data-aos="fade-up" src={Workflow}className='workflow'/>
+</section>
+
+<section data-aos="flip-right" className='what-our-client-say sectionpadding'>
+
+<div  className='client-page'>
+<Swiper
+        slidesPerView={1}
+        spaceBetween={10}
+        freeMode={true}
+        autoplay={{
+          delay: 2500,
+          disableOnInteraction: false,
+        }}
+        pagination={{
+          clickable: true,
+        }}
+        breakpoints={{
+          640: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          768: {
+            slidesPerView: 2,
+            spaceBetween: 10,
+          },
+          1290: {
+            slidesPerView:2,
+            spaceBetween: 10,
+          },
+          1400:{
+            slidesPerView:3,
+            spaceBetween: 10,
+            
+          }
+        }}
+        modules={[Autoplay,FreeMode, Pagination]}
+        className="partner-image"
+
+
+      >
+       
+        <SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem </p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div class="card  client-card">
+  <div class="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} class="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 class="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+      </Swiper>
+</div>
+<div className='client-page'>
+      </div>
+</section>
+
+<section className='sectionpadding'>
+  <div className='foot'>
+  <div className='footter'>
+    <div className='row footter-row'>
+      <div className='col-md-6'>
+
+      </div>
+
+      <div className='col-md-6 ourprofile'>
+        <div className='row'>
+        <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor} className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>VISITORS</h3>
+          <h1 className='ourprofile-num'>555</h1>
+          </div>
+
+          <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor}className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>ourprofile-img</h3>
+          <h1 className='ourprofile-num'>555</h1>
+          </div>
+
+          <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor}className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>VISITORS</h3>
+          <h1 className='ourprofile-num'>555</h1>
+          </div>
+          </div>
+      </div>
+
+    </div>
+  {/* <img src={FooterImage}className=' footter-image'/> */}
+  </div>
+  </div>
+
+</section>
+
+{/* <section className='sectionpadding'>
      <div className='container'>
        <div className='container'>
          <div className='row justify-content-center text-center'>
@@ -548,9 +769,9 @@ const Service = () => {
          
        </div>
      </div>
-   </section>
+   </section> */}
 
-   {/* <section className='sectionpadding'> */}
+{/* 
      <section  className='sectionpadding container-fluid footer-container'>
        <div className='container'>
          <div className='row'>
@@ -584,12 +805,7 @@ const Service = () => {
                </div>
            </div>
            <div className='col-md-3'>
-             {/* <h1 style={{color:'#FFF'}}>Location</h1> */}
-             {/* <div className='row' style={{color:"#FFF",listStyle:"none"}}>
-               <ul style={{listStyle:"none"}}>
-                
-               </ul>
-               </div> */}
+             
 
                <h1 style={{color:'#FFF'}}>Contact Us</h1>
                <div className='row' style={{color:"#FFF"}}>
@@ -620,7 +836,7 @@ const Service = () => {
 
        
       
-         </section>
+         </section> */}
      </section>
      
    

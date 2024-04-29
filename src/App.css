@@ -57,8 +57,9 @@
   color:#dcdcdc;
   display:flex;
   justify-content: center;
-  font-size: 64px;
+  font-size:3.5vw;
   font-weight: 700;
+
 }
 .sectionpadding{
   padding:40px 0px;
@@ -108,11 +109,11 @@
 }
 @media (max-width:576px) {
  
-  .bookservice,.ourpartner{
+  /* .bookservice,.ourpartner{
     text-align: center !important;
     font-size: 40px !important;
 
-  }
+  } */
   .result{
     border-right:unset !important;
   }
@@ -128,12 +129,9 @@
   .img-section{
     position:unset !important;
   }
-  /* .xittodescription{
-    display:unset !important;
-  }
-  .xitto{
-    margin-left:unset !important;
-  } */
+}
+@media (max-width:1200px){
+  
 }
 /* .xittodescription{
   display:flex;
@@ -211,7 +209,13 @@
 }
 
 .card-text{
-  color:#757575;
+  color:#612690;
+  padding:20px 60px;
+  text-align: justify;
+  font-size: 12px;
+  padding: 0px 10px !important;
+  /* height:150px; */
+  /* padding-bottom:80px; */
 }
 .description-image{
   display:flex;

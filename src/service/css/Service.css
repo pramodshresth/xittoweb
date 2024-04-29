@@ -30,9 +30,9 @@
     /* background-color:#f7f7f7; */
 
 }
-.card-body{
-    padding:unset;
-}
+
+
+
 .our{
     color:#3f70dc;
 }
@@ -44,7 +44,7 @@
     /* color: #dcdcdc; */
     display: flex;
     justify-content: center;
-    font-size: 64px;
+    font-size: 3.5vw;
     font-weight: 700;
     padding-top:60px;
 
@@ -60,8 +60,8 @@
     margin-right: 30px;
     /* padding-bottom: 50px; */
     /* height:300px; */
-    padding-bottom:100px;
-    margin-bottom:50px;
+    /* padding-bottom:50px; */
+    /* margin-bottom:50px; */
     /* height:100px; */
     
 
@@ -69,9 +69,62 @@
 }
 .partner-logo{
     object-fit: contain;
-    width:250px;
+    width:213px;
     font-size: 10px;
 }
+@media (max-width:1200px) {
+    .ourprofile-image{
+        width:100px;
+    }
+}
+
+@media (max-width:1400px) {
+    /* .partner-logo{
+        width:100% !important;
+    }
+    .card-img-top{
+        width:50px;
+        height:50px;
+    } */
+    .card{
+        height:72vh;
+    }
+}
+
+@media (max-width:992px) {
+    .comma-img,.comma1{
+        width:35px !important;
+        /* padding:4px; */
+    }
+    .card-img-top{
+        width:80px;
+        height:80px;
+    }
+    .card-text{
+        padding:unset!important;
+    }
+}
+@media screen and (max-width:768px) {
+    .card-title{
+        text-align: center;
+    }
+    .card-text{
+        padding:0px 40px 0px 40px !important;
+   
+    }
+    .comma1{
+        margin-left:15px;
+    }
+    .swiper-slide{
+        /* width:unset !important; */
+        /* width:unset !important; */
+    }
+    .card{
+        width:100%;
+        /* width:950px; */
+    }
+}
+
 .partner-image{
     /* display:flex;
     justify-content: center; */
@@ -83,12 +136,49 @@
     color:red;
     background-color: red;
 } */
-.swiper{
+/* .swiper{
     padding-right:5px;
     padding-left: 57px;
 }
 .swiper-pagination{
     position:unset !important;
+} */
+.workflow{
+    width:100%;
+    /* height:100px; */
+}
+.card-title{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#612690;
+    /* padding-left:19px; */
+    font-weight: bold;
+    
+}
+.comma1{
+    display:flex;
+    /* justify-content:end; */
+    align-items: end;
+    width:60px;
+}
+/* .what-our-client-say{
+    padding:20px;
+} */
+/* .comma-img,.comma1-img
+{
+    width:100%;
+} */
+.comma-img{
+    /* margin:14px; */
+    /* margin-top:23px; */
+    /* margin-left:10%; */
+    width:60px;
+    /* width:60px; */
+}
+.comma1-img{
+    margin-bottom: -20px;
+    /* margin-right: 16px; */
 }
 /* .partner-image::-webkit-scrollbar {
     width: 70px;
@@ -99,3 +189,76 @@
     
     border-radius: 10px;
   } */
+.client-page{
+    /* display:flex;
+    justify-content: center; */
+}
+.swiper-wrapper{
+    /* display:flex;
+    justify-content: center; */
+    /* padding-right:unset ;
+    padding-left:unset; */
+}
+.client-image{
+    display:flex;
+    justify-content:end;
+    align-items: center;
+}
+.client-card{
+    /* height:200px; */
+}
+.em-2{
+    padding:10px;
+}
+.swiper-slide{
+    height:100% !important;
+    /* width:36.3vw  !important;
+    margin-right:10px !important; */
+
+}
+.footter-image{
+    width:100%;
+}
+.foot{
+    background: transparent linear-gradient(90deg, #8752AE 0%, #531682 100%) 0% 0% no-repeat padding-box; ;
+}
+.footter{
+    /* background: transparent linear-gradient(90deg, #8752AE 0%, #531682 100%) 0% 0% no-repeat padding-box; */
+    background:url(../assets/FooterImage.png);
+    background-size: cover;
+    /* background-position: top; */
+    /* background-attachment: fixed; */
+    height:600px;
+    object-fit: cover;
+    object-position:center;
+
+}
+.footter-row{
+    width:100%;
+}
+.ourprofile{
+    /* width:100%; */
+    /* height:150px; */
+    background-color:#FFBE1C;
+    margin-top:40px;
+    border-radius: 50px;
+
+}
+.row{
+    margin-left:unset;
+}
+.ourprofile-img{
+    color:#FFF;
+    text-align: center;
+}
+.ourprofile-num{
+    text-align: center;
+    color:#FFF;
+    font-size: 70px;
+}
+.profile-section{
+    border-right: 2px solid #EAB44D;
+}
+.profile-section:nth-child(3) {
+    border-right: none; /* Remove border for the third image */
+}
