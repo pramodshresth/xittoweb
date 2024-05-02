@@ -329,10 +329,10 @@
 }
 .modal-content{
   height:600px  !important;
-  background-color: #3d0557;
+  background-color: #fff;
   border-radius: 20px;
   color:#FFF;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   
 }
 .modal-header{
@@ -354,13 +354,13 @@
 .login-user,.user-phonenumber{
   /* padding-bottom:25px; */
   border-radius:7px;
-  background-color:hsl(281, 89%, 18%);
+  background-color:#FFF;
   margin-bottom:20px;
-  border:2px solid #690D93;
+  /* border:2px solid #690D93; */
   outline: none;
   /* padding-top:19px; */
   padding:10px;
-  color:#FFF;
+  color:black;
   width:100%;
   /* padding-left:20px; */
 }
@@ -371,26 +371,28 @@
 
 }
 .login-save-btn{
-  background-color:#690D93;
+  background-color:#cedbf6 !important;
   height:60px;
   font-size: 18px;
   font-weight: 600;
   border: none;
+  color:#000000
 }
 .btn-close{
   background-color: #FFF;
 }
 
-
+/* 
 .signup{
   color:#cd82f0;
-}
+} */
 .signuplink{
   text-align: center;
+  color:#000000;
 }
 .forgotpassword{
   text-align: end;
-  color:#cd82f0;
+  color:#000000;
 }
 .btn:hover{
   background: #fff;
@@ -409,10 +411,10 @@
   color:#FFF;
   border:none;
 }
-.btn-primary{
+/* .btn-primary{
   background-color: #3d0557;
   border:none;
-}
+} */
 .servicespadding{
   /* padding:50px; */
   padding-bottom:100px;

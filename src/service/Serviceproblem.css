@@ -11,11 +11,12 @@
     /* width:35vw; */
     /* height:360px; */
     /* padding:100px; */
-    margin-right:2%;
+    /* margin-right:2%; */
     display:inline-block;
     background-color: #F5F5F7;
     height:62vh;
     width:95%;
+    /* border-bottom-left-radius: 25px; */
 }
 /* .card{
    
@@ -35,9 +36,7 @@
 .modal-backdrop{
     z-index:unset;
 }
-.modal-content{
-   
-}
+
 .modal{
     background-color: rgba(0, 0, 0, 0.4);
 }
@@ -55,6 +54,7 @@
 .problem-description{
     text-align: justify;
     font-size: 12px;
+    color:#000000;
 }
 .add,.subtract{
     width:20px !important;
@@ -88,7 +88,7 @@
     /* background-color:#FFF; */
     /* box-shadow: 0 2px 12px -2px #00000026; */
     /* box-shadow:0 2px 12px -2px yellow; */
-    box-shadow:  0 15px 12px -2px #00000026;
+    box-shadow:0 2px 12px -2px #00000026;
     /* margin-bottom:15px; */
     display:flex;
     align-items: center;
@@ -116,6 +116,7 @@
 .problemname{
     font-size: 20px;
     font-weight: 700;
+    color:#000000
 }
 .esttime,.quantity,.brands,.date,.time,.location{
     font-size: 15px;
@@ -153,7 +154,8 @@
     border-radius:5px;
 }
 .clicked{
-    background-color:#260536;
+    background-color:#cedbf6;
+    color:#FFF !important;
 }
 
 .btn-primary:hover{
@@ -165,3 +167,97 @@
     background-color: #801aaf;
     border:none;
   }
+  .serviceproblem{
+    padding-top:100px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    padding-bottom:100px; 
+    /* grid-auto-rows: 100px; 
+    grid-auto-flow: row dense; */
+    /* padding-top:100px; */
+  }
+  .serviceproblem .card-body{
+    background-color: #FFF;
+  }
+  .serviceproblem .card{
+    height:unset;
+    background-color: unset;
+    border:none;
+    
+  }
+  .card .card-img-top{
+    width:100%;
+    height:unset !important;
+    border-radius: unset;
+    border-top-left-radius: 25px;
+    border-top-right-radius:25px;
+    border:none;
+  }
+  .card-body{
+    /* background-color: #FFF; */
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+  }
+  .brands,.dateandtime,.time,.period,.location,.transactionmode,.modal-title,.booking-time,.price,.quantitylist{
+    color:#000000
+  }
+  .day{
+    width:68px;
+    height:68px;
+    background-color:#FFF;
+    box-shadow: 0 2px 12px -2px #00000026;
+    margin:2px 3px;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+    
+  }
+  .firstsixdays{
+    display:flex;
+    
+  }
+  .dateandtime{
+    display:flex;
+    overflow-x: scroll;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .dateandtime::-webkit-scrollbar {
+    width:0px;
+  }
+  .dateandtime::-webkit-scrollbar-thumb {
+    /* background-color: rgba(255, 255, 255, 0.50);;  */
+    background-color:red;
+    
+    border-radius: 10px;
+  }
+  .dayname{
+    font-weight: bold;
+  }
+  .day:hover{
+    background-color: #cedbf6;
+  }
+  .date-33{
+    width:60px;
+    height:100px;
+    opacity: 0;
+  }
+  .date-icon{
+    margin-top:60px;
+  }
+  .react-datepicker-wrapper{
+    margin-top:-40px;
+  }
+  @media screen and (max-width:768px) {
+    .react-datepicker{
+        margin-left:200px;
+    }
+    
+}
+  /* .react-datepicker{
+    margin-right:150px;
+  } */
+  /* .addicon,.subtracticon{
+    color:#3d0557;
+  } */

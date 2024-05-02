@@ -50,6 +50,7 @@ import FooterImage from './assets/FooterImage.png';
 import SiteVisitor from './assets/Sitevisitor.svg';
 import HappyClients from './assets/HappyClients.svg';
 import Support from './assets/Support.svg';
+import xittofooterimage from './assets/xittoblueimage.png';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -76,10 +77,10 @@ const Service = () => {
     
        
        <section>
-        {/* <img src={Top_shapes}/> */}
+       
         <div className='back-img-0'> 
        <div className=''>
-        {/* */}
+   
      <nav class="navbar navbar-expand-lg bg-body-tertiary">
  <div class="container">
  
@@ -101,7 +102,7 @@ const Service = () => {
      <div>
      <form class="d-flex" role="search">
        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-       {/* <button class="btn btn-outline-success" type="submit">Search</button> */}
+       
      </form>
      </div>
      <div className='login'>
@@ -115,13 +116,11 @@ const Service = () => {
     <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="#"onClick={register}>Register</a></li>
     <li><a class="dropdown-item" href="#"onClick={logout}>Logout</a></li>
 
-    {/* <li><a class="dropdown-item" href="#">Something else here</a></li> */}
+
   </ul>
 </div>
 
-{/* <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-  Launch demo modal
-</button> */}
+
 
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -246,7 +245,7 @@ const Service = () => {
 
  
  <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
- <div data-aos="fade-up" className='services servicespadding'>
+ <div data-aos="zoom-in" className='services servicespadding'>
  <label className="serviceslist">
  <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
  <p className='services-name'>Office Renovation</p>
@@ -427,7 +426,7 @@ const Service = () => {
    
  </div>
 </section> */}
-<section data-aos="fade-up" className='sectionpadding ourpartnersection'>
+<section data-aos="zoom-in" className='sectionpadding ourpartnersection'>
   {/* <div className=''> */}
   <div className='container'>
     <h1 className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
@@ -486,13 +485,13 @@ const Service = () => {
   </div>
 </section>
 
-<section className='sectionpadding'>
-  <img data-aos="fade-up" src={Workflow}className='workflow'/>
+<section data-aos="zoom-in" className='sectionpadding'>
+  <img  src={Workflow}className='workflow'/>
 </section>
 
-<section data-aos="flip-right" className='what-our-client-say sectionpadding'>
+<section  data-aos="flip-right"  className='what-our-client-say sectionpadding'>
 
-<div  className='client-page'>
+<div className='client-page'>
 <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -705,7 +704,7 @@ const Service = () => {
       </div>
 </section>
 
-<section className='sectionpadding'>
+<section data-aos="zoom-in" className='padding'>
   <div className='foot'>
   <div className='footter'>
     <div className='row footter-row'>
@@ -713,32 +712,57 @@ const Service = () => {
 
       </div>
 
-      <div className='col-md-6 ourprofile'>
+      <div className='col-md-6 profile-em'>
+         <div className='ourprofile'>
         <div className='row'>
-        <div className='col-md-4 profile-section'>
+         <div className='col-md-4 profile-section'>
           <img src={SiteVisitor} className='ourprofile-image'/>
           <h3 className='ourprofile-img'>VISITORS</h3>
           <h1 className='ourprofile-num'>555</h1>
-          </div>
+          </div> 
 
           <div className='col-md-4 profile-section'>
           <img src={SiteVisitor}className='ourprofile-image'/>
-          <h3 className='ourprofile-img'>ourprofile-img</h3>
+          <h3 className='ourprofile-img'>HAPPY CLIENTS</h3>
           <h1 className='ourprofile-num'>555</h1>
           </div>
 
           <div className='col-md-4 profile-section'>
           <img src={SiteVisitor}className='ourprofile-image'/>
-          <h3 className='ourprofile-img'>VISITORS</h3>
-          <h1 className='ourprofile-num'>555</h1>
+          <h3 className='ourprofile-img'>SUPPORT</h3>
+          <h1 className='ourprofile-num'>12hrs</h1>
           </div>
           </div>
+          </div> 
       </div>
 
     </div>
+
+  
   {/* <img src={FooterImage}className=' footter-image'/> */}
   </div>
+ 
   </div>
+  <div className='copyrightsection'>
+    <div className='row copyright'>
+      <div className='col-md-2'>
+        <div className='footter-xitto-copyright'>
+        <img src={xittofooterimage}className='footterimg'/>
+
+        </div>
+        
+
+      </div>
+      <div className='col-md-6 footter-xitto-copyright'>
+        <p>Copyright &nbsp; 2022 XITTO. All Rights Reserved</p>
+      </div>
+      <div className='col-md-4 terms-and-condition'>
+        <p>Terms & Condition | Privacy policy</p>
+
+      </div>
+    </div>
+      
+      </div>
 
 </section>
 

@@ -103,6 +103,13 @@
     .card-text{
         padding:unset!important;
     }
+    .ourprofile-num{
+        font-size: 30px !important;
+    }
+    .ourprofile-img{
+        font-size: 20px;
+    }
+   
 }
 @media screen and (max-width:768px) {
     .card-title{
@@ -119,12 +126,30 @@
         /* width:unset !important; */
         /* width:unset !important; */
     }
+    .profile-section{
+        border-right: none !important;
+    }
+    /* .footter-row{
+        width:unset!important;
+    } */
+    
+    /* 
+    .ourprofile{
+        margin-left:unset !important;
+    }
     .card{
         width:100%;
-        /* width:950px; */
+
     }
+    
+    .profile-em{
+        padding:30px;
+    } */
 }
 
+.profile-em{
+    padding:30px;
+}
 .partner-image{
     /* display:flex;
     justify-content: center; */
@@ -192,6 +217,8 @@
 .client-page{
     /* display:flex;
     justify-content: center; */
+    padding-left:20px;
+    padding-right:20px;
 }
 .swiper-wrapper{
     /* display:flex;
@@ -212,6 +239,7 @@
 }
 .swiper-slide{
     height:100% !important;
+    /* margin-right: unset !important; */
     /* width:36.3vw  !important;
     margin-right:10px !important; */
 
@@ -228,7 +256,7 @@
     background-size: cover;
     /* background-position: top; */
     /* background-attachment: fixed; */
-    height:600px;
+    height:700px;
     object-fit: cover;
     object-position:center;
 
@@ -242,11 +270,13 @@
     background-color:#FFBE1C;
     margin-top:40px;
     border-radius: 50px;
+    /* margin-left:-30px; */
+    /* margin-left:-20px; */
 
 }
-.row{
+/* .row{
     margin-left:unset;
-}
+} */
 .ourprofile-img{
     color:#FFF;
     text-align: center;
@@ -254,11 +284,47 @@
 .ourprofile-num{
     text-align: center;
     color:#FFF;
-    font-size: 70px;
+    font-size: 50px;
 }
 .profile-section{
-    border-right: 2px solid #EAB44D;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0px;
+    border-right: 2px solid #fff;
 }
-.profile-section:nth-child(3) {
+.profile-section:nth-child(3){
     border-right: none; /* Remove border for the third image */
+}
+
+.row,.footter-row{
+    margin-left:unset;
+}
+.padding{
+    padding-top:60px;
+}
+
+.footter-xitto{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:60px;
+}
+.footter-xitto-copyright{
+    display:flex;
+    align-items: center;
+    height:80px;
+    color:#612690;
+}
+.terms-and-condition{
+    display:flex;
+    justify-content:end;
+    align-items: center;
+    color:#612690;
+}
+.footterimg{
+    width:200px;
+}
+.copyright{
+    width:100%;
 }
