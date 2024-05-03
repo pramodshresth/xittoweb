@@ -51,6 +51,8 @@ import SiteVisitor from './assets/Sitevisitor.svg';
 import HappyClients from './assets/HappyClients.svg';
 import Support from './assets/Support.svg';
 import xittofooterimage from './assets/xittoblueimage.png';
+import Cart from './assets/Cart.svg';
+import Notification from './assets/Notification_icon.svg';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -61,7 +63,7 @@ const Service = () => {
     // navigate('/loginpage');
   }
   const register=()=>{
-    // navigate('/register');
+    navigate('/register');
   }
   const logout=()=>{
     
@@ -69,6 +71,7 @@ const Service = () => {
   const contactus=()=>{
     navigate("/contactus");
   }
+
   useEffect(() => {
     AOS.init();
   }, []);
@@ -82,7 +85,7 @@ const Service = () => {
        <div className=''>
    
      <nav class="navbar navbar-expand-lg bg-body-tertiary">
- <div class="container">
+ {/* <div class="container"> */}
  
    <img src={NavLogo} className='logo'/>
    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -90,22 +93,43 @@ const Service = () => {
    </button>
    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
      <div class="navbar-nav mx-auto">
-       <a class="nav-link" aria-current="page" href="#services">Services</a>
-       <a class="nav-link" href="#assistance">Assistance</a>
-       <a class="nav-link" href="#contact"onClick={contactus}>Contact us</a>
+       <a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>
+       <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
+       <a class="nav-link" href="#contact">
+        <div className='cart'>
+          <img src={Cart}/>
+        </div>
+       </a>
+       <a class="nav-link" href="#contact">
+       <div className='home-notification'>
+        <img src={Notification}/>
+       </div>
+
+       </a>
+       <a class="navlink line" href="#contact">
+        {/* <div className='line'></div> */}
+       </a>
+       <a class="nav-link" href="#contact">
+       <div className='home-notification'></div>
+       </a>
+       <a class="nav-link user-3" href="#contact">
+        <p className='user-3d'>Hello,Sign in</p>
+        <p className='user-3d'>My Account</p>
+       {/* <div className='home-notification'></div> */}
+       </a>
       
        
 
        
      </div>
      
-     <div>
+     {/* <div>
      <form class="d-flex" role="search">
        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
        
      </form>
-     </div>
-     <div className='login'>
+     </div> */}
+     {/* <div className='login'>
         
         <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -196,12 +220,12 @@ const Service = () => {
     </div>
   </div>
 </div>
-       </div>
+       </div> */}
     
      
      
    </div>
- </div>
+ {/* </div> */}
 </nav>
 </div>
 
@@ -485,11 +509,11 @@ const Service = () => {
   </div>
 </section>
 
-<section data-aos="zoom-in" className='sectionpadding'>
+<section className='sectionpadding'>
   <img  src={Workflow}className='workflow'/>
 </section>
 
-<section  data-aos="flip-right"  className='what-our-client-say sectionpadding'>
+<section    className='what-our-client-say sectionpadding'>
 
 <div className='client-page'>
 <Swiper
@@ -524,6 +548,8 @@ const Service = () => {
         }}
         modules={[Autoplay,FreeMode, Pagination]}
         className="partner-image"
+        data-aos="flip-right"
+        
 
 
       >

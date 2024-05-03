@@ -2,3 +2,13 @@
 .loginpage{
     height:100vh;
 }
+.forgot{
+    color:#8949bc;
+    padding-top:10px;
+}
+.createaccount{
+    font-weight: bold;
+}
+.login{
+    color:#8949bc;
+}
