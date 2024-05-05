@@ -1,0 +1,78 @@
+
+/* .ad{
+    background-color: red;
+} */
+.registertoprofessional{
+    /* top: 153px; */
+/* left: 48px; */
+/* width:93vw; */
+/* height: 556px; */
+/* UI Properties */
+background: transparent linear-gradient(249deg, #E2A426 0%, #B91C1C 100%) 0% 0% no-repeat padding-box;
+border-radius: 40px;
+opacity: 1;
+padding:50px;
+
+}
+
+
+.reg-dd{
+    padding-left: 40px;
+    padding-right: 40px;
+    padding-top:80px;
+}
+.registerprofessional{
+    /* text-align: center; */
+    padding-top:30px;
+    padding-bottom:30px;
+    color:#FFF;
+}
+/* .register-form{
+    padding-left:100px;
+} */
+.form-xx{
+    background-color: transparent;
+    
+
+}
+.form-xx::placeholder{
+    /* content:"hello" !important; */
+    color:#FFF !important;
+}
+.register-d{
+    color:#FFF;
+}
+.form-xx:focus{
+    background-color:transparent;
+}
+.input-group{
+    position:relative;
+}
+.yrs{
+    position:absolute;
+    right:0;
+}
+.form-check-input{
+    margin-right:unset;
+}
+.form-check-label{
+    color:#FFF;
+}
+.reg-443{
+    padding-top:130px;
+}
+.btn-light{
+    margin-top:80px;
+    width:100%;
+}
+.image{
+    /* width:400px; */
+    width:100%;
+}
+/* .form-xx::placeholder:before {
+    content: "4 ";
+  }
+  
+  .form-xx::placeholder:after {
+    content: " yrs";
+  } */

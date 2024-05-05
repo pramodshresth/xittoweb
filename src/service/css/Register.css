@@ -22,6 +22,7 @@
     border-left:none;
     border-right: none;
     border-bottom-color:#c9bebe;
+    border-radius: unset;
 }
 .maleradio{
     padding-top:100px;

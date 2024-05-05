@@ -53,6 +53,9 @@ import Support from './assets/Support.svg';
 import xittofooterimage from './assets/xittoblueimage.png';
 import Cart from './assets/Cart.svg';
 import Notification from './assets/Notification_icon.svg';
+import Xshape from './assets/Xshape.svg';
+import NotificationsIcon from '@mui/icons-material/Notifications';
+import Navbar from './nav/Navbar';
 const Service = () => {
   const navigate = useNavigate();
   const problem=()=>{
@@ -83,150 +86,7 @@ const Service = () => {
        
         <div className='back-img-0'> 
        <div className=''>
-   
-     <nav class="navbar navbar-expand-lg bg-body-tertiary">
- {/* <div class="container"> */}
- 
-   <img src={NavLogo} className='logo'/>
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav mx-auto">
-       <a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>
-       <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
-       <a class="nav-link" href="#contact">
-        <div className='cart'>
-          <img src={Cart}/>
-        </div>
-       </a>
-       <a class="nav-link" href="#contact">
-       <div className='home-notification'>
-        <img src={Notification}/>
-       </div>
-
-       </a>
-       <a class="navlink line" href="#contact">
-        {/* <div className='line'></div> */}
-       </a>
-       <a class="nav-link" href="#contact">
-       <div className='home-notification'></div>
-       </a>
-       <a class="nav-link user-3" href="#contact">
-        <p className='user-3d'>Hello,Sign in</p>
-        <p className='user-3d'>My Account</p>
-       {/* <div className='home-notification'></div> */}
-       </a>
-      
-       
-
-       
-     </div>
-     
-     {/* <div>
-     <form class="d-flex" role="search">
-       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-       
-     </form>
-     </div> */}
-     {/* <div className='login'>
-        
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    <PermIdentityIcon/>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#"onClick={login}>Login</a></li>
-    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="#"onClick={register}>Register</a></li>
-    <li><a class="dropdown-item" href="#"onClick={logout}>Logout</a></li>
-
-
-  </ul>
-</div>
-
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-        <h5 class="modal-title" id="exampleModalLabel">Please Login to XITTOO</h5>
-      </div>
-      <div class="modal-body login">
-        <input type='text'className='login-user'placeholder='Phone Number'/>
-        <input type='password'className='user-phonenumber'placeholder='Password'/>
-        <p className='forgotpassword'>Forgot Password ?</p>
-        <button type="button" class="btn login-save-btn btn-primary">Login</button>
-        
-        <p className='signuplink'>New member ? <span data-bs-toggle="modal" data-bs-target="#exampleModal2" className='signup'>Signup ..</span></p>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-        <h5 class="modal-title" id="exampleModalLabel">Please Register to XITTOO</h5>
-
-        
-      </div>
-      <div class="modal-body">
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='text'className='login-user'placeholder='Name'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='phone'/>
-        </div>
-        </div>
-
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='password'className='login-user'placeholder='password'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='gender'/>
-        </div>
-        </div>
-
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='text'className='login-user'placeholder='district'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='address'/>
-        </div>
-        </div>
-        <div className='row'>
-        <div class="mb-3">
-  
-  <input class="form-control form-control-sm" id="formFileSm" type="file"/>
-</div>
-        </div>
-      </div>
-    
-    </div>
-  </div>
-</div>
-       </div> */}
-    
-     
-     
-   </div>
- {/* </div> */}
-</nav>
+   <Navbar/>
 </div>
 
 

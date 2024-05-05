@@ -129,6 +129,15 @@
 .form-select{
     margin-top:10px;
     margin-bottom: 15px;
+    background-color: transparent;
+    border-top:unset;
+    border-radius: unset;
+    border-left:unset;
+    border-right:unset;
+}
+option:hover{
+  background-color: red  !important;
+  color:red;
 }
 .booked-btn{
     background-color: #3d0557;

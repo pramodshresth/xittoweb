@@ -43,17 +43,17 @@ const Register = () => {
          
             <div class="input-group mb-3">
                
-  <span class="input-group-text" id="basic-addon1"><PersonIcon/></span>
+<PersonIcon/>
   <input type="text" class="form-control"placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1"><PhoneIphoneIcon/></span>
+<PhoneIphoneIcon/>
   <input type="text" class="form-control"placeholder='phone' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1"><LockOpenIcon/></span>
+<LockOpenIcon/>
   <input type="password" class="form-control"placeholder='password' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
@@ -67,11 +67,11 @@ const Register = () => {
 </div>
 </div>
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1"><HomeIcon/></span>
+<HomeIcon/>
   <input type="text" class="form-control"placeholder='District' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 <div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1"><LocationCityIcon/></span>
+ <LocationCityIcon/>
   <input type="text" class="form-control"placeholder='Address' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 <p>By signing up you agree to the Emerge Terms & Conditons.</p>

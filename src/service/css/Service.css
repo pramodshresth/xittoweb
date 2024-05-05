@@ -345,6 +345,11 @@
     justify-content: center;
 
 }
+.home-notification:hover{
+
+    background-color:#612690;
+    color:red
+}
 .line{
     width:3px;
     margin-left:20px;
@@ -372,4 +377,10 @@
 .about{
     color:#612690;
 
+}
+.dd{
+    background-color: #612690;
+}
+.noti{
+    color: #3f70dc;
 }
