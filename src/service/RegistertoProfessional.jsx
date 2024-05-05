@@ -29,7 +29,7 @@ const RegistertoProfessional = () => {
         
           
   <input type="text" class=" form-xx form-control" placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1"/>
-  < PersonIcon/>
+  < PersonIcon className='icon'/>
 </div>
 
 
@@ -38,7 +38,7 @@ const RegistertoProfessional = () => {
         
           
   <input type="text" class=" form-xx form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon1"/>
-  <RoomIcon/>
+  <RoomIcon className='icon'/>
 </div>
 
 
@@ -47,7 +47,7 @@ const RegistertoProfessional = () => {
         
           
   <input type="text" class=" form-xx form-control" placeholder="Select Service you Assist" aria-label="Username" aria-describedby="basic-addon1"/>
-  <SearchIcon/>
+  <SearchIcon className='icon'/>
 </div>
 
 
@@ -78,7 +78,7 @@ const RegistertoProfessional = () => {
         
           
   <input type="text" class=" form-xx form-control" placeholder="Provide Mail Address" aria-label="Username" aria-describedby="basic-addon1"/>
-  <LocalPostOfficeIcon/>
+  <LocalPostOfficeIcon className='icon'/>
 </div>
 
 
@@ -87,7 +87,7 @@ const RegistertoProfessional = () => {
         
           
   <input type="text" class=" form-xx form-control" placeholder="Your Number" aria-label="Username" aria-describedby="basic-addon1"/>
-  <PhoneIphoneIcon/>
+  <PhoneIphoneIcon className='icon'/>
 </div>
 
 <label className='register-d'>Level of Assistance:</label>

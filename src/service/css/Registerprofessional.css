@@ -30,6 +30,10 @@ padding:50px;
 /* .register-form{
     padding-left:100px;
 } */
+.icon{
+    color:#FFF;
+    /* background-color: #FFF; */
+}
 .form-xx{
     background-color: transparent;
     
@@ -51,6 +55,7 @@ padding:50px;
 .yrs{
     position:absolute;
     right:0;
+    color:#FFF;
 }
 .form-check-input{
     margin-right:unset;
