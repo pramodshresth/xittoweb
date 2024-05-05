@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import NavLogo from '../assets/navlogo.png';
 
 import Cart from '../assets/Cart.svg';
@@ -8,12 +8,17 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const[show,setshow]=useState(false);
     const register=()=>{
         navigate('/registertoprofessional');
       }
       const contactus=()=>{
         navigate("/contactus");
       }
+      const user=()=>{
+        setshow(!show);
+      }
+      console.log("this is show",show);
   return (
     <div>
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -40,9 +45,16 @@ const Navbar = () => {
       
        </a>
        <a class="nav-link" href="#contact">
-       <div className='home-notification dd'>
+       <div onClick={user} className='home-notification dd'>
         <img src={Xshape}/>
        </div>
+       {
+        show ? <div>
+          <div className='page'>
+
+          </div>
+          </div>:""
+       }
        </a>
        <a class="nav-link user-3" href="#contact">
         <p className='user-3d'>Hello,Sign in</p>

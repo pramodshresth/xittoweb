@@ -1,4 +1,4 @@
-import React from 'react'
+import React ,{useEffect} from 'react';
 import Navbar from './nav/Navbar'
 import './css/Registerprofessional.css';
 import PersonIcon from '@mui/icons-material/Person';
@@ -7,8 +7,12 @@ import SearchIcon from '@mui/icons-material/Search';
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import Image from './assets/Image.svg';
+import SiteVisitor from './assets/Sitevisitor.svg';
+import xittofooterimage from './assets/xittoblueimage.png';
 const RegistertoProfessional = () => {
-
+  useEffect(() => {
+    AOS.init();
+  }, []);
   return (
     <div>
         <section>
@@ -17,7 +21,7 @@ const RegistertoProfessional = () => {
       <div className=''>
   <Navbar className="ad"/>
 </div>
-
+<section>
 <div className='reg-dd'>
     <div className='registertoprofessional'>
       
@@ -111,7 +115,75 @@ const RegistertoProfessional = () => {
     </div>
 
 </div>
+</section>
+
+
+
+
+
 </div>
+
+<section data-aos="zoom-in" className='padding'>
+  <div className='foot'>
+  <div className='footter'>
+    <div className='row footter-row'>
+      <div className='col-md-6'>
+
+      </div>
+
+      <div className='col-md-6 profile-em'>
+         <div className='ourprofile'>
+        <div className='row'>
+         <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor} className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>VISITORS</h3>
+          <h1 className='ourprofile-num'>555</h1>
+          </div> 
+
+          <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor}className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>HAPPY CLIENTS</h3>
+          <h1 className='ourprofile-num'>555</h1>
+          </div>
+
+          <div className='col-md-4 profile-section'>
+          <img src={SiteVisitor}className='ourprofile-image'/>
+          <h3 className='ourprofile-img'>SUPPORT</h3>
+          <h1 className='ourprofile-num'>12hrs</h1>
+          </div>
+          </div>
+          </div> 
+      </div>
+
+    </div>
+
+  
+  {/* <img src={FooterImage}className=' footter-image'/> */}
+  </div>
+ 
+  </div>
+  <div className='copyrightsection'>
+    <div className='row copyright'>
+      <div className='col-md-2'>
+        <div className='footter-xitto-copyright'>
+        <img src={xittofooterimage}className='footterimg'/>
+
+        </div>
+        
+
+      </div>
+      <div className='col-md-6 footter-xitto-copyright'>
+        <p>Copyright &nbsp; 2022 XITTO. All Rights Reserved</p>
+      </div>
+      <div className='col-md-4 terms-and-condition'>
+        <p>Terms & Condition | Privacy policy</p>
+
+      </div>
+    </div>
+      
+      </div>
+
+</section>
 </section>
     </div>
   )

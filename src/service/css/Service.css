@@ -384,3 +384,12 @@
 .noti{
     color: #3f70dc;
 }
+.page{
+    position: absolute;
+    width: 100px;
+    height: 400px;
+    background-color:#FFF;
+    margin-left: -100px;
+    margin-right: 100px;
+    margin-top:100px;
+}
