@@ -73,13 +73,19 @@ const Login = () => {
             const data = await response.json();
             setmessage(data.message);
             console.log('Response data:', data);
+            localStorage.setItem('accessToken',data.data.accessToken);
+            localStorage.setItem('id',data.data.id);
+            localStorage.setItem('name',data.data.name);
+            localStorage.setItem('phone',data.data.phone);
+            localStorage.setItem('profile_url',data.data.profile_url);
+            
             if(response.ok)
             {
             //   alert(data.message);
             //   useEffect(() => {
                 const timer = setTimeout(() => {
                   setlogin(false);
-                  navigate('/');
+                  // navigate('/');
                 }, 3000);
                 
                 return () => {
@@ -92,7 +98,8 @@ const Login = () => {
 
             //   }, []);
             }
-            localStorage.setItem('accessToken',data.data.accessToken);
+            
+            
         
           } catch (error) {
             console.error('There was an error:', error);

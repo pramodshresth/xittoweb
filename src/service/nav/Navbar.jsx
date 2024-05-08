@@ -22,6 +22,12 @@ const Navbar = () => {
       const user=()=>{
         setshow(!show);
       }
+      const login=()=>{
+        navigate('/login');
+      }
+      const joinus=()=>{
+        navigate('/registertoprofessional');
+      }
       console.log("this is show",show);
   return (
     <div>
@@ -117,7 +123,7 @@ const Navbar = () => {
             </div>
 
             <div className='row'>
-              <div className='col-md-12 register-user'>
+              <div onClick={login} className='col-md-12 register-user'>
                 <LockOpenIcon className='login-icon'/>
                 <p className='reg padding-left'>Login</p>
               </div>
@@ -146,7 +152,7 @@ const Navbar = () => {
               {/* <hr></hr> */}
             </div>
        <div className='row'>
-              <div className='col-md-12 small-size-login'>
+              <div onClick={login} className='col-md-12 small-size-login'>
                 <LockOpenIcon className='login-icon'/>
                 <p className='reg padding-left'>Login</p>
               </div>
@@ -165,7 +171,7 @@ const Navbar = () => {
               <div className='col-md-12 desc-dd'>
                 {/* <LogoutIcon className='logout-icon'/> */}
                 <p className='reg '>Become a Emerge Member for the best products,inspiration and stories in emerge.</p>
-                <button className='joinus'>Join Us</button>
+                <button onClick={joinus} className='joinus'>Join Us</button>
               </div>
               {/* <hr></hr> */}
             </div>

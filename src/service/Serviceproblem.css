@@ -206,6 +206,12 @@ option:hover{
     /* background-color: #FFF; */
     border-bottom-left-radius: 25px;
     border-bottom-right-radius: 25px;
+    /* height:150px;
+    width:195px; */
+  }
+  .problem-body{
+    height:150px;
+    width: 195px;
   }
   .brands,.dateandtime,.time,.period,.location,.transactionmode,.modal-title,.booking-time,.price,.quantitylist{
     color:#000000

@@ -12,12 +12,32 @@ import xittofooterimage from './assets/xittoblueimage.png';
 import { useReducer,useState } from 'react';
 import DateRangeIcon from '@mui/icons-material/DateRange';
 import DatePicker from "react-datepicker";
-
+import {FetchProblem,token} from '../api/ApI.jsx';
 import "react-datepicker/dist/react-datepicker.css";
+import axios from 'axios';
 // const[futureDayName,setfutureDayName]=useState([]);
 const serviceprobem = () => {
+  const { state } = useLocation();
   // const [startDate, setStartDate] = useState(new Date());
   // console.log("this is startData",startDate);
+  const[Data,setData]=useState();
+  console.log("this is state",state);
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(`${FetchProblem()}/${state}`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return setData(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log("this is dataafdadsf",Data);
   const navigate = useNavigate();
   const showproblem=()=>{
     navigate('/showproblem');
@@ -231,166 +251,19 @@ const serviceprobem = () => {
       <div className="row">
         <div className="col-md-12">
         <div className='serviceproblem'>
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
+          {
+            Data===undefined ?"":Data.map((item,index)=>(
+              <div key={index} class="card problemlist">
+                <img src={item.imagePath}class="card-img-top"/>
+                <div class="card-body problem-body">
+                <h5 class="card-title">{item.name}</h5>
                 <a href="#"data-bs-toggle="modal" data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
               </div>
-            </div>
 
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
               </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-                {/* <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p> */}
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
-
-            <div class="card problemlist" >
-              <img src={Slider1} class="card-img-top" alt="..."/>
-              <div class="card-body">
-                <h5 class="card-title">Card title</h5>
-      
-                <a href="#" class="btn btn-primary">Book Now</a>
-              </div>
-            </div>
+            ))
+          }
+          
             
             </div>
         </div>
@@ -401,8 +274,9 @@ const serviceprobem = () => {
   <div class="modal-xl modal-dialog" >
     <div class="modal-content">
       <div class="modal-header">
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         <h5 class="modal-title" id="exampleModalLabel">Service Title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
       </div>
       <div class="modal-body">
         <div className='row'>
@@ -454,9 +328,6 @@ const serviceprobem = () => {
             <p>Date:{selectedDate.day}-{selectedDate.month}-{selectedDate.year}</p>
             <div className='firstsixdays'>
             <div className='day'>
-  
-  {/* <input className='datepicker' onChange={handleDateChange} type='date' />
-  <DateRangeIcon type='date'/> */}
   <DateRangeIcon className='date-icon'/>
   <DatePicker className="date-33"  onChange={(date) => {
     const formattedDate = new Date(date);

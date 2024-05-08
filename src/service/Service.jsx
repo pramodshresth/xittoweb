@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect, useState} from 'react'
 import Slider1 from './assets/Slider1.jpg';
 import OfficeRenovation from './assets/Renovation.svg';
 import Electrician from './assets/Electrician.svg';
@@ -56,10 +56,14 @@ import Notification from './assets/Notification_icon.svg';
 import Xshape from './assets/Xshape.svg';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Navbar from './nav/Navbar';
+import {FetchCategoryData,token} from '../api/ApI.jsx';
+import axios from 'axios';
 const Service = () => {
+  
   const navigate = useNavigate();
-  const problem=()=>{
-    navigate("/serviceproblem");
+  const problem=(item)=>{
+    // console.log("this is item",item);
+    navigate("/serviceproblem",{state:item});
   
   }
   const login=()=>{
@@ -74,6 +78,23 @@ const Service = () => {
   const contactus=()=>{
     navigate("/contactus");
   }
+  const[Data,setData]=useState();
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(FetchCategoryData(), {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
+        return setData(response.data.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    };
+    fetchData();
+  }, []);
+  console.log("this is data",Data);
 
   useEffect(() => {
     AOS.init();
@@ -130,17 +151,24 @@ const Service = () => {
  
  <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
  <div data-aos="zoom-in" className='services servicespadding'>
- <label className="serviceslist">
+ {/* <label className="serviceslist">
  <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
  <p className='services-name'>Office Renovation</p>
- </label>
+ </label> */}
 
-
+{
+ Data === undefined ?"": Data.map((item,index)=>(
+    <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
+      <img className='services-logo'src={item.imagePath}/>
+      <p className='services-name'>{item.name}</p>
+    </label>
+  ))
+}
 
  
 
 
- <label className="serviceslist">
+ {/* <label className="serviceslist">
  <img className='services-logo' src={Electrician}/>
  <p className='services-name'>Electrician</p>
  </label>
@@ -218,7 +246,7 @@ const Service = () => {
  <img className='services-logo' src={Generator}/>
  <p className='services-name'>Generator</p>
  </label>
- 
+  */}
 
  
 

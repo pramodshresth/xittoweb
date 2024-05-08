@@ -248,6 +248,12 @@
         padding:30px;
     } */
 }
+@media screen and (max-width:768px) {
+    .navbar-nav{
+        width:100% !important;
+    }
+
+}
 
 .profile-em{
     padding:30px;
@@ -491,8 +497,8 @@
     width: 220px;
     height: 400px;
     background-color:#FFF;
-    margin-left: -100px;
-    margin-right: 100px;
+    margin-left: -167px;
+    /* margin-right: 100px; */
     margin-top:40px;
     border-radius: 10px;
     padding:10px;
