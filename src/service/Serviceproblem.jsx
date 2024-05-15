@@ -1,4 +1,4 @@
-import React,{useEffect} from 'react'
+import React,{useEffect,createContext,useContext} from 'react'
 import NavLogo from './assets/navlogo.png';
 import Slider1 from './assets/Slider1.jpg';
 import "./Serviceproblem.css";
@@ -6,7 +6,6 @@ import { useNavigate, useLocation } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
-// import Top_shapes from './assets/Top_shapes.svg'
 import SiteVisitor from './assets/Sitevisitor.svg';
 import xittofooterimage from './assets/xittoblueimage.png';
 import { useReducer,useState } from 'react';
@@ -15,13 +14,17 @@ import DatePicker from "react-datepicker";
 import {FetchProblem,token} from '../api/ApI.jsx';
 import "react-datepicker/dist/react-datepicker.css";
 import axios from 'axios';
-// const[futureDayName,setfutureDayName]=useState([]);
+import Navbar from './nav/Navbar.jsx';
+import {Context} from '../App';
+// const CartContext = createContext();
 const serviceprobem = () => {
+  // const usercart= useContext(CartContext);
+
+  const {setcartlength}=useContext(Context);
+  let accessToken = localStorage.getItem('accessToken');
   const { state } = useLocation();
-  // const [startDate, setStartDate] = useState(new Date());
-  // console.log("this is startData",startDate);
+  const navigate=useNavigate();
   const[Data,setData]=useState();
-  console.log("this is state",state);
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -37,17 +40,55 @@ const serviceprobem = () => {
     };
     fetchData();
   }, []);
-  console.log("this is dataafdadsf",Data);
-  const navigate = useNavigate();
+ 
   const showproblem=()=>{
     navigate('/showproblem');
   }
+  const[problemsdetail,setproblemsdetail]=useState(" ");
+  
+  const booknow=(bookid)=>{
+
+//     const x=problemsdetail[0].brands.map((item,index)=>{
+//   console.log(item.name);
+// })
+// console.log("this is x",x);
+     console.log("this is item",bookid);
+    console.log("this is data",Data);
+    const x=Data.filter((item,index)=>{
+      return item.id===bookid;
+    })
+
+    // Check if the filtering returned any result
+      const brand = x[0].brands.map((item, index) => {
+        console.log(item);
+        return item.name; // Return the item if you want to use the resulting array
+      });
+      
+      console.log("this is x", x[0].brands);
+      console.log("this is brand", brand);
+ 
+
+
+
+   
+    setproblemsdetail(x);
+    console.log("this is accessTOKEN",accessToken);
+
+    if(accessToken===null)
+      {
+        navigate('/login');
+      }
+  }
+
+
 
   
   let[selectedDate, setSelectedDate] = useState('');
-  console.log(selectedDate)
+  // console.log("this is ",selectedDate)
+
+  // console.log("this is selectedDate",selectedDate);
   const initialState={
-    count:0
+    count:1
   };
   const reducer =(state,action)=>{
     switch(action.type){
@@ -61,7 +102,7 @@ const serviceprobem = () => {
   }
 
   const [quantity, dispatch] = useReducer(reducer, initialState);
-
+  console.log("this is quantity and count",quantity);
   const initialState2={
     time:""
   }
@@ -77,6 +118,8 @@ const serviceprobem = () => {
         return {...state,time:'2pmto4pm'};
       case '4pmto6pm':
         return {...state,time:'4pmto6pm'};
+      case 'RESET_TIME':
+          return { ...state, time: '' }; // Reset time to empty string
       default:
         return state;
     }
@@ -84,8 +127,31 @@ const serviceprobem = () => {
 
 
   const [time,dispatch2]=useReducer(reducer2,initialState2);
-  console.log("this is",time.time);
 
+
+
+  const initialState3={
+    probleminterval:""
+  }
+  const reducer3=(state,action)=>{
+    switch (action.type) {
+      case 'Recently':
+        return { ...state, probleminterval: 'Recently' }; // Return updated state object
+      case 'Morethanmonth':
+        return {...state,probleminterval:'More than month'};
+      case 'Morethanyear':
+        return {...state,probleminterval:'More than year'};
+      
+      case 'RESET_TIME':
+          return { ...state,probleminterval:''}; // Reset time to empty string
+      default:
+        return state;
+    }
+  }
+  const [probleminterval,dispatch3]=useReducer(reducer3,initialState3);
+
+  console.log("this is probleminterval ",probleminterval);
+  console.log("this is afsdasdfasfdafasdfsadfasdfdsfasdf",probleminterval.probleminterval)
   const services=()=>{
     navigate('/#services');
   }
@@ -95,7 +161,7 @@ const serviceprobem = () => {
   useEffect(() => {
     AOS.init();
   }, []);
-  console.log("hello");
+
   let day=[];
   let dayname=[];
   let month=[];
@@ -114,139 +180,150 @@ const serviceprobem = () => {
   dayname.push(abbreviatedDayName);
   month.push(futureMonth);
   year.push(futureYear);
-
-  console.log("Future Date: " + futureDayName + ", " + futureDay + "/" + futureMonth + "/" + futureYear);
   }
-  console.log("this is futuredaylist",day);
-  console.log("this is day name",dayname);
-  console.log("this is month",month);
-  console.log("this is year",year);
-  return (
-    <div>
-<section  className="back-img-0">
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
- <div class="container">
- 
-   <img src={NavLogo} className='logo'/>
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
-   </button>
-   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav mx-auto">
-       <a class="nav-link" aria-current="page" href="#services">Services</a>
-       <a class="nav-link" href="#assistance">Assistance</a>
-       <a class="nav-link" href="#contact"onClick={contactus}>Contact us</a>
+  const [selectedOption, setSelectedOption] = useState('');
+  const handleSelectChange = (event) => {
+    
+    setSelectedOption(event.target.value);
+    console.log("this is slee",event.target.value);
+  };
+  console.log("this is selectedoption",selectedOption);
+  const[userdescription,setuserdescription]=useState('');
+  const description=(e)=>{
+    const x=e.target.value;
+    setuserdescription(x);
+  }
+  const book=()=>{
+   const date={
+    day:selectedDate.day,
+    month:selectedDate.month,
+    year:selectedDate.year,
+
+    }
+    
+   
+    const userdetails={
+      bookedProblem:problemsdetail[0].id,
+      itemCount:quantity.count,
+      selectedBrand:selectedOption,
+      totalAmount:problemsdetail[0].price * quantity.count,
+      bookedDate:date,
+      timePeriod:time.time,
+      problemInterval:probleminterval.probleminterval,
+      description:userdescription,
+      location:'panauti'
+    }
+    console.log(userdetails);
+  }
+  let [cart,setcart]=useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+});
+
+const[emptybrand,setemptybrand]=useState('');
+const[emptydate,setemptydate]=useState('');
+const[emptytime,setemptytime]=useState('');
+const[emptyprobleminterval,setemptyprobleminterval]=useState('')
+const[emptydescription,setemptydescription]=useState('');
+  const addtocart = () => {
+    const date = {
+        day: selectedDate.day,
+        month: selectedDate.month,
+        year: selectedDate.year,
+    };
+
+    const userdetails = {
+        bookedProblem: problemsdetail[0].id,
+        itemCount: quantity.count,
+        selectedBrand: selectedOption,
+        totalAmount: problemsdetail[0].price * quantity.count,
+        bookedDate: date,
+        timePeriod: time.time,
+        problemInterval: probleminterval.probleminterval,
+        description: userdescription,
+        location: 'panauti',
+        imagePath:problemsdetail[0].imagePath,
+        name:problemsdetail[0].name,
+    };
+  if(selectedOption==='')
+    {
+     
+      setemptybrand('please do select the Brand');
+    }
+  else{
+    setemptybrand('');
+
+  }
+  if(selectedDate==='')
+    {
+      setemptydate("please do select the date");
       
-       
-
-       
-     </div>
-     
-     <div>
-     <form class="d-flex" role="search">
-       <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
-       
-     </form>
-     </div>
-     <div className='login'>
-        
-        <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    <PermIdentityIcon/>
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal" href="#">Login</a></li>
-    <li><a class="dropdown-item" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="#">Register</a></li>
-    <li><a class="dropdown-item" href="#">Logout</a></li>
-
-
-  </ul>
-</div>
-
-
-
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    }
+  else{
+    setemptydate('');
+  }
   
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-        <h5 class="modal-title" id="exampleModalLabel">Please Login to XITTOO</h5>
-      </div>
-      <div class="modal-body login">
-        <input type='text'className='login-user'placeholder='Phone Number'/>
-        <input type='password'className='user-phonenumber'placeholder='Password'/>
-        <p className='forgotpassword'>Forgot Password ?</p>
-        <button type="button" class="btn login-save-btn btn-primary">Login</button>
-        
-        <p className='signuplink'>New member ? <span data-bs-toggle="modal" data-bs-target="#exampleModal2" className='signup'>Signup ..</span></p>
-      </div>
-    </div>
-  </div>
-</div>
+  if(time.time==='')
+    {
+    
+      setemptytime("please do select the time");
+    }
+  else
+  {
+    setemptytime('');
+  }
+  if(probleminterval.probleminterval==='')
+    {
+      setemptyprobleminterval("please do select the probleminterval");
+    }
+  else
+  {
+    setemptyprobleminterval('');
+  }
+  if(userdescription==='')
+    {
+      setemptydescription("please do select the description");
+    }
+  else
+  {
+    setemptydescription('');
+  }
 
+  // const storedCart = localStorage.getItem('cart');
+  // const filter=storedCart.filter((item,index)=>{
+  //   return item.name&&item.selectedBrand
+  // })
 
+  console.log("this is storedCart",JSON.parse(storedCart));
+  if(selectedOption!==''&&selectedDate!==''&&time.time!==''&&probleminterval.probleminterval!==''&&userdescription!=='')
+  {
+    setcart([...cart, userdetails]);
+  }
+    
+}
 
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog ">
-    <div class="modal-content">
-      <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
-        <h5 class="modal-title" id="exampleModalLabel">Please Register to XITTOO</h5>
+useEffect(() => {
+  localStorage.setItem('cart', JSON.stringify(cart));
+  console.log("this is cart",cart);
+// setcartlength(cart)
+    
+}, [cart]);
 
-        
-      </div>
-      <div class="modal-body">
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='text'className='login-user'placeholder='Name'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='phone'/>
-        </div>
-        </div>
+setcartlength(cart.length);
 
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='password'className='login-user'placeholder='password'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='gender'/>
-        </div>
-        </div>
-
-        <div className='row'>
-          <div className='col-md-6'>
-        <input type='text'className='login-user'placeholder='district'/>
-        </div>
-        
-        <div className='col-md-6'>
-        <input type='text'className=' user-phonenumber'placeholder='address'/>
-        </div>
-        </div>
-        <div className='row'>
-        <div class="mb-3">
+const closenow=()=>{  ///if user closes the page then it will reset everydata
+  setSelectedOption("");
+  setSelectedDate('');
+  dispatch2({ type: 'RESET_TIME'});
+  dispatch3({ type: 'RESET_TIME'});
+  setuserdescription('');
   
-  <input class="form-control form-control-sm" id="formFileSm" type="file"/>
-</div>
-        </div>
-      </div>
-    
-    </div>
-  </div>
-</div>
-       </div>
-    
-     
-     
-   </div>
- </div>
-</nav>
+}
+  return (
+   <div>
+<section  className="back-img-0">
+  <Navbar/>
+
     <div data-aos="zoom-in" className="container">
       <div className="row">
         <div className="col-md-12">
@@ -254,10 +331,10 @@ const serviceprobem = () => {
           {
             Data===undefined ?"":Data.map((item,index)=>(
               <div key={index} class="card problemlist">
-                <img src={item.imagePath}class="card-img-top"/>
+                <img src={Slider1}class="card-img-top"/>
                 <div class="card-body problem-body">
                 <h5 class="card-title">{item.name}</h5>
-                <a href="#"data-bs-toggle="modal" data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
+                <a href="#"data-bs-toggle="modal"onClick={()=>booknow(item.id)} data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
               </div>
 
               </div>
@@ -270,11 +347,12 @@ const serviceprobem = () => {
       </div>
     </div>
 </section>
-<div class="modal fade" id="bookingexampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{/*  */}
+<div class="modal fade" id={`${accessToken===null?"":"bookingexampleModal"}`}tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-xl modal-dialog" >
     <div class="modal-content">
       <div class="modal-header">
-      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"onClick={closenow}></button>
         <h5 class="modal-title" id="exampleModalLabel">Service Title</h5>
 
       </div>
@@ -285,17 +363,19 @@ const serviceprobem = () => {
               <img src={Slider1}className='problemimage'alt='Slider1'/>
             </div>
             <div className='problemname'>
-              Screen Problem
+              {problemsdetail[0].name}
             </div>
+
             
             <div className='problem-description'>
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with</p>
+            <p>{problemsdetail[0].shortDescription}</p>
             </div>
             <div className='booking-time'>
-              <span className='esttime'>EstTime</span>:30hrs
+              <span className='esttime'>EstTime</span>:{problemsdetail[0].estTime}hrs
             </div>
             <div className='price'>
-              200$
+              {
+               problemsdetail[0].price * quantity.count}Rs
             </div>
             <div className='quantitylist'>
             <label className='quantity'>Quantity:</label>&nbsp;
@@ -316,15 +396,29 @@ const serviceprobem = () => {
           <div className='col-md-6'>
             <form>
           <div>
+          {/* const[emptybrand,setemptybrand]=useState('');
+const[emptydate,setemptydate]=useState('');
+const[emptytime,setemptytime]=useState('');
+const[emptyprobleminterval,setemptyprobleminterval]=useState('') */}
+
+
+              <p className='empty'>{emptybrand}</p>
               <span className='brands'>Select Brands</span>
-              <select class="form-select" aria-label="Default select example">
-  <option selected>Open this select menu</option>
-  <option value="1">One</option>
-  <option value="2">Two</option>
-  <option value="3">Three</option>
+              <select onChange={handleSelectChange}value={selectedOption} class="form-select" aria-label="Default select example">
+                 <option selected>Open this select menu</option>
+              {
+  problemsdetail[0].length===1?"":problemsdetail[0].brands.map((item,index)=>(
+    <option value={item.name}>{item.name}</option>
+  ))
+}
+<select/>
 </select>
+
+              
+             
             </div>
           <div className='dateandtime'>
+            <span className='empty'>{emptydate}</span>
             <p>Date:{selectedDate.day}-{selectedDate.month}-{selectedDate.year}</p>
             <div className='firstsixdays'>
             <div className='day'>
@@ -342,12 +436,18 @@ const serviceprobem = () => {
   />
   </div>
   {/*  */}
-  <div className='day'onClick={()=>setSelectedDate({dayname:dayname[0],day:day[0],month:month[0],year:year[0]})}>
+
+  {/* selectedDate.day,
+        month: selectedDate.month,
+        year: selectedDate.year, */}
+  <div className={`day `}onClick={()=>setSelectedDate({dayname:dayname[0],day:day[0],month:month[0],year:year[0]})}>
               
 
                 <p className='date'>{day[0]}</p>
                 <p className='dayname'>{dayname[0]}</p>
               </div>
+
+
               <div className='day'onClick={()=>setSelectedDate({dayname:dayname[1],day:day[1],month:month[1],year:year[1]})}>
               <p className='date'>{day[1]}</p>
 <p className='dayname'>{dayname[1]}</p>
@@ -380,7 +480,7 @@ const serviceprobem = () => {
             </div>
               {/* <span className='date'>Date</span>:<input className='datepicker' onChange={handleDateChange} type='date'/> */}
             </div>
-            
+            <p className='empty'>{emptytime}</p>
             <p className='time'>Time:</p>
             <div className='Time_period'>
               
@@ -403,7 +503,34 @@ const serviceprobem = () => {
             <label className='location'>
               Location:
             </label>
-            <input type='text'className='user-location'/>
+
+            <div>
+              <p className='empty'>{emptyprobleminterval}</p>
+              <h1 className='prob-interval'>Problem Interval</h1>
+              <div className='probleminterval'>
+            <div className={`${probleminterval.probleminterval==='Recently'?'clicked':""} period`}onClick={() => dispatch3({ type: 'Recently' })}>
+              Recently
+              </div>
+              <div className={`${probleminterval.probleminterval==='More than month'?'clicked':""} period`}onClick={() => dispatch3({ type: 'Morethanmonth' })}>
+                More than month
+              </div>
+              <div className={`${probleminterval.probleminterval==='More than year'?'clicked':""} period`}onClick={() => dispatch3({ type: 'Morethanyear' })}>
+                More than Year
+              </div>
+              
+              </div>
+            </div>
+
+
+            {/* <input type='text'className='user-location'/> */}
+
+            <div class="form-floating">
+            <p className='empty'>{emptydescription}</p>
+            <h1 className='prob-interval'>Description</h1>
+  <input type="text"class="form-control"value={userdescription} onChange={description} placeholder="Write Here" id=""/>
+  {/* <label for="floatingTextarea">Comments</label> */}
+</div>
+
             <div className='transactionmode'>
             <label>
                 <input
@@ -428,9 +555,10 @@ const serviceprobem = () => {
             
             </div>
 
-            <div class="modal-footer">
+            <div class="row modal-footer">
      
-        <button type="button" class="booked-btn btn-primary">Book</button>
+        <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={book}><span className='book'>Book</span></button>
+        <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={addtocart}><span className='addtocart'>ADD TO CART</span></button>
       </div>
       </form>
            

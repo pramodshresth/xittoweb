@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState,useContext } from 'react'
 import NavLogo from '../assets/navlogo.png';
 
 import Cart from '../assets/Cart.svg';
@@ -10,9 +10,21 @@ import HowToRegIcon from '@mui/icons-material/HowToReg';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+// import {Context} from '../App';
+import { Context } from '../../App';
+// const CartContext = createContext();
+// const serviceprobem = () => {
+//   // const usercart= useContext(CartContext);
+
+//   const {setcartlength}=useContext(Context);
 const Navbar = () => {
+  const {cartlength}=useContext(Context);
+  // console.log("this is carlength",cartlength);
   const navigate = useNavigate();
   const[show,setshow]=useState(false);
+  // const[cartlength,setcartlength]=useState();
+
+  // const {}=useContext(Context);
     const register=()=>{
         navigate('/registertoprofessional');
       }
@@ -28,14 +40,57 @@ const Navbar = () => {
       const joinus=()=>{
         navigate('/registertoprofessional');
       }
+      const Register=()=>{
+        navigate('/register');
+      }
+      const cart=()=>{
+        navigate('/cart');
+      }
+      const home=()=>{
+        navigate('/');
+      }
       console.log("this is show",show);
+      let name = localStorage.getItem('name');
+
+      // const Totalcart= JSON.parse(localStorage.getItem('cart'));
+      // console.log("this is",Totalcart);
+    //   useEffect(() => {
+    //     const Totalcart= JSON.parse(localStorage.getItem('cart'));
+    //     // if (Totalcart) {
+    //     //     // setTotalCart(Totalcart);
+    //     //     setcartlength(Totalcart.length);
+    //     // }
+    // }, [Totalcart]);
+    
+    // // console.log("this is totalCart", totalCart);
+    // console.log("asdf",cartlength);
+      
+      
+      
+
+      // try {
+      //     arrayOfObjects = JSON.parse(cartlength);
+      //     console.log("Parsed cartlength", arrayOfObjects.length);
+      // } catch (error) {
+      //     console.error("Error parsing cartlength:", error);
+      // }
+      // const lengthOfArray =cartlength.length;
+      // console.log("thu su",lengthOfArray);
   return (
     <div>
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
-   <img src={NavLogo} className='logo'/>
+   <img src={NavLogo} className='logo'onClick={home}/>
    <div className='mobileview'>
    <div className='mobile'>
-    <div className='mobilecart'>
+    <div className='mobilecart'onClick={cart}>
+    <div className='cartlength'>
+    <span className='length'>{cartlength}</span>
+    {/* {[cartlength].map((obj, index) => (
+                // <p key={index}>Length of object {index + 1}: {Object.keys(obj).length}</p>
+                <span key={index} className='length'>{Object.keys(obj).length}</span>
+            ))} */}
+       
+</div>
           <img src={Cart} className='cart-img'/>
           </div>
         </div>
@@ -69,8 +124,13 @@ const Navbar = () => {
      {/* <div className='nav-bar'></div> */}
        <a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>
        <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
-       <a class="nav-link" href="#contact">
-        <div className='cart'>
+       <a class="nav-link" >
+        
+        <div className='cart'onClick={cart}>
+        <div className='cartlength'>
+          
+          <span className='length'>{cartlength}</span>
+</div>
           <img src={Cart}className='cart-img'/>
         </div>
        </a>
@@ -88,12 +148,16 @@ const Navbar = () => {
        <div onClick={user} className='profile-dd dd'>
         <img src={Xshape}/>
        </div>
-       <div className='small-size-details'>
+       {
+        name===null?"":
+        <div className='small-size-details'>
         <p>Welcome ,</p>
-       <p>Pawan Subedi</p>
+       <p>{name}</p>
        {/* <p>9823576196</p> */}
 
        </div>
+       }
+      
        
        {
         show ? <div>
@@ -115,7 +179,7 @@ const Navbar = () => {
 
 
             <div className='row'>
-              <div className='col-md-12 register-user'>
+              <div onClick={Register} className='col-md-12 register-user'>
                 <HowToRegIcon className='register-icon'/>
                 <p className='reg padding-left'>Register</p>
               </div>
@@ -175,12 +239,20 @@ const Navbar = () => {
               </div>
               {/* <hr></hr> */}
             </div>
-
-       <a class="nav-link user-3" href="#contact">
+            {
+              name===null?
+              <a class="nav-link user-3" href="#contact">
         <p className='user-3d'>Hello,Sign in</p>
         <p className='user-3d'>My Account</p>
        
+       </a>:<a class="nav-link user-3" href="#contact">
+        <p className='user-3d'>welcome</p>
+        <p className='user-3d'>{name}</p>
+       
        </a>
+
+            }
+       
       
        
 

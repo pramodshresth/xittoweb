@@ -163,7 +163,7 @@ option:hover{
     border-radius:5px;
 }
 .clicked{
-    background-color:#cedbf6;
+    background-color:#cedbf6  !important;
     color:#FFF !important;
 }
 
@@ -181,6 +181,7 @@ option:hover{
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     padding-bottom:100px; 
+    grid-gap:20px;
     /* grid-auto-rows: 100px; 
     grid-auto-flow: row dense; */
     /* padding-top:100px; */
@@ -210,8 +211,8 @@ option:hover{
     width:195px; */
   }
   .problem-body{
-    height:150px;
-    width: 195px;
+    /* width: 231.5px; */
+    height: 120px;
   }
   .brands,.dateandtime,.time,.period,.location,.transactionmode,.modal-title,.booking-time,.price,.quantitylist{
     color:#000000
@@ -268,7 +269,29 @@ option:hover{
     .react-datepicker{
         margin-left:200px;
     }
+    .booked-btn{
+      width:100px;
+    }
+    .book,.addtocart{
+      font-size: 13px;
+    }
     
+}
+.probleminterval{
+  display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(135px, 1fr));
+    gap: 10px;
+}
+.prob-interval{
+  color:#000000;
+  font-size: 15px;
+  font-weight: 700;
+}
+.form-floating{
+  margin-top:10px;
+}
+.empty{
+  color:red;
 }
   /* .react-datepicker{
     margin-right:150px;

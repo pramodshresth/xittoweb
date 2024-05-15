@@ -1,0 +1,15 @@
+/* .cart-img{
+    height:100px;
+} */
+.cartcard .card-img-top{
+    margin-top:unset;
+    border-radius:unset !important;
+    width:100%;
+    height:150px;
+
+}
+.cartpage{
+    /* width:100% !important; */
+    margin-top:20px;
+    /* height:350px; */
+}

@@ -6,6 +6,7 @@ import Register from "../service/Register.jsx";
 import ContactUs from '../service/ContactUs.jsx';
 import Login from "../service/Login.jsx";
 import RegistertoProfessional from "../service/RegistertoProfessional.jsx";
+import Cart from "../service/cart/Cart.jsx";
 // import Showserviceproblem  from "../service/Showserviceproblem";
 const PublicRoutes = () => {
   return (
@@ -20,6 +21,7 @@ const PublicRoutes = () => {
             <Route path='/register'element={<Register/>}></Route>
             <Route path='/login'element={<Login/>}></Route>
             <Route path='/registertoprofessional'element={<RegistertoProfessional/>}></Route>
+            <Route path='/cart'element={<Cart/>}></Route>
             
             {/* <Route path='/showserviceproblem'element={<Showserviceproblem/>}></Route> */}
             </Route>

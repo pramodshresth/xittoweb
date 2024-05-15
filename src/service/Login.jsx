@@ -85,7 +85,7 @@ const Login = () => {
             //   useEffect(() => {
                 const timer = setTimeout(() => {
                   setlogin(false);
-                  // navigate('/');
+                  navigate('/');
                 }, 3000);
                 
                 return () => {
