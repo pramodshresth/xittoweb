@@ -7,6 +7,7 @@ export const token = accessToken;
 export const loginapi = ()=>`${url}/auth/login`;
 export const FetchCategoryData=()=>`${url}/category/all`;
 export const FetchProblem=()=>`${url}/problems/get-all`;
+export const CreateBooking=()=>`${url}/booking/create`;
 // const Api = () => {
 //   return (
 //     <div>Api</div>

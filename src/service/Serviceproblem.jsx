@@ -207,7 +207,7 @@ const serviceprobem = () => {
       itemCount:quantity.count,
       selectedBrand:selectedOption,
       totalAmount:problemsdetail[0].price * quantity.count,
-      bookedDate:date,
+      bookedDate:`${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`,
       timePeriod:time.time,
       problemInterval:probleminterval.probleminterval,
       description:userdescription,
@@ -236,13 +236,15 @@ const[emptydescription,setemptydescription]=useState('');
         bookedProblem: problemsdetail[0].id,
         itemCount: quantity.count,
         selectedBrand: selectedOption,
-        totalAmount: problemsdetail[0].price * quantity.count,
-        bookedDate: date,
+        totalAmount: problemsdetail[0].price,
+        bookedDate:`${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`,
         timePeriod: time.time,
         problemInterval: probleminterval.probleminterval,
         description: userdescription,
         location: 'panauti',
-        imagePath:problemsdetail[0].imagePath,
+        status:'appoint',
+        redeemAmount:0,
+        // imagePath:problemsdetail[0].imagePath,
         name:problemsdetail[0].name,
     };
   if(selectedOption==='')
@@ -291,10 +293,10 @@ const[emptydescription,setemptydescription]=useState('');
 
   // const storedCart = localStorage.getItem('cart');
   // const filter=storedCart.filter((item,index)=>{
-  //   return item.name&&item.selectedBrand
-  // })
+  // //   return item.name&&item.selectedBrand
+  // // })
 
-  console.log("this is storedCart",JSON.parse(storedCart));
+  // console.log("this is storedCart",JSON.parse(storedCart));
   if(selectedOption!==''&&selectedDate!==''&&time.time!==''&&probleminterval.probleminterval!==''&&userdescription!=='')
   {
     setcart([...cart, userdetails]);
@@ -317,7 +319,6 @@ const closenow=()=>{  ///if user closes the page then it will reset everydata
   dispatch2({ type: 'RESET_TIME'});
   dispatch3({ type: 'RESET_TIME'});
   setuserdescription('');
-  
 }
   return (
    <div>

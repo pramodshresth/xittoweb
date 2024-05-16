@@ -1,22 +1,27 @@
-import React ,{useReducer}from 'react'
+import React ,{useEffect, useReducer, useState}from 'react'
 import Navbar from '../nav/Navbar'
 import Slider1 from './assets/Slider1.jpg';
 import './Cart.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { CreateBooking } from '../../api/ApI.jsx';
 const cart = () => {
-    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    let storedCart = JSON.parse(localStorage.getItem('cart'))||[];//this is total data from local storage for staying in cart
+
+    console.log("this is storedCart",storedCart);
     const map = storedCart.map((item, index) => [index, item.itemCount]);
-    const initialState = Object.fromEntries(map);
-    
     console.log("this is map",map);
-    console.log("THis is initialstate",initialState);
+    const[show,setshow]=useState(false);
+    // const[decrement,setdecrement]=useState();
+    const initialState = Object.fromEntries(map);
       const reducer =(state,action)=>{
         switch(action.type){
           case 'increment':
-            console.log("this is index",[action.index])
+            // console.log("this is index",[action.index])
+            setshow(true);
             return { ...state,[action.index]:state[action.index]+1};
           case 'decrement':
+            setshow(true);
             return { ...state,[action.index]:state[action.index]-1};
           default:
             return state;
@@ -25,30 +30,159 @@ const cart = () => {
      
     
       const [quantity, dispatch] = useReducer(reducer, initialState);
-    
+    console.log("this is quantity",quantity);
     let quantityitem=[];
     for (var k in quantity){
         quantityitem.push(quantity[k]);
  
     }
     let intArray = quantityitem.map(str => parseInt(str));
-    let price = storedCart.map((item, index) => parseInt(item.totalAmount));
-    const Price =intArray.map((count, index) => count * price[index]);
-   console.log("this is TotalAmount",Price);
-   console.log("this is quantity",quantity);
-   console.log("this is price",price);
+    // let fixedprice;
+    // let ChangedPrice;
+    // if(increment==='increment')
+    //   {
+      let fixedprice;
+      let ChangedPrice;
+  
+          fixedprice= storedCart.map((item, index) => parseInt(item.totalAmount));
+      // if(show===true)
+      //   {
+          ChangedPrice=intArray.map((count, index) => count* fixedprice[index]);
+
+        // }
+      
+
+      
+  
+
+        
+      // }
+    // else{
+    
+    // }
+
+    
+
+     console.log("this is intArray",intArray);
+    console.log("this is fixed price00",fixedprice)
+    console.log("this is changedprice",ChangedPrice)
     let Totalprice=0;
-   for(let i=0;i<Price.length;i++)
+   for(let i=0;i<ChangedPrice.length;i++)
     {
-        Totalprice+=Price[i];
+        Totalprice+=ChangedPrice[i];
     }
-    console.log("this is totalprice",Totalprice);
-    console.log("this is storedcart",storedCart);
-    const checkbox=(e)=>{
-      console.log("thi is s",e);
-      const x=storedCart.filter((item,index)=>{return item.bookedProblem===e});
-      console.log("thi si s x filter",x);
+    // console.log("this is changedprice",ChangedPrice);
+    console.log("this is fixed price",fixedprice);
+    const[userAmount,setUserAmount]=useState([]);
+    const[clicked,setclicked]=useState(false);
+
+    const checkbox = (e, check) => {
+      if (check) {
+        const x = storedCart.filter((item, index) => index === e);
+        const data = {
+          index: e,
+          data: x
+        };
+        setUserAmount([...userAmount, data]);
+      } else {
+        const updatedUserAmount = userAmount.filter((item) => item.index !== e);
+        setUserAmount(updatedUserAmount);
+      }
+    };
+    
+    console.log("this is useramount", userAmount);
+
+
+
+
+
+    let finaloutput=userAmount.map((item,index)=>{
+      const price=ChangedPrice[item.index]
+      
+      return item.data.map((item,index)=>{
+        return {...item,totalAmount:price}
+      });
+    })
+   
+    if(finaloutput==='')
+      {
+        console.log("please select the item");
+      }
+
+    
+    const Price=finaloutput.map((item,index)=>{
+      return item.map((item,index)=>{
+        return item.totalAmount;
+      });
+    })
+   let TotalAmount = 0;
+const combinedArray = [].concat(...Price);
+combinedArray.forEach((item, index) => {
+  TotalAmount += item;
+});
+let accessToken = localStorage.getItem('accessToken');
+const placeorder=async()=>{
+  const x=finaloutput.map((item,index)=>{
+    // return item.map((item,index)=>{
+    //   return item.name;
+    // });
+    return item.map((item,index)=>{
+      return item
+    });
+  })
+  const combinedArray = [].concat(...x);
+  console.log("this is placeorder",x);
+  console.log("this is combinedArray",combinedArray);
+  for(let i=0;i<combinedArray.length;i++)
+    {
+      const data=combinedArray[i];
+
+
+
+
+
+
+      try {
+        // const datavalue={
+        //   phone:phone,
+        //   password:passwordfield,
+        // }
+        const response = await fetch(CreateBooking(), {
+          method: 'POST',
+          body: JSON.stringify(data),
+          headers: {
+            'Content-Type': 'application/json',
+             Authorization: `Bearer ${accessToken}`,
+          },
+        });
+    
+        if (!response.ok) {
+            console.log("booking unsuccesful");   
+        }
+    
+        const result = await response.json();
+        console.log("booking succesfull",result);
+        
+        if(response.ok)
+        {
+          console.log("booking successfull congrats")
+        }
+      } catch (error) {
+        console.error('There was an error:', error);
+      }
+      console.log("this is data",data);
     }
+
+}
+console.log("this is fixedprice",fixedprice);
+console.log("this is changed price",ChangedPrice);
+console.log("this is finaloutput",finaloutput);
+
+console.log("this is combinedArray", combinedArray);
+console.log("this is totalAmount",TotalAmount);
+
+
+
   return (
     <div>
         {/* <Navbar/> */}
@@ -73,7 +207,7 @@ const cart = () => {
         <div className='row cartpage'>
           <div className='col-md-1'>
           <div class="form-check">
-  <input class="form-check-input" type="checkbox" value="" onChange={()=>checkbox(item.bookedProblem)}id="flexCheckChecked"/>
+  <input class="form-check-input" type="checkbox" value="" onChange={(e) => checkbox(index, e.target.checked)}id="flexCheckChecked"/>
   <label class="form-check-label" for="flexCheckChecked">
     Checked checkbox
   </label>
@@ -90,7 +224,7 @@ const cart = () => {
  <div className='col-md-5'>
     <h1>{item.selectedBrand}</h1>
     <h4>{item.name}</h4>
-    <h3>{Price[index]}</h3>
+    <h3>{fixedprice[index]}</h3>
 
     <div className='quantitylist'>
             <label className='quantity'>Quantity:</label>&nbsp;
@@ -114,9 +248,21 @@ const cart = () => {
 
 </div>
 
-                <div className='col-md-6'>
+                <div className='col-md-5'>
+                  <div className='total'>
                     <h1>Summary</h1>
-                    <h3>Total:{Totalprice}</h3>
+                    <h3>subtotal:{TotalAmount}</h3>
+                    <h3>Estimated Shipping Charge(workercharge):</h3>
+                    <h3>Estimated Service charge:</h3>
+                    <h3>Discount:</h3>
+                    <label className='promocode'><h3>PromoCode:</h3>
+                    <input type="text"class="promo form-control"/>
+                    </label>
+
+                    <button type="button" class="btn btn-warning mt-4 mb-4 "onClick={placeorder}>PlaceOrder</button>
+                    
+                    <h4></h4>
+                    </div>
 
                 </div>
 

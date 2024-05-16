@@ -59,6 +59,7 @@ padding:50px;
 }
 .form-check-input{
     margin-right:unset;
+    border:1px solid black;
 }
 .form-check-label{
     color:#FFF;
