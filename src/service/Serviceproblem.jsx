@@ -242,12 +242,16 @@ const[emptydate,setemptydate]=useState('');
 const[emptytime,setemptytime]=useState('');
 const[emptyprobleminterval,setemptyprobleminterval]=useState('')
 const[emptydescription,setemptydescription]=useState('');
+const[disabled,setdisabled]=useState(false);
+const[IsVisible,setIsVisible]=useState(false);
   const addtocart = () => {
     // const date = {
     //     day: selectedDate.day,
     //     month: selectedDate.month,
     //     year: selectedDate.year,
     // };
+
+    
 
     const userdetails = {
         bookedProblem: problemsdetail[0].id,
@@ -310,7 +314,23 @@ const[emptydescription,setemptydescription]=useState('');
   if(selectedOption!==''&&selectedDate!==''&&time.time!==''&&probleminterval.probleminterval!==''&&userdescription!=='')
   {
     setcart([...cart, userdetails]);
+    setdisabled(true);
+    const timer = setTimeout(() => {
+      setIsVisible(false);
+      // navigate('/');
+      // window.location.reload();
+    }, 3000);
+    
+setIsVisible(true);
+    return () => {
+  //     isVisible=true;
+  //   wrongpassword=false;
+      clearTimeout(timer);
+      
+     
+    };
   }
+
     
 }
 
@@ -333,6 +353,7 @@ const closenow=()=>{  ///if user closes the page then it will reset everydata
 const goincart=()=>{
   navigate('/cart');
 }
+console.log("this is is visible",IsVisible);
 
 // },[gotocart])
 
@@ -341,11 +362,15 @@ const goincart=()=>{
    <div>
 <section  className="back-img-0">
   <Navbar/>
+  {
+            IsVisible?<div class="alert alert-success" role="alert">Cart Added Succesfully.</div>:""
+          }
 
     <div data-aos="zoom-in" className="container">
       <div className="row">
         <div className="col-md-12">
         <div className='serviceproblem'>
+         
           {
             Data===undefined ?"":Data.map((item,index)=>(
               <div key={index} class="card problemlist">
@@ -564,7 +589,7 @@ const goincart=()=>{
      
         <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={book}><span className='book'>Book</span></button>
         {
-          gotocart? <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={goincart}><span className='addtocart'>GO TO CART</span></button>: <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={addtocart}><span className='addtocart'>ADD TO CART</span></button>
+          gotocart? <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={goincart}><span className='addtocart'>GO TO CART</span></button>: <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={addtocart} disabled={disabled}><span className='addtocart'>ADD TO CART</span></button>
         }
       </div>
       </form>

@@ -1,37 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import Slider1 from './assets/Slider1.jpg';
-import OfficeRenovation from './assets/Renovation.svg';
-import Electrician from './assets/Electrician.svg';
-import Inverter from './assets/Inverter.svg';
-import AirConditioner from './assets/Ac.svg';
-import Desktop from './assets/Desktop.svg';
-import Laptop from './assets/Laptop.svg';
-import Printer from './assets/printer.svg';
-import Networking from './assets/Networking.svg';
+
 import Slider2 from './assets/Slider2.jpg';
 import Slider3 from './assets/Slider3.jpg';
-import CCcamera from './assets/CC_Camera.svg';
-import Intercom from './assets/Intercom.svg';
-import Thumb from './assets/Thumb.svg';
-import NoteCounting from './assets/Note_Counting.svg';
-import Serverack from './assets/Server_Rack.svg';
-import FireExtinguisher from './assets/Fire_Extinguisher.svg';
-import DoorLock from './assets/Door_Lock.svg';
-import Projector from './assets/Projector.svg';
-import Fridge from './assets/Fridge.svg';
-import Micro_Oven from './assets/Micro_Oven.svg';
 import Workflow from './assets/Workflow.png';
-
-import WashingMachine from './assets/Washing_machine.svg';
-import Generator from './assets/Generator.svg';
-
-import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
-import NavLogo from './assets/navlogo.png';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
 import { useNavigate, useLocation } from "react-router-dom";
 import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // import Top_shapes from './assets/Top_shapes.svg';
@@ -164,101 +136,11 @@ const Service = () => {
     </label>
   ))
 }
-
- 
-
-
- {/* <label className="serviceslist">
- <img className='services-logo' src={Electrician}/>
- <p className='services-name'>Electrician</p>
- </label>
-
- 
- <label className="serviceslist">
- <img className='services-logo' src={Inverter}/>
- <p className='services-name'>Inverter and Battery</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={AirConditioner}/>
- <p className='services-name'>Air Conditioner</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Desktop}/>
- <p className='services-name'>Desktop Computer</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Laptop}/>
- <p className='services-name'>Laptop</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Printer}/>
- <p className='services-name'>Printer</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Networking}/>
- <p className='services-name'>Networking</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={CCcamera}/>
- <p className='services-name'>CCTV Camera</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Intercom}/>
- <p className='services-name'>Intercom</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Thumb}/>
- <p className='services-name'>Thumn Attendance</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={DoorLock}/>
- <p className='services-name'>Door Lock System</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={NoteCounting}/>
- <p className='services-name'>Note Counting Machine</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Serverack}/>
- <p className='services-name'>Server Rock</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={FireExtinguisher}/>
- <p className='services-name'>Fire Extinguisher</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Projector}/>
- <p className='services-name'>Projector</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Fridge}/>
- <p className='services-name'>Refrigerator</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Micro_Oven}/>
- <p className='services-name'>Microwave Oven</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={WashingMachine}/>
- <p className='services-name'>Washing Machine</p>
- </label>
- <label className="serviceslist">
- <img className='services-logo' src={Generator}/>
- <p className='services-name'>Generator</p>
- </label>
-  */}
-
- 
-
  </div>
- 
- 
-
 </div>
 </section>
 </div> 
 <section data-aos="zoom-in" className='sectionpadding ourpartnersection'>
- 
   <div className='container'>
     <h1 className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
       <Swiper
@@ -567,12 +449,12 @@ const Service = () => {
           </div>
           </div>
           </div> 
+
+         
+         
       </div>
 
     </div>
-
-  
-  {/* <img src={FooterImage}className=' footter-image'/> */}
   </div>
  
   </div>

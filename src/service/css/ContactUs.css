@@ -1,14 +1,15 @@
 .contact-us-image{
-    background: linear-gradient(0deg, #2f1e11, #00000090), url(../assets/firstimage.png);
+    /* background: linear-gradient(0deg, #2f1e11, #00000090), url(../assets/firstimage.png); */
     background-size: cover;
     background-position: top;
     background-attachment: fixed;
-    height:400px;
+    height:200px;
     object-fit: cover;
     object-position:center;
+    background-color: #fff;
 }
 .contact-details{
-    background-color:#3d0557;
+    background-color:#fff;
     display:flex;
     padding:50px;
 }
@@ -24,7 +25,7 @@
     margin-top:10px;
 }
 .contactpage-location:hover,.contactpage-mail:hover,.contactpage-contactNo:hover{
-    background-color: #FFF;
+    background-color: #8d714e;
     margin-top:0px;
     transition: 1s ease;
 }
@@ -61,7 +62,7 @@
     color:#FFF;
 }
 .contact-form-control{
-    background-color: #3d0557 !important;
+    /* background-color: #3d0557 !important; */
     outline: none;
     border:none;
     border-bottom: 2px solid #fdbe13;
@@ -83,9 +84,10 @@
     /* border:unset; */
 }
 .know-more-about-us{
-    background: linear-gradient(0deg, #00000060, #2f1e11),url(../assets/firstimage.png);
+    /* background: linear-gradient(0deg, #00000060, #2f1e11),url(../assets/firstimage.png); */
     background-size: cover;
     background-position: center;
+    background-color: #c8d5f0;
     /* padding:20px; */
     /* height:430px; */
 }
