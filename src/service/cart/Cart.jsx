@@ -6,7 +6,12 @@ import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { CreateBooking } from '../../api/ApI.jsx';
 const cart = () => {
-    let storedCart = JSON.parse(localStorage.getItem('cart'))||[];//this is total data from local storage for staying in cart
+  // const[storedCart,setstoredCart]=useState('')
+  let storedCart = JSON.parse(localStorage.getItem('cart'))||[];//this is total data from local storage for staying in cart
+
+  // useEffect(()=>{
+  // },[storedCart])
+   
 
     console.log("this is storedCart",storedCart);
     const map = storedCart.map((item, index) => [index, item.itemCount]);
@@ -73,7 +78,7 @@ const cart = () => {
     }
     // console.log("this is changedprice",ChangedPrice);
     console.log("this is fixed price",fixedprice);
-    const[userAmount,setUserAmount]=useState([]);
+    let[userAmount,setUserAmount]=useState([]);
     const[clicked,setclicked]=useState(false);
 
     const checkbox = (e, check) => {
@@ -121,11 +126,9 @@ combinedArray.forEach((item, index) => {
   TotalAmount += item;
 });
 let accessToken = localStorage.getItem('accessToken');
+console.log("this is combine",combinedArray);
 const placeorder=async()=>{
   const x=finaloutput.map((item,index)=>{
-    // return item.map((item,index)=>{
-    //   return item.name;
-    // });
     return item.map((item,index)=>{
       return item
     });
@@ -136,17 +139,7 @@ const placeorder=async()=>{
   for(let i=0;i<combinedArray.length;i++)
     {
       const data=combinedArray[i];
-
-
-
-
-
-
       try {
-        // const datavalue={
-        //   phone:phone,
-        //   password:passwordfield,
-        // }
         const response = await fetch(CreateBooking(), {
           method: 'POST',
           body: JSON.stringify(data),
@@ -161,10 +154,11 @@ const placeorder=async()=>{
         }
     
         const result = await response.json();
-        console.log("booking succesfull",result);
+       
         
         if(response.ok)
         {
+          console.log("booking succesfull",result);
           console.log("booking successfull congrats")
         }
       } catch (error) {
@@ -174,18 +168,26 @@ const placeorder=async()=>{
     }
 
 }
-console.log("this is fixedprice",fixedprice);
-console.log("this is changed price",ChangedPrice);
-console.log("this is finaloutput",finaloutput);
+const Delete=(deleteid)=>{
+  console.log("this is ",storedCart);
+  // const x=storedCart.filter((item,index)=>item.data[0].bookedProblem !== deleteid);
+  // console.log("this is x",x);
+  const remainingcart=storedCart.filter((item,index)=>item.bookedProblem !==deleteid);
+  console.log("this is x",remainingcart);
+  localStorage.removeItem('cart');
+  localStorage.setItem('cart', JSON.stringify(remainingcart));
+  window.location.reload();
 
-console.log("this is combinedArray", combinedArray);
-console.log("this is totalAmount",TotalAmount);
+  // const x=userAmount.filter((item,index)=>item.data[0].bookedProblem !== deleteid)
+  // console.log("this is x",x);
+  // // console.log("this  is item",item);
+  // console.log("This is deleteid",deleteid);
 
+}
 
-
+storedCart=JSON.parse(localStorage.getItem('cart'))||[];
   return (
     <div>
-        {/* <Navbar/> */}
         <section>
         <Navbar/>
         </section>
@@ -216,12 +218,10 @@ console.log("this is totalAmount",TotalAmount);
 <div className='col-md-3 cartcard'>
 
 <img src={Slider1} class="cart-img-x card-img-top" alt="..."/>
-                    {/* <div class="cartcard card">
-                    </div> */}
-
  </div>
 
  <div className='col-md-5'>
+    <input type='button'onClick={()=>Delete(item.bookedProblem)} value="Delete"/>
     <h1>{item.selectedBrand}</h1>
     <h4>{item.name}</h4>
     <h3>{fixedprice[index]}</h3>
@@ -235,19 +235,13 @@ console.log("this is totalAmount",TotalAmount);
               <div className='subtract'onClick={() => dispatch({ type: 'decrement',index })}>
               <RemoveIcon className='subtracticon'/>
               </div>
+             
             </div>
-
-                    </div>
-
-            
+                    </div>        
 </div>
-
     ))
-
     }
-
 </div>
-
                 <div className='col-md-5'>
                   <div className='total'>
                     <h1>Summary</h1>
@@ -265,18 +259,7 @@ console.log("this is totalAmount",TotalAmount);
                     </div>
 
                 </div>
-
-                
-
-            </div>
-            {/* <div className='row'>
-                    <div className='col-md-6'>
-                    <div class="cartcard card">
-                    </div>
-
-                    </div>
-                </div> */}
-            
+            </div>  
         </section>
 
         

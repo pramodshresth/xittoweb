@@ -19,6 +19,10 @@ import {Context} from '../App';
 // const CartContext = createContext();
 const serviceprobem = () => {
   // const usercart= useContext(CartContext);
+  let [cart,setcart]=useState(() => {
+    const storedCart = localStorage.getItem('cart');
+    return storedCart ? JSON.parse(storedCart) : [];
+});
 
   const {setcartlength}=useContext(Context);
   let accessToken = localStorage.getItem('accessToken');
@@ -45,7 +49,7 @@ const serviceprobem = () => {
     navigate('/showproblem');
   }
   const[problemsdetail,setproblemsdetail]=useState(" ");
-  
+  const[gotocart,setgotocart]=useState(false)
   const booknow=(bookid)=>{
 
 //     const x=problemsdetail[0].brands.map((item,index)=>{
@@ -54,39 +58,55 @@ const serviceprobem = () => {
 // console.log("this is x",x);
      console.log("this is item",bookid);
     console.log("this is data",Data);
-    const x=Data.filter((item,index)=>{
+    const problemdetail=Data.filter((item,index)=>{
       return item.id===bookid;
     })
 
     // Check if the filtering returned any result
-      const brand = x[0].brands.map((item, index) => {
+      const brand = problemdetail[0].brands.map((item, index) => {
         console.log(item);
         return item.name; // Return the item if you want to use the resulting array
       });
       
-      console.log("this is x", x[0].brands);
-      console.log("this is brand", brand);
+      // console.log("this is x", problemdetail[0].brands);
+      // console.log("this is brand", brand);
+ 
  
 
 
-
    
-    setproblemsdetail(x);
+    setproblemsdetail(problemdetail);
     console.log("this is accessTOKEN",accessToken);
 
     if(accessToken===null)
       {
         navigate('/login');
       }
+console.log("this is cart fdsadadfa",cart);
+// console.log("this is problemsdetail",problemsdetail)
+
+// useEffect(()=>{
+  for(let i=0;i<cart.length;i++)
+    {
+      if(cart[i].bookedProblem===problemdetail[0].id){
+        console.log("go to the cart");
+        setgotocart(true);
+        break;
+      }
+      else
+      {
+        console.log("add to cart");
+        setgotocart(false);
+      }
+    }
   }
+
+  console.log("this is gotocart",gotocart);
 
 
 
   
   let[selectedDate, setSelectedDate] = useState('');
-  // console.log("this is ",selectedDate)
-
-  // console.log("this is selectedDate",selectedDate);
   const initialState={
     count:1
   };
@@ -215,10 +235,7 @@ const serviceprobem = () => {
     }
     console.log(userdetails);
   }
-  let [cart,setcart]=useState(() => {
-    const storedCart = localStorage.getItem('cart');
-    return storedCart ? JSON.parse(storedCart) : [];
-});
+
 
 const[emptybrand,setemptybrand]=useState('');
 const[emptydate,setemptydate]=useState('');
@@ -226,11 +243,11 @@ const[emptytime,setemptytime]=useState('');
 const[emptyprobleminterval,setemptyprobleminterval]=useState('')
 const[emptydescription,setemptydescription]=useState('');
   const addtocart = () => {
-    const date = {
-        day: selectedDate.day,
-        month: selectedDate.month,
-        year: selectedDate.year,
-    };
+    // const date = {
+    //     day: selectedDate.day,
+    //     month: selectedDate.month,
+    //     year: selectedDate.year,
+    // };
 
     const userdetails = {
         bookedProblem: problemsdetail[0].id,
@@ -290,13 +307,6 @@ const[emptydescription,setemptydescription]=useState('');
   {
     setemptydescription('');
   }
-
-  // const storedCart = localStorage.getItem('cart');
-  // const filter=storedCart.filter((item,index)=>{
-  // //   return item.name&&item.selectedBrand
-  // // })
-
-  // console.log("this is storedCart",JSON.parse(storedCart));
   if(selectedOption!==''&&selectedDate!==''&&time.time!==''&&probleminterval.probleminterval!==''&&userdescription!=='')
   {
     setcart([...cart, userdetails]);
@@ -320,6 +330,13 @@ const closenow=()=>{  ///if user closes the page then it will reset everydata
   dispatch3({ type: 'RESET_TIME'});
   setuserdescription('');
 }
+const goincart=()=>{
+  navigate('/cart');
+}
+
+// },[gotocart])
+
+  // console.log("this  is gotocart",gotocart);
   return (
    <div>
 <section  className="back-img-0">
@@ -397,12 +414,6 @@ const closenow=()=>{  ///if user closes the page then it will reset everydata
           <div className='col-md-6'>
             <form>
           <div>
-          {/* const[emptybrand,setemptybrand]=useState('');
-const[emptydate,setemptydate]=useState('');
-const[emptytime,setemptytime]=useState('');
-const[emptyprobleminterval,setemptyprobleminterval]=useState('') */}
-
-
               <p className='empty'>{emptybrand}</p>
               <span className='brands'>Select Brands</span>
               <select onChange={handleSelectChange}value={selectedOption} class="form-select" aria-label="Default select example">
@@ -414,9 +425,6 @@ const[emptyprobleminterval,setemptyprobleminterval]=useState('') */}
 }
 <select/>
 </select>
-
-              
-             
             </div>
           <div className='dateandtime'>
             <span className='empty'>{emptydate}</span>
@@ -436,11 +444,7 @@ const[emptyprobleminterval,setemptyprobleminterval]=useState('') */}
   }}
   />
   </div>
-  {/*  */}
-
-  {/* selectedDate.day,
-        month: selectedDate.month,
-        year: selectedDate.year, */}
+ 
   <div className={`day `}onClick={()=>setSelectedDate({dayname:dayname[0],day:day[0],month:month[0],year:year[0]})}>
               
 
@@ -559,7 +563,9 @@ const[emptyprobleminterval,setemptyprobleminterval]=useState('') */}
             <div class="row modal-footer">
      
         <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={book}><span className='book'>Book</span></button>
-        <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={addtocart}><span className='addtocart'>ADD TO CART</span></button>
+        {
+          gotocart? <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={goincart}><span className='addtocart'>GO TO CART</span></button>: <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary"onClick={addtocart}><span className='addtocart'>ADD TO CART</span></button>
+        }
       </div>
       </form>
            

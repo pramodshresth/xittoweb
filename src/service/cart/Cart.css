@@ -34,3 +34,7 @@
 .btn-warning{
     width:100%;
 }
+.modal-backdrop.show{
+    /* opacity:0; */
+    display: none;
+}
