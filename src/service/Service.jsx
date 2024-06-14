@@ -130,19 +130,22 @@ const Service = () => {
 
 {
  Data === undefined ?"": Data.map((item,index)=>(
+   <a href='#problem'>
     <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
+    
       <img className='services-logo'src={item.imagePath}/>
       <p className='services-name'>{item.name}</p>
     </label>
+    </a>
   ))
 }
  </div>
 </div>
 </section>
 </div> 
-<section data-aos="zoom-in" className='sectionpadding ourpartnersection'>
-  <div className='container'>
-    <h1 className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
+<section data-aos="zoom-in"  className='sectionpadding ourpartnersection'>
+  <div  className='container'>
+    <h1  className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
       <Swiper
         slidesPerView={1}
         spaceBetween={10}

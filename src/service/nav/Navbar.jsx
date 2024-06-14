@@ -18,7 +18,9 @@ import { Context } from '../../App';
 
 //   const {setcartlength}=useContext(Context);
 const Navbar = () => {
-  const {cartlength}=useContext(Context);
+  // const {cartlength}=useContext(Context);
+  const cartlength=localStorage.getItem('cart');
+  console.log("this is cartlength",cartlength);
   // console.log("this is carlength",cartlength);
   const navigate = useNavigate();
   const[show,setshow]=useState(false);
@@ -51,45 +53,49 @@ const Navbar = () => {
       }
       console.log("this is show",show);
       let name = localStorage.getItem('name');
+      let accessToken=localStorage.getItem('accessToken');
+      let id=localStorage.getItem('id');
+      // const[show,setshow]=useState(false);
+      const[showmessage,setshowmessage]=useState(null);
 
-      // const Totalcart= JSON.parse(localStorage.getItem('cart'));
-      // console.log("this is",Totalcart);
-    //   useEffect(() => {
-    //     const Totalcart= JSON.parse(localStorage.getItem('cart'));
-    //     // if (Totalcart) {
-    //     //     // setTotalCart(Totalcart);
-    //     //     setcartlength(Totalcart.length);
-    //     // }
-    // }, [Totalcart]);
-    
-    // // console.log("this is totalCart", totalCart);
-    // console.log("asdf",cartlength);
-      
-      
-      
-
-      // try {
-      //     arrayOfObjects = JSON.parse(cartlength);
-      //     console.log("Parsed cartlength", arrayOfObjects.length);
-      // } catch (error) {
-      //     console.error("Error parsing cartlength:", error);
-      // }
-      // const lengthOfArray =cartlength.length;
-      // console.log("thu su",lengthOfArray);
+      const logout=()=>{
+       
+        const timer = setTimeout(() => {
+          setshowmessage(false);
+          // navigate('/');
+        }, 3000);
+        setshowmessage(true)
+        
+        return () => {
+          clearTimeout(timer);
+          
+         
+        };
+       
+      }
+      if(showmessage===false)
+        {
+        localStorage.removeItem('accessToken');
+        localStorage.removeItem('name');
+        localStorage.removeItem('id');
+        localStorage.removeItem('profile_url');
+        localStorage.removeItem('phone');
+        localStorage.removeItem('cart');
+        }
   return (
     <div>
+      {/* <div class="alert alert-success" role="alert"></div> */}
+     {showmessage?<div class="alert alert-success" role="alert">Logout successfully</div>:""
+     } 
          <nav class="navbar navbar-expand-lg bg-body-tertiary">
+
+         
    <img src={NavLogo} className='logo'onClick={home}/>
    <div className='mobileview'>
    <div className='mobile'>
     <div className='mobilecart'onClick={cart}>
     <div className='cartlength'>
-    <span className='length'>{cartlength}</span>
-    {/* {[cartlength].map((obj, index) => (
-                // <p key={index}>Length of object {index + 1}: {Object.keys(obj).length}</p>
-                <span key={index} className='length'>{Object.keys(obj).length}</span>
-            ))} */}
-       
+    <span className='length'>{cartlength===null?0:JSON.parse(cartlength).length}</span>    
 </div>
           <img src={Cart} className='cart-img'/>
           </div>
@@ -124,12 +130,13 @@ const Navbar = () => {
      {/* <div className='nav-bar'></div> */}
        <a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>
        <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
+       
        <a class="nav-link" >
         
         <div className='cart'onClick={cart}>
         <div className='cartlength'>
           
-          <span className='length'>{cartlength}</span>
+          <span className='length'>{cartlength===null?0:JSON.parse(cartlength).length}</span>
 </div>
           <img src={Cart}className='cart-img'/>
         </div>
@@ -177,33 +184,35 @@ const Navbar = () => {
             
             </div>
 
-
-            <div className='row'>
-              <div onClick={Register} className='col-md-12 register-user'>
-                <HowToRegIcon className='register-icon'/>
-                <p className='reg padding-left'>Register</p>
-              </div>
-              <hr></hr>
-            </div>
-
-            <div className='row'>
-              <div onClick={login} className='col-md-12 register-user'>
+{
+  id?"":<div className='row'>
+  <div onClick={Register} className='col-md-12 user'>
+    <HowToRegIcon className='register-icon'/>
+    <p className='reg padding-left'>Register</p>
+  </div>
+  <hr></hr>
+</div>
+}
+            
+            {
+              accessToken?"":<div className='row'>
+              <div onClick={login} className='col-md-12 user'>
                 <LockOpenIcon className='login-icon'/>
                 <p className='reg padding-left'>Login</p>
               </div>
               <hr></hr>
             </div>
-
-            <div className='row'>
-              <div className='col-md-12 register-user'>
+            }
+            {
+              accessToken?
+              <div className='row'>
+              <div onClick={logout} className='col-md-12 user'>
                 <LogoutIcon className='logout-icon'/>
                 <p className='reg padding-left'>Logout</p>
               </div>
               <hr></hr>
-            </div>
-
-            
-
+            </div>:""
+            }
           </div>
           </div>:""
        }
@@ -252,6 +261,8 @@ const Navbar = () => {
        </a>
 
             }
+
+            
        
       
        
@@ -267,6 +278,10 @@ const Navbar = () => {
    </div>
 
 </nav>
+
+{/* {
+  showmessage?<div class="alert alert-success" role="alert">:""
+} */}
     </div>
   )
 }

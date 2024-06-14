@@ -533,10 +533,13 @@
     display:flex;
     align-items: center; */
 }
-.register-user{
+.-user{
 
     display:flex;
 
+}
+.alert-success{
+    z-index:1061;
 }
 
 .padding-left{
