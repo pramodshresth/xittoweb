@@ -18,7 +18,8 @@ import Navbar from './nav/Navbar.jsx';
 import { Context } from '../App';
 import { CreateBooking } from '../api/ApI.jsx';
 // const CartContext = createContext();
-const serviceprobem = () => {
+const serviceprobem = ({Isworker,IsUser}) => {
+  console.log("this is isworker",Isworker);
   // const usercart= useContext(CartContext);
   let [cart, setcart] = useState(() => {
     const storedCart = localStorage.getItem('cart');
@@ -45,10 +46,6 @@ const serviceprobem = () => {
     };
     fetchData();
   }, []);
-
-  // const showproblem = () => {
-  //   navigate('/showproblem');
-  // }
   const [problemsdetail, setproblemsdetail] = useState(" ");
   const [gotocart, setgotocart] = useState(false)
   const booknow = (bookid) => {
@@ -57,19 +54,6 @@ const serviceprobem = () => {
     const problemdetail = Data.filter((item, index) => {
       return item.id === bookid;
     })
-    // Check if the filtering returned any result
-    // const brand = problemdetail[0].brands.map((item, index) => {
-    //   console.log(item);
-    //   return item.name; // Return the item if you want to use the resulting array
-    // });
-
-    // // console.log("this is x", problemdetail[0].brands);
-    // // console.log("this is brand", brand);
-
-
-
-
-
     setproblemsdetail(problemdetail);
     console.log("this is accessTOKEN", accessToken);
 
@@ -204,6 +188,7 @@ const serviceprobem = () => {
     const x = e.target.value;
     setuserdescription(x);
   }
+  const [booked,setbooked]=useState(false);
   const book = async () => {
     const userdetails = {
       bookingDetails: {
@@ -238,9 +223,29 @@ const serviceprobem = () => {
   
     if (!response.ok) {
       console.log("login unsucessful.")
+      setbooked(false);
     }
-    const data = await response.json();
-    console.log("this is data", data);
+    else{
+      const data = await response.json();
+      
+      console.log("booking successfull", data);
+      const timer = setTimeout(() => {
+        setbooked(false);
+        // navigate('/');
+        // window.location.reload();
+      }, 3000);
+      setbooked(true);
+      return () => {
+        //     isVisible=true;
+        //   wrongpassword=false;
+        clearTimeout(timer);
+  
+  
+      };
+     
+
+    }
+    
   }
   // console.log(userdetails);
 
@@ -252,6 +257,7 @@ const [emptyprobleminterval, setemptyprobleminterval] = useState('')
 const [emptydescription, setemptydescription] = useState('');
 const [disabled, setdisabled] = useState(false);
 const [IsVisible, setIsVisible] = useState(null);
+
 const[go,setgo]=useState(false);
 const addtocart = () => {
   // const date = {
@@ -382,7 +388,8 @@ const closenow = () => {  ///if user closes the page then it will reset everydat
   dispatch2({ type: 'RESET_TIME' });
   dispatch3({ type: 'RESET_TIME' });
   setuserdescription('');
-  setdisabled(false);
+  setgo(false);
+  // setdisabled(false);
 }
 const goincart = () => {
   navigate('/cart');
@@ -394,11 +401,15 @@ const goincart = () => {
 // console.log("this  is gotocart",gotocart);
 return (
   <div>
-    <section className="back-img-0">
-      <Navbar />
+    <section id="serviceproblem" className="back-img-0">
+      <Navbar Isworker={Isworker} IsUser={IsUser}/>
       {
         IsVisible ? <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> : ""
       }
+      {
+        booked?<div class="alert alert-success" role="alert">Booked Succesfully.</div>:""
+      }
+      {/* <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
       {/* <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
 
       <div data-aos="zoom-in" className="container">
@@ -413,7 +424,7 @@ return (
                     <img src={Slider1} class="card-img-top" />
                     <div class="card-body problem-body">
                       <h5 class="card-title">{item.name}</h5>
-                      <a href="#problem" data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
+                      <a  data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
                     </div>
 
                   </div>
@@ -427,6 +438,7 @@ return (
       </div>
     </section>
     {/*  */}
+    <section>
     <div class="modal fade" id={`${accessToken === null ? "" : "bookingexampleModal"}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-xl modal-dialog" >
         <div class="modal-content">
@@ -638,6 +650,7 @@ return (
         </div>
       </div>
     </div>
+    </section>
 
 
 
@@ -683,7 +696,12 @@ return (
         </div>
 
       </div>
-      <div className='copyrightsection'>
+      
+
+    </section>
+
+    <section>
+    <div className='copyrightsection'>
         <div className='row copyright'>
           <div className='col-md-2'>
             <div className='footter-xitto-copyright'>
@@ -703,7 +721,6 @@ return (
         </div>
 
       </div>
-
     </section>
 
 

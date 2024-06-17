@@ -12,21 +12,15 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 // import {Context} from '../App';
 import { Context } from '../../App';
-// const CartContext = createContext();
-// const serviceprobem = () => {
-//   // const usercart= useContext(CartContext);
+import { fetchworker ,token} from '../../api/ApI';
+import axios from 'axios';
+const Navbar = ({Isworker,setIsUser,IsUser}) => {
+  console.log("thsi is isUser bla bla bla",IsUser);
 
-//   const {setcartlength}=useContext(Context);
-const Navbar = () => {
-  // const {cartlength}=useContext(Context);
   const cartlength=localStorage.getItem('cart');
-  console.log("this is cartlength",cartlength);
-  // console.log("this is carlength",cartlength);
   const navigate = useNavigate();
   const[show,setshow]=useState(false);
-  // const[cartlength,setcartlength]=useState();
 
-  // const {}=useContext(Context);
     const register=()=>{
         navigate('/registertoprofessional');
       }
@@ -35,6 +29,7 @@ const Navbar = () => {
       }
       const user=()=>{
         setshow(!show);
+        navigate('/');
       }
       const login=()=>{
         navigate('/login');
@@ -81,7 +76,26 @@ const Navbar = () => {
         localStorage.removeItem('profile_url');
         localStorage.removeItem('phone');
         localStorage.removeItem('cart');
+        window.location.reload();
         }
+
+        console.log("this is  worker",Isworker);
+        // const[user,setuser]=useState(false);
+        const switchtoworker=()=>{
+          navigate('/worker');
+          // setIsUser(false);
+        }
+        const switchtoUser=()=>{
+          setIsUser(true);
+          navigate('/');
+
+        }
+        console.log("this is isUser",IsUser);
+        console.log("this is is worker",Isworker);
+        // console.log("this is seisuser",setIsUser)
+
+
+        
   return (
     <div>
       {/* <div class="alert alert-success" role="alert"></div> */}
@@ -128,7 +142,8 @@ const Navbar = () => {
      <button type="button" class="btn-close navbar-toggler "data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"></button>
      </div>
      {/* <div className='nav-bar'></div> */}
-       <a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>
+       {/* {IsUser?} */}
+       {!IsUser?<a class="nav-link register" onClick={switchtoUser} aria-current="page">SWITCH TO USER</a>:Isworker?<a class="nav-link register" onClick={switchtoworker} aria-current="page">SWITCH TO WORKER</a>:<a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>}
        <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
        
        <a class="nav-link" >
@@ -150,7 +165,7 @@ const Navbar = () => {
        <a class="navlink line" href="#contact">
       
        </a>
-       <a class="nav-link" href="#contact">
+       <a class="nav-link">
 
        <div onClick={user} className='profile-dd dd'>
         <img src={Xshape}/>
@@ -224,21 +239,36 @@ const Navbar = () => {
               </div>
               {/* <hr></hr> */}
             </div>
-       <div className='row'>
+            {
+              accessToken?"":<div className='row'>
               <div onClick={login} className='col-md-12 small-size-login'>
                 <LockOpenIcon className='login-icon'/>
                 <p className='reg padding-left'>Login</p>
               </div>
               {/* <hr></hr> */}
             </div>
-
-            <div className='row'>
-              <div className=' small-size-logout col-md-12'>
-                <LogoutIcon className='logout-icon'/>
-                <p className='reg padding-left'>Logout</p>
-              </div>
-              {/* <hr></hr> */}
-            </div>
+            }
+       
+{
+  accessToken?<div className='row'>
+  <div onClick={logout}  className=' small-size-logout col-md-12'>
+    <LogoutIcon className='logout-icon'/>
+    <p className='reg padding-left'>Logout</p>
+  </div>
+  {/* <hr></hr> */}
+</div>:""
+}
+{/* col-md-12 user  */}
+{
+  id?"":<div className='row'>
+  <div onClick={Register} className='small-size-logout col-md-12'>
+    <HowToRegIcon className='register-icon'/>
+    <p className='reg padding-left'>Register</p>
+  </div>
+  <hr></hr>
+</div>
+}
+            
 
             <div className='row'>
               <div className='col-md-12 desc-dd'>

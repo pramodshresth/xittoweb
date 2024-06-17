@@ -5,7 +5,7 @@ import './Cart.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { CreateBooking } from '../../api/ApI.jsx';
-const cart = () => {
+const cart = ({Isworker}) => {
   // const[storedCart,setstoredCart]=useState('')
   let storedCart = JSON.parse(localStorage.getItem('cart')) || [];//this is total data from local storage for staying in cart
 
@@ -186,23 +186,20 @@ const cart = () => {
     if(IsVisible===false)
       {
         const data=successfullbooking.map((item,index)=>{return item.bookingDetails.bookedProblem})
-        // console.log("this is heroism",data);
-        // const filtercart=storedCart.filter((item,index)=>item!=successfullbooking.map((item,index)=>item.bookingDetails.bookedProblem))
-        // console.log("this is filtercart",filtercart);
-  
         const filtercart=storedCart.filter((item,index)=>item.bookingDetails.bookedProblem !== data[index])
         console.log("this is filtercart",filtercart);
         console.log("this is storedCart",storedCart);
         console.log("this is data",data);
         localStorage.removeItem('cart');
         localStorage.setItem('cart',JSON.stringify(filtercart));
-        window.location.reload();
+        // window.location.reload();
       }
       console.log("this is isvisibe",IsVisible);
 
  
   
   console.log("this is successfull booking", successfullbooking);
+  const[deletedsuccessfully,setdeletedsuccessfully]=useState(null);
   const Delete = (deleteid) => {
     console.log("this is ", storedCart);
     // const x=storedCart.filter((item,index)=>item.data[0].bookedProblem !== deleteid);
@@ -211,20 +208,37 @@ const cart = () => {
     console.log("this is x", remainingcart);
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(remainingcart));
-    window.location.reload();
 
-    // const x=userAmount.filter((item,index)=>item.data[0].bookedProblem !== deleteid)
-    // console.log("this is x",x);
-    // // console.log("this  is item",item);
-    // console.log("This is deleteid",deleteid);
+    const timer = setTimeout(() => {
+      setdeletedsuccessfully(false);
+    }, 3000);
 
+    setdeletedsuccessfully(true);
+  
+    return () => {
+      clearTimeout(timer);
+    };
   }
+  // if(deletedsuccessfully===false)
+  //   {
+  //     window.location.reload();
+  //   }
 
   storedCart = JSON.parse(localStorage.getItem('cart')) || [];
   return (
     <div>
       <section>
-        <Navbar />
+        <Navbar Isworker={Isworker}/>
+        {
+            IsVisible ? <div class="alert alert-success" role="alert">
+              Congratulations.Booked Succesfully
+            </div> : ""
+          }
+          {
+            deletedsuccessfully?<div class="alert alert-success" role="alert">
+            Congratulations.Deleted Succesfully
+          </div>:""
+          }
 
       </section>
 
@@ -235,11 +249,8 @@ const cart = () => {
 
 
         <div className='row cartlist'>
-          {
-            IsVisible ? <div class="alert alert-success" role="alert">
-              Congratulations.Booked Succesfully
-            </div> : ""
-          }
+          
+          
 
           <div className='col-md-6'>
             <div className='signinjoinus'>

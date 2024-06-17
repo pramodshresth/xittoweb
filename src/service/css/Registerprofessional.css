@@ -14,12 +14,16 @@ opacity: 1;
 padding:50px;
 
 }
+option{
+    background-color: #cedbf6;
+}
 
 
 .reg-dd{
     padding-left: 40px;
     padding-right: 40px;
     padding-top:80px;
+    padding-bottom:80px;
 }
 .registerprofessional{
     /* text-align: center; */

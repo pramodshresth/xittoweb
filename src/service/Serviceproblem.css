@@ -134,6 +134,7 @@
     border-radius: unset;
     border-left:unset;
     border-right:unset;
+    color:#FFF;
 }
 option:hover{
   background-color: red  !important;

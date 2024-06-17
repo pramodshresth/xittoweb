@@ -7,7 +7,7 @@ import PublicRoutes from './router/PublicRoutes.jsx';
 export const Context = createContext();
 function App() {
   const [cartlength,setcartlength]=useState();
-  console.log("this is cartlength",cartlength);
+  // console.log("this is cartlength",cartlength);
   return (
     <>
     <div>

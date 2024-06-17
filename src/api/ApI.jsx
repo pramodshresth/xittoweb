@@ -8,6 +8,9 @@ export const loginapi = ()=>`${url}/auth/login`;
 export const FetchCategoryData=()=>`${url}/category/all`;
 export const FetchProblem=()=>`${url}/problems/get-all`;
 export const CreateBooking=()=>`${url}/booking/create`;
+export const RegisterProfessional=()=>`${url}/assistance/create`;
+export const fetchworker=()=>`${url}/assistance/my?page=1&pageSize=5`;
+
 // const Api = () => {
 //   return (
 //     <div>Api</div>

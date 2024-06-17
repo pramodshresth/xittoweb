@@ -18,37 +18,22 @@ import './css/Service.css';
 import 'swiper/css/pagination';
 import Comma from './assets/comma.svg';
 import Comma1 from './assets/comma1.svg';
-import FooterImage from './assets/FooterImage.png';
+
 import SiteVisitor from './assets/Sitevisitor.svg';
-import HappyClients from './assets/HappyClients.svg';
-import Support from './assets/Support.svg';
+
 import xittofooterimage from './assets/xittoblueimage.png';
-import Cart from './assets/Cart.svg';
-import Notification from './assets/Notification_icon.svg';
-import Xshape from './assets/Xshape.svg';
-import NotificationsIcon from '@mui/icons-material/Notifications';
+
 import Navbar from './nav/Navbar';
 import {FetchCategoryData,token} from '../api/ApI.jsx';
 import axios from 'axios';
-const Service = () => {
+import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+const Service = ({Isworker,IsUser}) => {
   
   const navigate = useNavigate();
   const problem=(item)=>{
     // console.log("this is item",item);
     navigate("/serviceproblem",{state:item});
   
-  }
-  const login=()=>{
-    // navigate('/loginpage');
-  }
-  const register=()=>{
-    navigate('/register');
-  }
-  const logout=()=>{
-    
-  }
-  const contactus=()=>{
-    navigate("/contactus");
   }
   const[Data,setData]=useState();
   useEffect(() => {
@@ -79,7 +64,7 @@ const Service = () => {
        
         <div className='back-img-0'> 
        <div className=''>
-   <Navbar/>
+   <Navbar Isworker={Isworker} IsUser={IsUser}/>
 </div>
 
 
@@ -117,12 +102,13 @@ const Service = () => {
 
 
  <section id="services" className='services-section container'>
+ <a href='#service'><div className='arrow'><ArrowDownwardIcon className='arrowdownicon'/></div></a>
 <div>
 
 
  
- <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
- <div data-aos="zoom-in" className='services servicespadding'>
+ <p id="service" className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
+ <div  data-aos="zoom-in" className='services servicespadding'>
  {/* <label className="serviceslist">
  <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
  <p className='services-name'>Office Renovation</p>
@@ -130,13 +116,11 @@ const Service = () => {
 
 {
  Data === undefined ?"": Data.map((item,index)=>(
-   <a href='#problem'>
     <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
     
       <img className='services-logo'src={item.imagePath}/>
       <p className='services-name'>{item.name}</p>
     </label>
-    </a>
   ))
 }
  </div>
@@ -312,7 +296,7 @@ const Service = () => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem</p>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -337,7 +321,7 @@ const Service = () => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem </p>
+  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>

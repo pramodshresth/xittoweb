@@ -85,7 +85,7 @@ const Login = () => {
             //   useEffect(() => {
                 const timer = setTimeout(() => {
                   setlogin(false);
-                  navigate('/');
+                  // navigate('/');
                 }, 3000);
                 
                 return () => {
@@ -105,7 +105,12 @@ const Login = () => {
             console.error('There was an error:', error);
           }
     }
-
+    // useEffect(() => {
+      if (login === false) {
+        window.location.reload();
+        navigate('/');
+      }
+    // }, [login]);
     // isVisible=true;
     // wrongpassword=false;
 
