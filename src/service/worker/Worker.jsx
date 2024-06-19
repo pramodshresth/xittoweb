@@ -3,7 +3,9 @@ import Navbar from '../nav/Navbar'
 import { fetchworker,token } from '../../api/ApI';
 import axios from 'axios';
 import './worker.css';
+import { useNavigate } from 'react-router-dom';
 const worker = ({Isworker,setIsUser,IsUser}) => {
+    const navigate=useNavigate();
 
     const[Worker,setWorker]=useState([]);
     const[pendingworker,setpendingworker]=useState([]);
@@ -35,6 +37,15 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
 
     console.log("this is worker pawan",Worker)
     console.log("this is pendingoworker",pendingworker);
+
+    const addassistance=()=>{
+
+    }
+    const assistance=(categoryname)=>{
+      console.log("this is category name",categoryname);
+      navigate('/workerview',{state:categoryname});
+
+    }
     
 
   return (
@@ -45,9 +56,28 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
 
       <section className='container workerlist'>
         <p className='yourcurrentassis'>Your Current Assistance</p>
+        <button type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={addassistance}>Add Asssistance</button>
+        
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
         {
           Worker.map((item,index)=>(
-            <label key={index}className='serviceslist'>
+            <label onClick={()=>assistance(item.category.name)} key={index}className='serviceslist'>
     
             <img className='services-logo'src={item.category.imagePath}/>
             <p className='services-name'>{item.category.name}</p> 
@@ -68,7 +98,6 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
         
         
       </section>
-        {/* <p>Hello world</p> */}
     </div>
   )
 }

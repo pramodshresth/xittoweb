@@ -5,7 +5,7 @@ import './Cart.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { CreateBooking } from '../../api/ApI.jsx';
-const cart = ({Isworker}) => {
+const cart = ({Isworker,IsUser}) => {
   // const[storedCart,setstoredCart]=useState('')
   let storedCart = JSON.parse(localStorage.getItem('cart')) || [];//this is total data from local storage for staying in cart
 
@@ -25,7 +25,11 @@ const cart = ({Isworker}) => {
         return { ...state, [action.index]: state[action.index] + 1 };
       case 'decrement':
         setshow(true);
-        return { ...state, [action.index]: state[action.index] - 1 };
+        return { 
+          ...state, 
+          [action.index]: state[action.index] > 1 ? state[action.index] - 1 : 1 
+        };
+        // return { ...state, [action.index]: state[action.index] - 1 };
       default:
         return state;
     }
@@ -219,16 +223,11 @@ const cart = ({Isworker}) => {
       clearTimeout(timer);
     };
   }
-  // if(deletedsuccessfully===false)
-  //   {
-  //     window.location.reload();
-  //   }
-
   storedCart = JSON.parse(localStorage.getItem('cart')) || [];
   return (
     <div>
       <section>
-        <Navbar Isworker={Isworker}/>
+        <Navbar Isworker={Isworker} IsUser={IsUser}/>
         {
             IsVisible ? <div class="alert alert-success" role="alert">
               Congratulations.Booked Succesfully

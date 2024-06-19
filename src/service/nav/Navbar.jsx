@@ -12,7 +12,7 @@ import LogoutIcon from '@mui/icons-material/Logout';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 // import {Context} from '../App';
 import { Context } from '../../App';
-import { fetchworker ,token} from '../../api/ApI';
+import { Getallnotification ,token} from '../../api/ApI';
 import axios from 'axios';
 const Navbar = ({Isworker,setIsUser,IsUser}) => {
   console.log("thsi is isUser bla bla bla",IsUser);
@@ -92,7 +92,23 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
         }
         console.log("this is isUser",IsUser);
         console.log("this is is worker",Isworker);
-        // console.log("this is seisuser",setIsUser)
+        const[notification,setnotification]=useState();
+        useEffect(()=>{
+          const notification=async()=>{
+            try {
+              const response = await axios.get(Getallnotification(), {
+                headers: {
+                  Authorization: `Bearer ${token}`,
+                },
+              });
+              return setnotification(response.data.data);
+            } catch (error) {
+              console.error("Error fetching data:", error);
+            }
+          }
+          notification()
+        },[])
+        console.log("this is notification",notification)
 
 
         
@@ -117,9 +133,45 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
         
        <div className='mobile'>
-        <div className='mob-home-notification'>
+        <div data-bs-toggle="modal" data-bs-target="#mobilenotificationModal" className='mob-home-notification'>
         <NotificationsIcon className='noti'/>
        </div>
+
+
+
+
+
+
+       <div class="modal fade " id="mobilenotificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog notification-dialog">
+    <div class="modal-content notification-content">
+      <div class="modal-header">
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+      </div>
+      <div class="modal-body">
+      {
+          notification===undefined?"":notification.map((item,index)=>(
+            <p className='notificationbody'>{item.notification}</p>
+          ))
+        }
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p>
+        <p className='notificationbody'>home</p> 
+        
+
+      </div>
+      
+    </div>
+  </div>
+</div>   
        </div>
 
        <div className='mobile'>
@@ -156,10 +208,60 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
           <img src={Cart}className='cart-img'/>
         </div>
        </a>
-       <a class="nav-link" href="#contact">
-       <div className='home-notification'>
+       <a class="nav-link">
+       <div data-bs-toggle="modal" data-bs-target="#notificationModal" className='home-notification'>
         <NotificationsIcon className='noti'/>
+
+
+
+
+
+
+        <div class="modal fade " id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div class="modal-dialog notification-dialog">
+    <div class="modal-content notification-content">
+      <div class="modal-header">
+        
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+      </div>
+      <div class="modal-body">
+        {
+          notification===undefined?"":notification.map((item,index)=>(
+            <p className='notificationbody'>{item.notification}</p>
+          ))
+        }
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
        </div>
+       
+       
+       
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
        </a>
        <a class="navlink line" href="#contact">
@@ -175,8 +277,6 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
         <div className='small-size-details'>
         <p>Welcome ,</p>
        <p>{name}</p>
-       {/* <p>9823576196</p> */}
-
        </div>
        }
       

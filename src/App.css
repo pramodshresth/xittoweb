@@ -332,14 +332,31 @@
   background-color: #FFF;
   color: #622691;
 }
-.modal-content{
-  height:600px  !important;
+.notification-content{
+  height:529px  !important;
   background-color: #fff;
   border-radius: 20px;
   color:#FFF;
-  overflow-y: scroll;
+  
   
 }
+.modal-dialog{
+  
+}
+.modal-body{
+  overflow-y: scroll;
+}
+
+.modal-body::-webkit-scrollbar {
+  width: 0px;
+  /* padding-left:7px; */
+  
+  
+}
+/* .modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.50); 
+  border-radius: 10px;
+} */
 .modal-header{
   display:flex;
   justify-content: center;
@@ -407,6 +424,12 @@
 @media (max-width:992px){
   .contactpage-mail{
     height:350px  !important;
+  }
+  .notification-dialog{
+    width:unset !important;
+    position:unset !important;
+    right:unset !important;
+    top:unset !important;
   }
 }
 .nav-link:hover{

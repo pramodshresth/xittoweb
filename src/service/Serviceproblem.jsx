@@ -91,7 +91,7 @@ const serviceprobem = ({Isworker,IsUser}) => {
       case 'increment':
         return { ...state, count: state.count + 1 };
       case 'decrement':
-        return { ...state, count: state.count - 1 };
+        return { ...state, count: state.count > 1 ? state.count - 1 : 1  };
       default:
         return state;
     }
@@ -99,6 +99,8 @@ const serviceprobem = ({Isworker,IsUser}) => {
 
   const [quantity, dispatch] = useReducer(reducer, initialState);
   console.log("this is quantity and count", quantity);
+
+
   const initialState2 = {
     time: ""
   }
@@ -231,31 +233,22 @@ const serviceprobem = ({Isworker,IsUser}) => {
       console.log("booking successfull", data);
       const timer = setTimeout(() => {
         setbooked(false);
-        // navigate('/');
-        // window.location.reload();
       }, 3000);
       setbooked(true);
       return () => {
-        //     isVisible=true;
-        //   wrongpassword=false;
         clearTimeout(timer);
-  
-  
       };
      
 
     }
     
   }
-  // console.log(userdetails);
-
-
 const [emptybrand, setemptybrand] = useState('');
 const [emptydate, setemptydate] = useState('');
 const [emptytime, setemptytime] = useState('');
 const [emptyprobleminterval, setemptyprobleminterval] = useState('')
 const [emptydescription, setemptydescription] = useState('');
-const [disabled, setdisabled] = useState(false);
+// const [disabled, setdisabled] = useState(false);
 const [IsVisible, setIsVisible] = useState(null);
 
 const[go,setgo]=useState(false);

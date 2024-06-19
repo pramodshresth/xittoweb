@@ -136,7 +136,7 @@
         align-items: center;
         border-radius: 50px;
         justify-content: center;
-        margin-left:73px;
+        margin-left:113px;
     } 
     .navbar-nav{
         margin-right:50px !important;
@@ -434,6 +434,12 @@
     justify-content: center;
 
 }
+.home-notification{
+    position:relative;
+}
+/* #notificationModal{
+    position:absolute;
+} */
 .cart{
     position:relative;
 }
@@ -582,3 +588,21 @@ hr,.reg{
     background-color: #fff;
     /* font-size: 100px !important; */
 }
+/* .notificationmodel .modal{
+   
+    background-color: red;
+
+} */
+#notificationModal,#mobilenotificationModal{
+    background-color: unset;
+ }
+ .notificationbody{
+    color:black;
+ }
+.notificationmodel .modal-content {
+    /* background-color: unset; */
+    /* background-color: red; */
+}
+/* .modal{
+    background-color: unset;
+} */

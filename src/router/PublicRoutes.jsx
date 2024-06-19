@@ -11,6 +11,8 @@ import { fetchworker,token } from "../api/ApI.jsx";
 import axios from "axios";
 // import Showserviceproblem  from "../service/Showserviceproblem";
 import Worker from "../service/worker/Worker.jsx";
+// import WorkerView from '../service/worker/WorkerView.jsx';
+import WorkerView from "../service/worker/WorkerView.jsx";
 const PublicRoutes = () => {
   const[Isworker,setIsworker]=useState(false);
   const[IsUser,setIsUser]=useState(true);
@@ -51,16 +53,20 @@ const PublicRoutes = () => {
                 IsUser?
                 <>
                  <Route path='/'element={<Service IsUser={IsUser} Isworker={Isworker}/>}></Route>
-            <Route path='/serviceproblem'element={<Serviceprobem Isworker={Isworker}/>}></Route>
+            <Route path='/serviceproblem'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
             <Route path='/contactus'element={<ContactUs Isworker={Isworker}/>}></Route>
             <Route path='/register'element={<Register />}></Route>
             <Route path='/login'element={<Login/>}></Route>
             <Route path='/registertoprofessional'element={<RegistertoProfessional IsUser={IsUser} Isworker={Isworker}/>}></Route>
-            <Route path='/cart'element={<Cart Isworker={Isworker}/>}></Route> 
+            <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
+            <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
               </>:
             <>
-            <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route></>
+            <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
+            <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
+            
+            </>
 
              
               }

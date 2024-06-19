@@ -4,3 +4,21 @@
 .yourcurrentassis{
     color:red;
 }
+.workerview{
+    margin-left:20px;
+    margin-top:40px;
+}
+.view{
+    display:flex;
+    justify-content: center;
+}
+.notification-dialog{
+    width: 400px;
+    position: absolute;
+    right:269px;
+    top: 45px;
+}
+.modal-open{
+    overflow: unset !important;
+    padding-right:unset!important;
+}

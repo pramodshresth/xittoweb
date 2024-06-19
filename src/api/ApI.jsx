@@ -10,7 +10,8 @@ export const FetchProblem=()=>`${url}/problems/get-all`;
 export const CreateBooking=()=>`${url}/booking/create`;
 export const RegisterProfessional=()=>`${url}/assistance/create`;
 export const fetchworker=()=>`${url}/assistance/my?page=1&pageSize=5`;
-
+export const Filterbookingbyassistance=()=>`${url}/booking/assistance/filter?status=`
+export const Getallnotification=()=>`${url}/notification`
 // const Api = () => {
 //   return (
 //     <div>Api</div>
