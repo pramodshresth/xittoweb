@@ -19,6 +19,7 @@ const WorkerView = ({Isworker,IsUser,setIsUser}) => {
           {
             headers: {
               Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json'
             },
           }
         );

@@ -42,6 +42,7 @@ const Service = ({Isworker,IsUser}) => {
         const response = await axios.get(FetchCategoryData(), {
           headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json',
           },
         });
         return setData(response.data.data);
@@ -56,6 +57,9 @@ const Service = ({Isworker,IsUser}) => {
   useEffect(() => {
     AOS.init();
   }, []);
+  const viewmap=()=>{
+    navigate('/viewmap');
+  }
   return (
     <>
     
@@ -79,7 +83,7 @@ const Service = ({Isworker,IsUser}) => {
 <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
  <div class="carousel-inner">
    <div class="carousel-item active">
-     <img src={Slider1} class="firstpage d-block w-100" alt="..."/>
+     <img src={Slider1} onClick={viewmap} class="firstpage d-block w-100" alt="..."/>
    </div>
    <div class="carousel-item">
      <img src={Slider2} class="secondpage d-block w-100" alt="..."/>
@@ -102,12 +106,12 @@ const Service = ({Isworker,IsUser}) => {
 
 
  <section id="services" className='services-section container'>
- <a href='#service'><div className='arrow'><ArrowDownwardIcon className='arrowdownicon'/></div></a>
+ {/* <a href='#service'><div className='arrow'><ArrowDownwardIcon className='arrowdownicon'/></div></a> */}
 <div>
 
 
  
- <p id="service" className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
+ <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
  <div  data-aos="zoom-in" className='services servicespadding'>
  {/* <label className="serviceslist">
  <img src={OfficeRenovation}onClick={problem}className='services-logo'/>

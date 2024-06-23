@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import React ,{useState,useEffect} from 'react'
+import  {useState,useEffect} from 'react'
 import Serviceprobem from "../service/Serviceproblem";
 import Service from '../service/Service';
 import Register from "../service/Register.jsx";
@@ -13,7 +13,11 @@ import axios from "axios";
 import Worker from "../service/worker/Worker.jsx";
 // import WorkerView from '../service/worker/WorkerView.jsx';
 import WorkerView from "../service/worker/WorkerView.jsx";
+// import Map from "../service/map.jsx"
+import ViewMap from "../service/ViewMap.jsx";
+// import Home from "../pages/Home.jsx";
 const PublicRoutes = () => {
+  // console.log("this is public route userlocation",UserLocation);
   const[Isworker,setIsworker]=useState(false);
   const[IsUser,setIsUser]=useState(true);
   useEffect(() => {
@@ -22,11 +26,12 @@ const PublicRoutes = () => {
         const response = await axios.get(fetchworker(), {
           headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
           },
         });
         console.log("this is response from public route",response.data.data);
         // console.log("this is response",response.data.data.assistance.map((item,index)=>{return item.approved===true}));
-        const approved=response.data.data.assistance.map((item,index)=>item.approved);
+        const approved=response.data.data.assistance.map((item)=>item.approved);
         console.log("this is approved",approved);
         const workerapproved=approved.includes(true)?true:false;
         console.log("this is workerapproved",workerapproved);
@@ -61,6 +66,9 @@ const PublicRoutes = () => {
             <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
             <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
+            <Route path='/viewmap'element={<ViewMap/>}></Route>
+            {/* <Route path='/home'element={<Home/>}></Route> */}
+
               </>:
             <>
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>

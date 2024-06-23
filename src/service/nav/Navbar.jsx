@@ -29,7 +29,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
       }
       const user=()=>{
         setshow(!show);
-        navigate('/');
+        // navigate('/');
       }
       const login=()=>{
         navigate('/login');
@@ -77,6 +77,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
         localStorage.removeItem('phone');
         localStorage.removeItem('cart');
         window.location.reload();
+        navigate('/');
         }
 
         console.log("this is  worker",Isworker);
@@ -99,6 +100,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
               const response = await axios.get(Getallnotification(), {
                 headers: {
                   Authorization: `Bearer ${token}`,
+                  'Content-Type': 'application/json'
                 },
               });
               return setnotification(response.data.data);
@@ -109,15 +111,15 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
           notification()
         },[])
         console.log("this is notification",notification)
-
-
+        const phonenumber=localStorage.getItem('phone');
+        console.log("this is phonenumber",phonenumber);
         
   return (
     <div>
-      {/* <div class="alert alert-success" role="alert"></div> */}
-     {showmessage?<div class="alert alert-success" role="alert">Logout successfully</div>:""
+      {/* <div className="alert alert-success" role="alert"></div> */}
+     {showmessage?<div className="alert alert-success" role="alert">Logout successfully</div>:""
      } 
-         <nav class="navbar navbar-expand-lg bg-body-tertiary">
+         <nav className="navbar navbar-expand-lg bg-body-tertiary">
 
          
    <img src={NavLogo} className='logo'onClick={home}/>
@@ -142,29 +144,21 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
 
 
-       <div class="modal fade " id="mobilenotificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
-  <div class="modal-dialog notification-dialog">
-    <div class="modal-content notification-content">
-      <div class="modal-header">
+       <div className="modal fade " id="mobilenotificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div className="modal-dialog notification-dialog">
+    <div className="modal-content notification-content">
+      <div className="modal-header">
 
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <h5 class="modal-title" id="exampleModalLabel">Notification</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 className="modal-title" id="exampleModalLabel">Notification</h5>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
       {
           notification===undefined?"":notification.map((item,index)=>(
             <p className='notificationbody'>{item.notification}</p>
           ))
         }
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p>
-        <p className='notificationbody'>home</p> 
+        
         
 
       </div>
@@ -182,23 +176,23 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
        </div> */}
        </div>
         </div>
-   <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
+   <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span className="navbar-toggler-icon"></span>
    </button>
-   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-     <div class="navbar-nav mx-auto">
-     {/* <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-     <span class="navbar-toggler-icon"></span>
+   <div className="collapse navbar-collapse" id="navbarNavAltMarkup">
+     <div className="navbar-nav mx-auto">
+     {/* <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+     <span className="navbar-toggler-icon"></span>
    </button> */}
    <div className='cross-btn'>
-     <button type="button" class="btn-close navbar-toggler "data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"></button>
+     <button type="button" className="btn-close navbar-toggler "data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup"></button>
      </div>
      {/* <div className='nav-bar'></div> */}
        {/* {IsUser?} */}
-       {!IsUser?<a class="nav-link register" onClick={switchtoUser} aria-current="page">SWITCH TO USER</a>:Isworker?<a class="nav-link register" onClick={switchtoworker} aria-current="page">SWITCH TO WORKER</a>:<a class="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>}
-       <a class="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
+       {!IsUser?<a className="nav-link register" onClick={switchtoUser} aria-current="page">SWITCH TO USER</a>:Isworker?<a className="nav-link register" onClick={switchtoworker} aria-current="page">SWITCH TO WORKER</a>:<a className="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>}
+       <a className="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
        
-       <a class="nav-link" >
+       <a className="nav-link" >
         
         <div className='cart'onClick={cart}>
         <div className='cartlength'>
@@ -208,7 +202,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
           <img src={Cart}className='cart-img'/>
         </div>
        </a>
-       <a class="nav-link">
+       <a className="nav-link">
        <div data-bs-toggle="modal" data-bs-target="#notificationModal" className='home-notification'>
         <NotificationsIcon className='noti'/>
 
@@ -217,18 +211,18 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
 
 
-        <div class="modal fade " id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
-  <div class="modal-dialog notification-dialog">
-    <div class="modal-content notification-content">
-      <div class="modal-header">
+        <div className="modal fade " id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+  <div className="modal-dialog notification-dialog">
+    <div className="modal-content notification-content">
+      <div className="modal-header">
         
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        <h5 class="modal-title" id="exampleModalLabel">Notifications</h5>
+        <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <h5 className="modal-title" id="exampleModalLabel">Notifications</h5>
       </div>
-      <div class="modal-body">
+      <div className="modal-body">
         {
           notification===undefined?"":notification.map((item,index)=>(
-            <p className='notificationbody'>{item.notification}</p>
+            <p key={index}className='notificationbody'>{item.notification}</p>
           ))
         }
       </div>
@@ -264,10 +258,10 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
 
        </a>
-       <a class="navlink line" href="#contact">
+       <a className="navlink line" href="#contact">
       
        </a>
-       <a class="nav-link">
+       <a className="nav-link">
 
        <div onClick={user} className='profile-dd dd'>
         <img src={Xshape}/>
@@ -291,8 +285,8 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
             <div className='col-md-10 col-sm-10 col-10 '>
             <div className='profile'>
-              <p>Pawan Subedi</p>
-              <p>9823576196</p>
+              {name===null?"":<p>{name}</p>}
+{phonenumber===null?"":<p>9823576196</p>}
               </div>
             </div>
             {/* <hr></hr> */}
@@ -380,11 +374,11 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
             </div>
             {
               name===null?
-              <a class="nav-link user-3" href="#contact">
+              <a className="nav-link user-3" href="#contact">
         <p className='user-3d'>Hello,Sign in</p>
         <p className='user-3d'>My Account</p>
        
-       </a>:<a class="nav-link user-3" href="#contact">
+       </a>:<a className="nav-link user-3" href="#contact">
         <p className='user-3d'>welcome</p>
         <p className='user-3d'>{name}</p>
        
@@ -410,7 +404,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 </nav>
 
 {/* {
-  showmessage?<div class="alert alert-success" role="alert">:""
+  showmessage?<div className="alert alert-success" role="alert">:""
 } */}
     </div>
   )

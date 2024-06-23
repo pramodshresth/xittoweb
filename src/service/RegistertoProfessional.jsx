@@ -25,6 +25,7 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
         const response = await axios.get(FetchCategoryData(), {
           headers: {
             Authorization: `Bearer ${token}`,
+            'Content-Type': 'application/json'
           },
         });
         return setData(response.data.data);

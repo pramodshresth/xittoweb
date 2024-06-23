@@ -16,6 +16,7 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
             const response = await axios.get(fetchworker(), {
               headers: {
                 Authorization: `Bearer ${token}`,
+                'Content-Type': 'application/json'
               },
             });
             console.log("thsi isresponse bla blabla",response);
