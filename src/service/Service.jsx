@@ -1,4 +1,4 @@
-import React,{useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import Slider1 from './assets/Slider1.jpg';
 
 import Slider2 from './assets/Slider2.jpg';
