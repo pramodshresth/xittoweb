@@ -45,6 +45,7 @@ const Service = ({Isworker,IsUser}) => {
             'Content-Type': 'application/json',
           },
         });
+        console.log(response.data.data, 'service data')
         return setData(response.data.data);
       } catch (error) {
         console.error("Error fetching data:", error);

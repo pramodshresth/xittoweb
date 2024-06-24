@@ -18,7 +18,6 @@
     "axios": "^1.6.8",
     "bootstrap": "^5.3.3",
     "elements-x": "^3.10.2",
-    "firebase": "^10.12.2",
     "jwt-check-expiry": "^1.0.10",
     "leaflet": "^1.9.4",
     "mapbox-gl": "^3.4.0",
