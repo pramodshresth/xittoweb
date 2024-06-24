@@ -11,7 +11,9 @@ export const CreateBooking=()=>`${url}/booking/create`;
 export const RegisterProfessional=()=>`${url}/assistance/create`;
 export const fetchworker=()=>`${url}/assistance/my?page=1&pageSize=5`;
 export const Filterbookingbyassistance=()=>`${url}/booking/assistance/filter?status=`
-export const Getallnotification=()=>`${url}/notification`
+export const Getallnotification=()=>`${url}/notification`;
+export const Sendotp=()=>`${url}/otp/send`;
+export const UserRegister=()=>`${url}/users/create-user`;
 // const Api = () => {
 //   return (
 //     <div>Api</div>
