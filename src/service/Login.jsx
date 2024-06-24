@@ -126,19 +126,25 @@ const Login = () => {
   return (
     <div>
         <div className='registerpage'>
-        
-            <div className='reg row'>
-                {
-                    message.length!==0 && login?  <div class="alert alert-success" role="alert">
+        {/* <div className="alert alert-success" role="alert"></div> */}
+        {
+                    message.length!==0 && login?  <div className="alert alert-success" role="alert">
                         {message}
                   </div>:""
                 }
-                {
+               
+        {
                     wrongpassword&&isVisible?
-                    <div class="alert alert-danger" role="alert">
+                    <div className="alert alert-danger" role="alert">
  Wrong Password.Try Again
 </div>:""
                 }
+            <div className='reg row'>
+                
+
+
+                 
+                
           
 
             <div className='col-md-6'>
@@ -161,29 +167,29 @@ const Login = () => {
               </div>
               
                 <div className='register-xitto'>
-            <h5 class="login" id="exampleModalLabel">Login to XITTOO</h5>
+            <h5 className="login" id="exampleModalLabel">Login to XITTOO</h5>
             <p>or <span className='createaccount'onClick={createaccount}>Create Account</span></p>
            
             </div>
          
-            <div class="input-group mb-3">
+            <div className="input-group mb-3">
                
  <PersonIcon/>
-  <input type="text" onChange={PhoneNumber} class="form-control"placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="text" onChange={PhoneNumber} className="form-control"placeholder="Phone" aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 
 
-<div class="input-group mb-3">
+<div className="input-group mb-3">
   <LockOpenIcon/>
-  <input type="password"onChange={password} class="form-control"placeholder='password' aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="password"onChange={password} className="form-control"placeholder='password' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
 
 
 
 
 <p>By signing up you agree to the Emerge Terms & Conditons.</p>
-<button type="submit" class="btn btn-primary">Submit</button>
+<button type="submit" className="btn btn-primary">Submit</button>
 <p className='forgot'>FORGOT LOGIN PASSWORD ?</p>
 
 </div>

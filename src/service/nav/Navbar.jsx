@@ -155,7 +155,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
       <div className="modal-body">
       {
           notification===undefined?"":notification.map((item,index)=>(
-            <p className='notificationbody'>{item.notification}</p>
+            <p className='notificationbody'key={index}>{item.notification}</p>
           ))
         }
         

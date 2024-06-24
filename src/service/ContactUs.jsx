@@ -78,27 +78,27 @@ const ContactUs = ({Isworker}) => {
             <div className='row'>
             
               
-            <div class="col-md-6 mb-3">
-  <input type="text" class="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Your Name"/>
+            <div className="col-md-6 mb-3">
+  <input type="text" className="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Your Name"/>
 </div>
-<div class="col-md-6 mb-3">
-  <input type="text" class="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Your Email"/>
+<div className="col-md-6 mb-3">
+  <input type="text" className="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Your Email"/>
 </div>
             </div>
             <div className='row'>
               <div className='col-md-12 mb-3'>
-              <input type="text" class="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Subject"/>
+              <input type="text" className="form-control contact-form-control" id="exampleFormControlInput1" placeholder="Subject"/>
 
               </div>
             </div>
             <div className='row'>
               <div className='col-md-12'>
-              <textarea class="form-control contact-form-control contactus-text" id="exampleFormControlTextarea1" rows="10"placeholder='Message'></textarea>
+              <textarea className="form-control contact-form-control contactus-text" id="exampleFormControlTextarea1" rows="10"placeholder='Message'></textarea>
 
               </div>
             </div>
             <div className='row warning-btn'>
-            <button type="button" class="btn btn-warning mt-3">Send Message</button>
+            <button type="button" className="btn btn-warning mt-3">Send Message</button>
             </div>
             </form>
           </div>
@@ -127,7 +127,7 @@ const ContactUs = ({Isworker}) => {
     <p className='contactus-heading'>9801362962|64</p>
     <p className='contactus-heading'>info@emergevisuals.com.np</p>
     <div className='Booking-btn'>
-            <button type="button" class="btn btn-warning mt-3">Book Now</button>
+            <button type="button" className="btn btn-warning mt-3">Book Now</button>
             </div>
 
 

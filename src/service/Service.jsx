@@ -31,109 +31,115 @@ const Service = ({Isworker,IsUser}) => {
   
   const navigate = useNavigate();
   const problem=(item)=>{
-    // console.log("this is item",item);
+
     navigate("/serviceproblem",{state:item});
   
   }
-  const[Data,setData]=useState();
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(FetchCategoryData(), {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            'Content-Type': 'application/json',
-          },
-        });
-        console.log(response.data.data, 'service data')
-        return setData(response.data.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, []);
-  console.log("this is data",Data);
+  
 
-  useEffect(() => {
-    AOS.init();
-  }, []);
+  
   const viewmap=()=>{
     navigate('/viewmap');
   }
-  return (
-    <>
-    
-       
-       <section>
-       
-        <div className='back-img-0'> 
-       <div className=''>
-   <Navbar Isworker={Isworker} IsUser={IsUser}/>
-</div>
 
 
 
 
 
 
-<section>
 
-
-
-<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
- <div class="carousel-inner">
-   <div class="carousel-item active">
-     <img src={Slider1} onClick={viewmap} class="firstpage d-block w-100" alt="..."/>
+  const Slider=()=>{
+    return(
+      <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
+ <div className="carousel-inner">
+   <div className="carousel-item active">
+     <img src={Slider1} onClick={viewmap} className="firstpage d-block w-100" alt="..."/>
    </div>
-   <div class="carousel-item">
-     <img src={Slider2} class="secondpage d-block w-100" alt="..."/>
+   <div className="carousel-item">
+     <img src={Slider2} className="secondpage d-block w-100" alt="..."/>
    </div>
-   <div class="carousel-item">
-     <img src={Slider3} class="thirdpage d-block w-100" alt="..."/>
+   <div className="carousel-item">
+     <img src={Slider3} className="thirdpage d-block w-100" alt="..."/>
    </div>
   
  </div>
- <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-   <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-   <span class="visually-hidden">Previous</span>
+ <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+   <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+   <span className="visually-hidden">Previous</span>
  </button>
- <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-   <span class="carousel-control-next-icon" aria-hidden="true"></span>
-   <span class="visually-hidden">Next</span>
+ <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+   <span className="carousel-control-next-icon" aria-hidden="true"></span>
+   <span className="visually-hidden">Next</span>
  </button>
 </div>
-</section>
+    )
+  }
 
 
- <section id="services" className='services-section container'>
- {/* <a href='#service'><div className='arrow'><ArrowDownwardIcon className='arrowdownicon'/></div></a> */}
-<div>
+
+
+
 
 
  
- <p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
- <div  data-aos="zoom-in" className='services servicespadding'>
- {/* <label className="serviceslist">
- <img src={OfficeRenovation}onClick={problem}className='services-logo'/>
- <p className='services-name'>Office Renovation</p>
- </label> */}
+
+  const Services=()=>{
+    const[Data,setData]=useState();
+
+    useEffect(() => {
+      const fetchData = async () => {
+        try {
+          const response = await axios.get(FetchCategoryData(), {
+            headers: {
+              Authorization: `Bearer ${token}`,
+              'Content-Type': 'application/json',
+            },
+          });
+          console.log(response.data.data, 'service data')
+          return setData(response.data.data);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      };
+      fetchData();
+    }, []);
+
+    useEffect(() => {
+      AOS.init();
+    }, []);
+
+    
+    return (
+      <>
+      <div>
+
+
+ 
+<p className='bookservice 'data-aos="fade-up"><span className='our'>OUR</span><span className='service'>&nbsp;SERVICES</span></p>
+<div  data-aos="zoom-in" className='services servicespadding'>
 
 {
- Data === undefined ?"": Data.map((item,index)=>(
-    <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
-    
-      <img className='services-logo'src={item.imagePath}/>
-      <p className='services-name'>{item.name}</p>
-    </label>
-  ))
+Data === undefined ?"": Data.map((item,index)=>(
+   <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
+   
+     <img className='services-logo'src={item.imagePath}/>
+     <p className='services-name'>{item.name}</p>
+   </label>
+ ))
 }
- </div>
 </div>
-</section>
-</div> 
-<section data-aos="zoom-in"  className='sectionpadding ourpartnersection'>
-  <div  className='container'>
+</div>
+      </>
+
+
+    )
+    
+  }
+
+
+  const OurPartner=()=>{
+    return(
+      <div  className='container'>
     <h1  className='ourpartner'><span className='our'>OUR &nbsp;</span> PARTNERS</h1>
       <Swiper
         slidesPerView={1}
@@ -188,15 +194,19 @@ const Service = ({Isworker,IsUser}) => {
         </div>
       </Swiper>
   </div>
-</section>
+    )
+  }
 
-<section className='sectionpadding'>
-  <img  src={Workflow}className='workflow'/>
-</section>
+  const Howwework=()=>{
+    return (
+      <img  src={Workflow}className='workflow'/>
+    )
+  }
 
-<section    className='what-our-client-say sectionpadding'>
 
-<div className='client-page'>
+  const Whatourclientsay=()=>{
+    return (
+      <div className='client-page'>
 <Swiper
         slidesPerView={1}
         spaceBetween={10}
@@ -236,15 +246,15 @@ const Service = ({Isworker,IsUser}) => {
       >
        
         <SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
+        <div className="card  client-card">
+  <div className="row card-body">
   <div className='row'>
       <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
+  <img src={Slider1} className="card-img-top" alt="..."/>
   
   </div>
   <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
+  <h5 className="">Card title</h5>
  
   </div>
   </div>
@@ -252,7 +262,7 @@ const Service = ({Isworker,IsUser}) => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -261,15 +271,15 @@ const Service = ({Isworker,IsUser}) => {
 
 
 <SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
+        <div className="card  client-card">
+  <div className="row card-body">
   <div className='row'>
       <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
+  <img src={Slider1} className="card-img-top" alt="..."/>
   
   </div>
   <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
+  <h5 className="">Card title</h5>
  
   </div>
   </div>
@@ -277,7 +287,7 @@ const Service = ({Isworker,IsUser}) => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -285,15 +295,15 @@ const Service = ({Isworker,IsUser}) => {
 </SwiperSlide>
 
 <SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
+        <div className="card  client-card">
+  <div className="row card-body">
   <div className='row'>
       <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
+  <img src={Slider1} className="card-img-top" alt="..."/>
   
   </div>
   <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
+  <h5 className="">Card title</h5>
  
   </div>
   </div>
@@ -301,55 +311,7 @@ const Service = ({Isworker,IsUser}) => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
-  </div>
-    </div>
-</div>
-</SwiperSlide>
-
-
-<SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
-  <div className='row'>
-      <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
-  
-  </div>
-  <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
- 
-  </div>
-  </div>
-  <div className='row em-2'>
-  <div className='col-md-2 comma'>
-  <img  src={Comma} className='comma-img'/>
-  </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
-  </div>
-    </div>
-</div>
-</SwiperSlide>
-<SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
-  <div className='row'>
-      <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
-  
-  </div>
-  <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
- 
-  </div>
-  </div>
-  <div className='row em-2'>
-  <div className='col-md-2 comma'>
-  <img  src={Comma} className='comma-img'/>
-  </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -358,15 +320,15 @@ const Service = ({Isworker,IsUser}) => {
 
 
 <SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
+        <div className="card  client-card">
+  <div className="row card-body">
   <div className='row'>
       <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
+  <img src={Slider1} className="card-img-top" alt="..."/>
   
   </div>
   <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
+  <h5 className="">Card title</h5>
  
   </div>
   </div>
@@ -374,7 +336,30 @@ const Service = ({Isworker,IsUser}) => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+<SwiperSlide>
+        <div className="card  client-card">
+  <div className="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} className="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 className="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -383,15 +368,15 @@ const Service = ({Isworker,IsUser}) => {
 
 
 <SwiperSlide>
-        <div class="card  client-card">
-  <div class="row card-body">
+        <div className="card  client-card">
+  <div className="row card-body">
   <div className='row'>
       <div className='client-image col-md-5'>
-  <img src={Slider1} class="card-img-top" alt="..."/>
+  <img src={Slider1} className="card-img-top" alt="..."/>
   
   </div>
   <div className='col-md-5 card-title'>
-  <h5 class="">Card title</h5>
+  <h5 className="">Card title</h5>
  
   </div>
   </div>
@@ -399,7 +384,32 @@ const Service = ({Isworker,IsUser}) => {
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p class=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div className="card  client-card">
+  <div className="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} className="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 className="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -407,12 +417,16 @@ const Service = ({Isworker,IsUser}) => {
 </SwiperSlide>
       </Swiper>
 </div>
-<div className='client-page'>
-      </div>
-</section>
+    )
+  }
 
-<section data-aos="zoom-in" className='padding'>
-  <div className='foot'>
+
+
+
+  const Footer=()=>{
+    return (
+      <>
+      <div className='foot'>
   <div className='footter'>
     <div className='row footter-row'>
       <div className='col-md-6'>
@@ -470,7 +484,57 @@ const Service = ({Isworker,IsUser}) => {
     </div>
       
       </div>
+      </>
+    )
+  }
 
+
+
+
+
+  return (
+    <>
+    
+       
+       <section>
+       
+        <div className='back-img-0'> 
+       <div className=''>
+   <Navbar Isworker={Isworker} IsUser={IsUser}/>
+</div>
+
+
+
+
+
+
+<section>
+
+
+
+ <Slider/>
+</section>
+
+
+ <section id="services" className='services-section container'>
+
+ <Services/>
+</section>
+</div> 
+<section data-aos="zoom-in"  className='sectionpadding ourpartnersection'>
+  <OurPartner/>
+</section>
+
+<section className='sectionpadding'>
+  <Howwework/>
+</section>
+
+<section    className='what-our-client-say sectionpadding'>
+<Whatourclientsay/>
+</section>
+
+<section data-aos="zoom-in" className='padding'>
+  <Footer/>
 </section>
 </section>
      

@@ -14,7 +14,7 @@ import Worker from "../service/worker/Worker.jsx";
 // import WorkerView from '../service/worker/WorkerView.jsx';
 import WorkerView from "../service/worker/WorkerView.jsx";
 // import Map from "../service/map.jsx"
-import ViewMap from "../service/ViewMap.jsx";
+
 // import Home from "../pages/Home.jsx";
 const PublicRoutes = () => {
   // console.log("this is public route userlocation",UserLocation);
@@ -66,7 +66,7 @@ const PublicRoutes = () => {
             <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
             <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-            <Route path='/viewmap'element={<ViewMap/>}></Route>
+           
             {/* <Route path='/home'element={<Home/>}></Route> */}
 
               </>:

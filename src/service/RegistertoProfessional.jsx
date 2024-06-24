@@ -134,7 +134,7 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
     <div>
       <section>
         {
-          IsVisible ? <div class="alert alert-success" role="alert">{Message}</div> : ""
+          IsVisible ? <div className="alert alert-success" role="alert">{Message}</div> : ""
         }
 
         <div className='back-img-0'>
@@ -150,31 +150,31 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
                     <div className='col-md-4 register-form'>
                       <h4 className='registerprofessional'>REGISTER HERE FOR PROFESSINAL!</h4>:<h4 className='registerprofessional'>Switch To PROFESSINAL!</h4>
                       {/* <label className='register-d'>Full Name:</label>
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
         
           
-  <input type="text" class=" form-xx form-control" placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="text" className=" form-xx form-control" placeholder="Your Name" aria-label="Username" aria-describedby="basic-addon1"/>
   < PersonIcon className='icon'/>
 </div> */}
 
 
                       {/* <label className='register-d'>Address:</label> */}
-                      {/* <div class="input-group mb-3">
+                      {/* <div className="input-group mb-3">
         
           
-  <input type="text" class=" form-xx form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="text" className=" form-xx form-control" placeholder="Full Address" aria-label="Username" aria-describedby="basic-addon1"/>
   <RoomIcon className='icon'/>
 </div> */}
 
 
                       {/* <label className='register-d'>Service:</label>
-        <div class="input-group mb-3">
+        <div className="input-group mb-3">
         
           
-  <input type="text" class=" form-xx form-control" placeholder="Select Service you Assist" aria-label="Username" aria-describedby="basic-addon1"/>
+  <input type="text" className=" form-xx form-control" placeholder="Select Service you Assist" aria-label="Username" aria-describedby="basic-addon1"/>
   <SearchIcon className='icon'/>
 </div> */}
-                      <select onChange={category} class="form-select" aria-label="Default select example">
+                      <select onChange={category} className="form-select" aria-label="Default select example">
                         {/* <option selected className='ques'>Select The category</option>
   <option value="1">One</option>
   <option value="2">Two</option>
@@ -192,25 +192,25 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
 
 
                       <label className='register-d'>Year of Experience in sector:</label>
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
 
 
-                        <input type="text" onChange={experience} class="form-xx form-control" placeholder="4" aria-label="Username" aria-describedby="basic-addon1" />
+                        <input type="text" onChange={experience} className="form-xx form-control" placeholder="4" aria-label="Username" aria-describedby="basic-addon1" />
                         {/* <SearchIcon/> */}
                         <span className='yrs'>yrs</span>
                       </div>
 
                       <label className='register-d'>Mail:</label>
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
 
 
-                        <input type="email" onChange={mail} class=" form-xx form-control" placeholder="Provide Mail Address" aria-label="Username" aria-describedby="basic-addon1" />
+                        <input type="email" onChange={mail} className=" form-xx form-control" placeholder="Provide Mail Address" aria-label="Username" aria-describedby="basic-addon1" />
                         <LocalPostOfficeIcon className='icon' />
                       </div>
 
-                      <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="hello world" id="flexCheckChecked" checked />
-                        <label class="form-check-label" for="flexCheckChecked">
+                      <div className="form-check">
+                        <input className="form-check-input" type="checkbox" value="hello world" id="flexCheckChecked" checked />
+                        <label className="form-check-label" for="flexCheckChecked">
                           I agree to all Terms & Conditions
                         </label>
                       </div>
@@ -225,22 +225,22 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
 
 
                       <label className='register-d'>Daily Bill:</label>
-                      <div class="input-group mb-3">
+                      <div className="input-group mb-3">
 
 
-                        <input type="text" onChange={dailybill} class=" form-xx form-control" placeholder="Your Number" aria-label="Username" aria-describedby="basic-addon1" />
+                        <input type="text" onChange={dailybill} className=" form-xx form-control" placeholder="Your Number" aria-label="Username" aria-describedby="basic-addon1" />
                         <PhoneIphoneIcon className='icon' />
                       </div>
 
                       <label className='register-d'>Level of Assistance:</label>
-                      <select class="form-select" onChange={levelofassistance} aria-label="Default select example">
+                      <select className="form-select" onChange={levelofassistance} aria-label="Default select example">
                         <option selected>Select Assist Level</option>
                         <option className="op" value="1">Beginner</option>
                         <option className="op" value="2">Moderate</option>
                         <option className="op" value="3">Pro</option>
                       </select>
 
-                      <button type="submit" class="btn btn-light">Register</button>
+                      <button type="submit" className="btn btn-light">Register</button>
 
                     </div>
 
@@ -296,9 +296,6 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
                 </div>
 
               </div>
-
-
-              {/* <img src={FooterImage}className=' footter-image'/> */}
             </div>
 
           </div>

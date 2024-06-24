@@ -494,13 +494,13 @@ const handleCloseModal = () => setShowModal(false);
       <section id="serviceproblem" className="back-img-0">
         <Navbar Isworker={Isworker} IsUser={IsUser} />
         {
-          IsVisible ? <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> : ""
+          IsVisible ? <div className="alert alert-success" role="alert">Cart Added Succesfully.</div> : ""
         }
         {
-          booked ? <div class="alert alert-success" role="alert">Booked Succesfully.</div> : ""
+          booked ? <div className="alert alert-success" role="alert">Booked Succesfully.</div> : ""
         }
-        {/* <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
-        {/* <div class="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
+        {/* <div className="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
+        {/* <div className="alert alert-success" role="alert">Cart Added Succesfully.</div> */}
 
         <div data-aos="zoom-in" className="container">
           <div className="row">
@@ -510,11 +510,11 @@ const handleCloseModal = () => setShowModal(false);
                 {
                   Data === undefined ? "" : Data.map((item, index) => (
 
-                    <div key={index} class="card problemlist">
-                      <img src={Slider1} class="card-img-top" />
-                      <div class="card-body problem-body">
-                        <h5 class="card-title">{item.name}</h5>
-                        <a data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" class="btn btn-primary">Book Now</a>
+                    <div key={index} className="card problemlist">
+                      <img src={Slider1} className="card-img-top" />
+                      <div className="card-body problem-body">
+                        <h5 className="card-title">{item.name}</h5>
+                        <a data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" className="btn btn-primary">Book Now</a>
                       </div>
 
                     </div>
@@ -534,16 +534,16 @@ const handleCloseModal = () => setShowModal(false);
 
        {
         showModal?
-      //  <div class="modal" id={`${accessToken === null ? "" : "bookingexampleModal"}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      //     <div class="modal-xl modal-dialog" >
-      //       <div class="modal-content">
+      //  <div className="modal" id={`${accessToken === null ? "" : "bookingexampleModal"}`} tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      //     <div className="modal-xl modal-dialog" >
+      //       <div className="modal-content">
             
-      //         <div class="modal-header">
-      //           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closenow}></button>
-      //           <h5 class="modal-title" id="exampleModalLabel">Service Title</h5>
+      //         <div className="modal-header">
+      //           <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" onClick={closenow}></button>
+      //           <h5 className="modal-title" id="exampleModalLabel">Service Title</h5>
 
       //         </div>
-      //         <div class="modal-body">
+      //         <div className="modal-body">
        <div className="modal" tabIndex="-1"id={`${accessToken === null ? "" : "bookingexampleModal"}`} role="dialog" style={{ display: 'block' }}>
           <div className="modal-dialog modal-xl" role="document">
            <div className="modal-content">
@@ -600,7 +600,7 @@ const handleCloseModal = () => setShowModal(false);
                       <div>
                         <p className='empty'>{emptybrand}</p>
                         <span className='brands'>Select Brands</span>
-                        <select onChange={handleSelectChange} value={selectedOption} class="form-select" aria-label="Default select example">
+                        <select onChange={handleSelectChange} value={selectedOption} className="form-select" aria-label="Default select example">
                           <option selected>Open this select menu</option>
                           {
                             problemsdetail[0].length === 1 ? "" : problemsdetail[0].brands.map((item, index) => (
@@ -738,10 +738,10 @@ const handleCloseModal = () => setShowModal(false);
 
                       {/* <input type='text'className='user-location'/> */}
 
-                      <div class="form-floating">
+                      <div className="form-floating">
                         <p className='empty'>{emptydescription}</p>
                         <h1 className='prob-interval'>Description</h1>
-                        <input type="text" class="form-control" value={userdescription} onChange={description} placeholder="Write Here" id="" />
+                        <input type="text" className="form-control" value={userdescription} onChange={description} placeholder="Write Here" id="" />
                         {/* <label for="floatingTextarea">Comments</label> */}
                       </div>
 
@@ -770,11 +770,11 @@ const handleCloseModal = () => setShowModal(false);
 
                       </div>
 
-                      <div class="row modal-footer">
+                      <div className="row modal-footer">
 
-                        <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={book}><span className='book'>Book</span></button>
+                        <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={book}><span className='book'>Book</span></button>
                         {
-                          gotocart || go ? <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={goincart}><span className='addtocart'>GO TO CART</span></button> : <button type="button" class="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={addtocart} ><span className='addtocart'>ADD TO CART</span></button>
+                          gotocart || go ? <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={goincart}><span className='addtocart'>GO TO CART</span></button> : <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={addtocart} ><span className='addtocart'>ADD TO CART</span></button>
                         }
                       </div>
 
