@@ -8,9 +8,13 @@
     margin-left:20px;
     margin-top:40px;
 }
+.assistance-level{
+    color:#000000;
+}
 .view{
     display:flex;
     justify-content: center;
+    padding-top:100px;
 }
 .notification-dialog{
     width: 400px;
@@ -22,3 +26,23 @@
     overflow: unset !important;
     padding-right:unset!important;
 }
+.success{
+    position:relative;
+    margin-top: 80px;
+}
+.current-assistance,.pending-assistance{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(187px, 1fr));
+    /* justify-items: center; */
+}
+
+
+
+
+
+
+
+
+
+
+

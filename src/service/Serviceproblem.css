@@ -77,37 +77,23 @@
 }
 .quantitylist{
     width:164px;
-    /* background-color:#fff; */
-    /* border:1px solid #dfdfdf; */
+   
     display:flex;
     align-items: center;
 }
 .period{
     width:150px;
     height:50px;
-    /* background-color:#FFF; */
-    /* box-shadow: 0 2px 12px -2px #00000026; */
-    /* box-shadow:0 2px 12px -2px yellow; */
     box-shadow:0 2px 12px -2px #00000026;
-    /* margin-bottom:15px; */
     display:flex;
     align-items: center;
     justify-content: center;
-   
-    /* padding:15px; */
-    
+    cursor: pointer;    
 }
 .Time_period{
-    /* display:flex;
-    flex-direction: row;
-    flex-wrap: wrap; */
     display:grid;
     grid-template-columns: repeat(auto-fill, minmax(135px, 1fr)); /* Adjust the min and max width as needed */
     gap:10px;
-    
-  /* gap: 10px; Adjust the gap between grid items as needed */
-    /* display:grid;
-    grid-template-columns: repeat(3,1fr); */
 }
 .transactionmode{
     margin-top:10px;
@@ -228,6 +214,7 @@ option:hover{
     flex-direction: column;
     justify-content: center;
     align-items:center;
+    cursor: pointer;
     
   }
   .firstsixdays{
@@ -319,6 +306,13 @@ option:hover{
   width: 100%; /* Ensure the map takes up the full width of its container */
 }
 
+.service-problem-page{
+  overflow-anchor: none;
+}
+/* .fotter-page{
+  height:80vh;
+  background-color: red;
+} */
 
 /* .leaflet-container {
   height: 100%;

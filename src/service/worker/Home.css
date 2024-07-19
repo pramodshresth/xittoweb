@@ -1,0 +1,72 @@
+.status{
+    margin-top:84px;
+}
+.show-details{
+    margin-top:100px;
+}
+
+
+
+
+
+
+
+
+.onworkpage{
+    /* width: 1360px; */
+/* height: 96px; */
+flex-shrink: 0;
+border-radius: 20px;
+padding:20px;
+/* border: 1px solid rgba(105, 13, 147, 0.80); */
+background:rgb(206 219 246);
+margin:5px 0px;
+/* padding:20px */
+}
+.worker-problem-image{
+    width:100%;
+    border-radius: 20px;
+    height:100%;
+    object-fit:cover;
+    object-position: center;
+}
+.worker-problem-description{
+    padding:12px 0px;
+    /* padding:19px; */
+}
+.ongoing,.pending,.completed{
+    background-color: #9db2e2;
+    color: #fff;
+    font-size: 25px;
+    font-weight: 600;
+    /* padding: 10px; */
+
+}
+.worker-show-status{
+    background-color:#b4c8f2;
+    /* height:57px; */
+    margin-right:2px;
+
+}
+@media only screen and (max-width:768px) {
+    .ongoing,.pending,.completed{
+        height:50px !important;
+        /* display: flex !important;
+        justify-content: start !important; */
+    }
+    .worker-problem-status-section{
+        display: flex!important;
+        justify-content: start !important;
+    }
+    .worker-show-status-section{
+        height:150px;
+        justify-content: start !important;
+    }
+  }
+/* .ongoing{
+    width:150px;
+    height:50px;
+    background-color:#0A9C3C;
+    border-radius: 10px;
+    
+} */

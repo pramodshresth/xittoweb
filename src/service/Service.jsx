@@ -28,19 +28,18 @@ import {FetchCategoryData,token} from '../api/ApI.jsx';
 import axios from 'axios';
 import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 const Service = ({Isworker,IsUser}) => {
-  
+
   const navigate = useNavigate();
   const problem=(item)=>{
-
-    navigate("/serviceproblem",{state:item});
+    navigate("/viewproblem",{state:item});
   
   }
   
 
   
-  const viewmap=()=>{
-    navigate('/viewmap');
-  }
+  // const viewmap=()=>{
+  //   navigate('/viewmap');
+  // }
 
 
 
@@ -53,7 +52,7 @@ const Service = ({Isworker,IsUser}) => {
       <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
  <div className="carousel-inner">
    <div className="carousel-item active">
-     <img src={Slider1} onClick={viewmap} className="firstpage d-block w-100" alt="..."/>
+     <img src={Slider1}  className="firstpage d-block w-100" alt="..."/>
    </div>
    <div className="carousel-item">
      <img src={Slider2} className="secondpage d-block w-100" alt="..."/>
@@ -120,11 +119,13 @@ const Service = ({Isworker,IsUser}) => {
 
 {
 Data === undefined ?"": Data.map((item,index)=>(
+   // eslint-disable-next-line react/jsx-key
    <label key={index}onClick={()=>problem(item.id)}className='serviceslist'>
    
      <img className='services-logo'src={item.imagePath}/>
      <p className='services-name'>{item.name}</p>
    </label>
+  
  ))
 }
 </div>

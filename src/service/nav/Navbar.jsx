@@ -68,17 +68,22 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
         };
        
       }
-      if(showmessage===false)
-        {
-        localStorage.removeItem('accessToken');
-        localStorage.removeItem('name');
-        localStorage.removeItem('id');
-        localStorage.removeItem('profile_url');
-        localStorage.removeItem('phone');
-        localStorage.removeItem('cart');
-        window.location.reload();
-        navigate('/');
-        }
+     
+        if(showmessage===false)
+          {
+          localStorage.removeItem('accessToken');
+          localStorage.removeItem('name');
+          localStorage.removeItem('id');
+          localStorage.removeItem('profile_url');
+          localStorage.removeItem('phone');
+          localStorage.removeItem('cart');
+          setshowmessage(null)
+          window.location.reload();
+          navigate('/');
+          }
+
+
+      
 
         console.log("this is  worker",Isworker);
         // const[user,setuser]=useState(false);

@@ -1,5 +1,5 @@
 import { BrowserRouter,Routes,Route } from "react-router-dom";
-import  {useState,useEffect} from 'react'
+import  {useState,useEffect,useLayoutEffect} from 'react'
 import Serviceprobem from "../service/Serviceproblem";
 import Service from '../service/Service';
 import Register from "../service/Register.jsx";
@@ -10,13 +10,16 @@ import Cart from "../service/cart/Cart.jsx";
 import { fetchworker,token } from "../api/ApI.jsx";
 import axios from "axios";
 // import Showserviceproblem  from "../service/Showserviceproblem";
-import Worker from "../service/worker/Worker.jsx";
-// import WorkerView from '../service/worker/WorkerView.jsx';
-import WorkerView from "../service/worker/WorkerView.jsx";
-// import Map from "../service/map.jsx"
 
+// import Map from "../service/map.jsx"
+import Nopage from "../pages/Nopage.jsx";
+// import Onwork from "../service/worker/Onwork.jsx";
+import Show from "../service/worker/show.jsx";
+import Worker from '../service/worker/Worker.jsx'
 // import Home from "../pages/Home.jsx";
+import Home from "../service/worker/Home.jsx";
 const PublicRoutes = () => {
+
   // console.log("this is public route userlocation",UserLocation);
   const[Isworker,setIsworker]=useState(false);
   const[IsUser,setIsUser]=useState(true);
@@ -58,27 +61,32 @@ const PublicRoutes = () => {
                 IsUser?
                 <>
                  <Route path='/'element={<Service IsUser={IsUser} Isworker={Isworker}/>}></Route>
-            <Route path='/serviceproblem'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
+            <Route path='/viewproblem'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
             <Route path='/contactus'element={<ContactUs Isworker={Isworker}/>}></Route>
             <Route path='/register'element={<Register />}></Route>
             <Route path='/login'element={<Login/>}></Route>
             <Route path='/registertoprofessional'element={<RegistertoProfessional IsUser={IsUser} Isworker={Isworker}/>}></Route>
             <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-            <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
+             {/*<Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route> */}
+            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route> */}
+            <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+            <Route path='/Home'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+
+            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route> */}
            
             {/* <Route path='/home'element={<Home/>}></Route> */}
 
               </>:
             <>
+            <Route path='/Home'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-            <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-            
+            {/* <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>  */}
+            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker} IsUser={IsUser} setIsUser={setIsUser}/>}></Route> */}
+            <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             </>
-
-             
               }
-           
+              <Route path='*' element={<Nopage/>} />
             </Route>
         </Routes>
         </BrowserRouter>

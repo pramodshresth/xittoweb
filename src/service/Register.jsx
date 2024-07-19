@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState,useEffect } from 'react'
 import Slider1 from './assets/Slider1.jpg'
 import './css/Register.css';
 import PersonIcon from '@mui/icons-material/Person';
@@ -60,29 +60,14 @@ const Register = () => {
     console.log("this is user image",x);
   }
 
-  // const[phone,setphone]=useState();
-  // const[password,setpassword]=useState();
-  // const[gender,setgender]=useState();
-  // const[district,setdistrict]=useState();
-  // const[address,setaddress]=useState();
-  // const[image,setimage]=useState();
   const userinvitecode=(e)=>{
     const x=e.target.value;
     setinvitecode(x);
 
   }
-
-  // const Registeronxitto=(e)=>{
-    
-  //   e.preventDefault();
-    
-    
-    
-      
-      
-  //   )
-  // }
   const[message,setmessage]=useState();
+  const[success,setsuccess]=useState(false)
+  const[error,seterror]=useState(false)
   const Registeronxitto=async(e)=>{
 
     e.preventDefault();
@@ -113,18 +98,46 @@ const Register = () => {
           const data = await response.json();
           console.log("this is data",data);
           setmessage(data.message);
+
+          
+          setsuccess(true)
+          
         }
       else{
         const data = await response.json();
         console.log("error",data);
         setmessage(data.message);
+        const timer = setTimeout(() => {
+          seterror(true);
+          // navigate('/');
+        }, 3000);
+        
+        return () => {
+          seterror(false)
+          clearTimeout(timer);
+        };
       }
     }catch(error)
     {
       console.log("There was an error");
     }
   }
+  
   const [showotp,setshowotp]=useState(true);
+  useEffect(()=>{
+    const timer = setTimeout(() => {
+      setsuccess(false);
+      // navigate('/');
+    }, 3000);
+    return () => {
+      
+      clearTimeout(timer);
+    };
+
+    
+    
+  },[success])
+  console.log("this is success",success)
   const submit_phone_number=async()=>{
     const data={
       phone_num:phone
@@ -156,20 +169,19 @@ const Register = () => {
        
       {showotp?
       <>
-            {/* <input type='text'placeholder="phone_number" onChange={otpcode}/> */}
-            
-           
             <div className="input-group mb-3">
 <PhoneIphoneIcon/>
 <input type="text "onChange={userphoneno} className="form-control"placeholder='phone' aria-label="Username" aria-describedby="basic-addon1"/>
 </div>
             <button type="submit" className="btn btn-primary"onClick={submit_phone_number}>Submit</button>
-            <div className="alert alert-success" role="alert">{message}</div>
+           
       </>
 
       :
       <div className='registerpage'>
-        <div className="alert alert-success" role="alert">{message}</div>
+         {success?<div className="alert alert-success" role="alert">{message}</div>:""}
+         {error?<div className="alert alert-danger[0p" role="alert">{message}</div>:""}
+        {/* <div className="alert alert-success" role="alert">{message}</div> */}
       <div className='reg row'>
         <div className='col-md-6'>
             <img src={Slider1} className="img-fluid register-image" alt="..."/>

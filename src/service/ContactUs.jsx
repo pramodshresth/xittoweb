@@ -13,7 +13,7 @@ import Navbar from './nav/Navbar';
 const ContactUs = ({Isworker}) => {
   const navigate=useNavigate();
   const services=()=>{
-    navigate('/#services');
+    navigate('/services');
 
   }
   return (
