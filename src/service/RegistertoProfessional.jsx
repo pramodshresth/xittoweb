@@ -1,18 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import  { useEffect, useState } from 'react';
 import Navbar from './nav/Navbar'
 import './css/Registerprofessional.css';
-import PersonIcon from '@mui/icons-material/Person';
-import RoomIcon from '@mui/icons-material/Room';
-import SearchIcon from '@mui/icons-material/Search';
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
 import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import Image from './assets/Image.svg';
 import SiteVisitor from './assets/Sitevisitor.svg';
 import xittofooterimage from './assets/xittoblueimage.png';
-import { FetchCategoryData, token, RegisterProfessional ,fetchworker} from '../api/ApI';
+import { FetchCategoryData, token, RegisterProfessional} from '../api/ApI';
 import axios from 'axios';
-import { Navigate } from 'react-router-dom';
-import { useNavigate, useLocation } from "react-router-dom";
+import PropTypes from 'prop-types';
+import AOS from 'aos';
+import { useNavigate} from "react-router-dom";
 const RegistertoProfessional = ({Isworker,IsUser}) => {
   const navigate = useNavigate();
   useEffect(() => {
@@ -185,7 +183,7 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
                           //   // <option>{item.name}</option>
                           // })
                           Data.map((item, index) => (
-                            <option value={item.id}>{item.name}</option>
+                            <option key={index} value={item.id}>{item.name}</option>
                           ))
                         }
                       </select>
@@ -210,7 +208,7 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
 
                       <div className="form-check">
                         <input className="form-check-input" type="checkbox" value="hello world" id="flexCheckChecked" checked />
-                        <label className="form-check-label" for="flexCheckChecked">
+                        <label className="form-check-label" htmlFor="flexCheckChecked">
                           I agree to all Terms & Conditions
                         </label>
                       </div>
@@ -325,5 +323,9 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
     </div>
   )
 }
+RegistertoProfessional.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool
+};
 
 export default RegistertoProfessional

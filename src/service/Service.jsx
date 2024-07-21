@@ -4,8 +4,8 @@ import Slider1 from './assets/Slider1.jpg';
 import Slider2 from './assets/Slider2.jpg';
 import Slider3 from './assets/Slider3.jpg';
 import Workflow from './assets/Workflow.png';
-import { useNavigate, useLocation } from "react-router-dom";
-import PermIdentityIcon from '@mui/icons-material/PermIdentity';
+import { useNavigate} from "react-router-dom";
+// import PermIdentityIcon from '@mui/icons-material/PermIdentity';
 // import Top_shapes from './assets/Top_shapes.svg';
 import EmergeInfoLogo from './assets/EmergeInfoLogo.png';
 import Khalti from './assets/Khalti.png';
@@ -26,7 +26,9 @@ import xittofooterimage from './assets/xittoblueimage.png';
 import Navbar from './nav/Navbar';
 import {FetchCategoryData,token} from '../api/ApI.jsx';
 import axios from 'axios';
-import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
+import PropTypes from 'prop-types';
+import AOS from 'aos';
+// import ArrowDownwardIcon from '@mui/icons-material/ArrowDownward';
 const Service = ({Isworker,IsUser}) => {
 
   const navigate = useNavigate();
@@ -263,7 +265,7 @@ Data === undefined ?"": Data.map((item,index)=>(
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -288,7 +290,7 @@ Data === undefined ?"": Data.map((item,index)=>(
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -312,55 +314,7 @@ Data === undefined ?"": Data.map((item,index)=>(
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
-  </div>
-    </div>
-</div>
-</SwiperSlide>
-
-
-<SwiperSlide>
-        <div className="card  client-card">
-  <div className="row card-body">
-  <div className='row'>
-      <div className='client-image col-md-5'>
-  <img src={Slider1} className="card-img-top" alt="..."/>
-  
-  </div>
-  <div className='col-md-5 card-title'>
-  <h5 className="">Card title</h5>
- 
-  </div>
-  </div>
-  <div className='row em-2'>
-  <div className='col-md-2 comma'>
-  <img  src={Comma} className='comma-img'/>
-  </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
-  </div>
-    </div>
-</div>
-</SwiperSlide>
-<SwiperSlide>
-        <div className="card  client-card">
-  <div className="row card-body">
-  <div className='row'>
-      <div className='client-image col-md-5'>
-  <img src={Slider1} className="card-img-top" alt="..."/>
-  
-  </div>
-  <div className='col-md-5 card-title'>
-  <h5 className="">Card title</h5>
- 
-  </div>
-  </div>
-  <div className='row em-2'>
-  <div className='col-md-2 comma'>
-  <img  src={Comma} className='comma-img'/>
-  </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -385,7 +339,30 @@ Data === undefined ?"": Data.map((item,index)=>(
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+<SwiperSlide>
+        <div className="card  client-card">
+  <div className="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} className="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 className="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -410,7 +387,32 @@ Data === undefined ?"": Data.map((item,index)=>(
   <div className='col-md-2 comma'>
   <img  src={Comma} className='comma-img'/>
   </div>
-  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
+  <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
+  </div>
+    </div>
+</div>
+</SwiperSlide>
+
+
+<SwiperSlide>
+        <div className="card  client-card">
+  <div className="row card-body">
+  <div className='row'>
+      <div className='client-image col-md-5'>
+  <img src={Slider1} className="card-img-top" alt="..."/>
+  
+  </div>
+  <div className='col-md-5 card-title'>
+  <h5 className="">Card title</h5>
+ 
+  </div>
+  </div>
+  <div className='row em-2'>
+  <div className='col-md-2 comma'>
+  <img  src={Comma} className='comma-img'/>
+  </div>
+  <p className=" col-md-8 p-0 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
   <div className=' col-md-2 comma1'><img className='comma1' src={Comma1}/></div>
   </div>
     </div>
@@ -538,14 +540,12 @@ Data === undefined ?"": Data.map((item,index)=>(
   <Footer/>
 </section>
 </section>
-     
-   
-
-     
-     
     </>
    
   )
 }
-
+Service.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool
+};
 export default Service

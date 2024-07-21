@@ -4,7 +4,8 @@ import { fetchworker,token,FetchCategoryData,RegisterProfessional } from '../../
 import axios from 'axios';
 import './worker.css';
 import { useNavigate } from 'react-router-dom';
-const worker = ({Isworker,setIsUser,IsUser}) => {
+import PropTypes from 'prop-types';
+const Worker = ({Isworker,setIsUser,IsUser}) => {
     const navigate=useNavigate();
 
     const[Worker,setWorker]=useState([]);
@@ -165,7 +166,7 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
         <p className='yourcurrentassis'>Your Current Assistance</p>
         <button type="button"data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={addassistance}>Add Asssistance</button>
         
-<div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div className="modal-dialog">
     <div className="modal-content">
       <div className="modal-header">
@@ -175,7 +176,7 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
       <div className="modal-body">
       
     <div className="mb-3">
-  <label for="exampleFormControlInput1"className="form-label">Email address</label>
+  <label htmlFor="exampleFormControlInput1"className="form-label">Email address</label>
   <input type="email"onChange={email} className="form-control" id="exampleFormControlInput1" placeholder="name@example.com"/>
 </div>
 <select onChange={categorybtn} className="form-select" aria-label="Default select example">
@@ -194,11 +195,11 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
                         <option className="op" value="3">Pro</option>
                       </select>
 <div className="mb-3">
-  <label  for="exampleFormControlInput1" className="form-label">daily_bill</label>
+  <label  htmlFor="exampleFormControlInput1" className="form-label">daily_bill</label>
   <input type="text"onChange={daily_bill} className="form-control" id="exampleFormControlInput1" placeholder="Enter your daily bill"/>
 </div>
 <div className="mb-3">
-  <label for="exampleFormControlInput1" className="form-label">yerar of experience in sector</label>
+  <label htmlFor="exampleFormControlInput1" className="form-label">yerar of experience in sector</label>
   <input type="text"onChange={experience} className="form-control" id="exampleFormControlInput1" placeholder="Enter your experience sector"/>
 </div>
       </div>
@@ -248,5 +249,9 @@ const worker = ({Isworker,setIsUser,IsUser}) => {
     </div>
   )
 }
-
-export default worker
+Worker.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
+export default Worker

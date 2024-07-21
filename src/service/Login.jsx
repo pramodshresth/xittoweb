@@ -1,11 +1,8 @@
-import React, { useState ,useEffect} from 'react'
+import { useState} from 'react'
 import Slider1 from './assets/Slider1.jpg'
 import './css/Loginpage.css';
 import PersonIcon from '@mui/icons-material/Person';
-import PhoneIphoneIcon from '@mui/icons-material/PhoneIphone';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
-import HomeIcon from '@mui/icons-material/Home';
-import LocationCityIcon from '@mui/icons-material/LocationCity';
 import Xittoblueimage from './assets/xittoblueimage.png';
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import { useNavigate } from 'react-router-dom';
@@ -65,7 +62,6 @@ const Login = () => {
                 
                
               };
-              throw new Error('Network response was not ok.');
 
               
             }

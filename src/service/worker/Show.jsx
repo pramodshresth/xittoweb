@@ -2,7 +2,8 @@
 import Navbar from '../nav/Navbar'
 import { useEffect } from 'react'
 import { useLocation } from 'react-router-dom'
-import './Home.css'
+import './Home.css';
+import PropTypes from 'prop-types';
 const Show = ({Isworker,IsUser,setIsUser}) => {
     const {state}=useLocation();
     console.log("this is state",state)
@@ -46,4 +47,9 @@ const Show = ({Isworker,IsUser,setIsUser}) => {
     </div>
   )
 }
+Show.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
 export default Show

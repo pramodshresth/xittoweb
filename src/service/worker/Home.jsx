@@ -1,4 +1,4 @@
-import React,{useEffect,useState} from 'react'
+import {useEffect,useState} from 'react'
 import {token,Pending ,UpdateStatus,Ongoing, Completed} from '../../api/ApI';
 import Navbar from '../nav/Navbar';
 import axios from 'axios';
@@ -6,6 +6,7 @@ import './Home.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
 import { useNavigate,useLocation} from 'react-router-dom';
 // import Onwork from './Onwork';
+import PropTypes from 'prop-types';
 const Home = ({Isworker,IsUser,setIsUser}) => {
   const navigate=useNavigate();
   const {state}=useLocation();
@@ -140,9 +141,9 @@ const show=(item)=>{
 }
 
 console.log("this is pending",pending)
-const pendingaccordingtocategory=pending===undefined?"":pending.filter((item,index)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-const onworkaccordingtocategory=onwork===undefined?"":onwork.filter((item,index)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-const completedaccordingtocategory=completed===undefined?"":completed.filter((item,index)=>{return JSON.parse(item.bookedProblem).categoryName===state})
+const pendingaccordingtocategory=pending===undefined?"":pending.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
+const onworkaccordingtocategory=onwork===undefined?"":onwork.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
+const completedaccordingtocategory=completed===undefined?"":completed.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
 // const completedaccordingtocategory=onwork===undefined?"":Completed.filter((item,index)=>{return JSON.parse(item.bookedProblem).categoryName===state})
 // console.log("This is data",pendingaccordingtocategory[0].bookedDate)
 // console.log("this is data",JSON.parse(pendingaccordingtocategory[0].bookedProblem).id);
@@ -203,7 +204,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
               </div>
           </div>
   
-          <div className="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
@@ -273,7 +274,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
               </div>
           </div>
   
-          <div className="modal fade" id="ongoingModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade" id="ongoingModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
@@ -344,7 +345,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
               </div>
           </div>
   
-          <div className="modal fade" id="completedModel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal fade" id="completedModel" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div className="modal-dialog">
       <div className="modal-content">
         <div className="modal-header">
@@ -445,5 +446,9 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
     </div>
   )
 }
-
+Home.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
 export default Home

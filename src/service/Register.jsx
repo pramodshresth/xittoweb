@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react'
+import { useState,useEffect } from 'react'
 import Slider1 from './assets/Slider1.jpg'
 import './css/Register.css';
 import PersonIcon from '@mui/icons-material/Person';

@@ -1,19 +1,20 @@
-import React, { useEffect, useState,useContext } from 'react'
+import { useEffect, useState} from 'react'
 import NavLogo from '../assets/navlogo.png';
 
 import Cart from '../assets/Cart.svg';
 import NotificationsIcon from '@mui/icons-material/Notifications';
 import Xshape from '../assets/Xshape.svg';
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import HowToRegIcon from '@mui/icons-material/HowToReg';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
 import LogoutIcon from '@mui/icons-material/Logout';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 // import {Context} from '../App';
-import { Context } from '../../App';
+
 import { Getallnotification ,token} from '../../api/ApI';
 import axios from 'axios';
+import PropTypes from 'prop-types';
 const Navbar = ({Isworker,setIsUser,IsUser}) => {
   console.log("thsi is isUser bla bla bla",IsUser);
 
@@ -149,7 +150,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
 
 
-       <div className="modal fade " id="mobilenotificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+       <div className="modal fade " id="mobilenotificationModal" tabIndex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
   <div className="modal-dialog notification-dialog">
     <div className="modal-content notification-content">
       <div className="modal-header">
@@ -216,7 +217,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
 
 
 
-        <div className="modal fade " id="notificationModal" tabindex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
+        <div className="modal fade " id="notificationModal" tabIndex="-1" aria-labelledby="notificationModalLabel" aria-hidden="true">
   <div className="modal-dialog notification-dialog">
     <div className="modal-content notification-content">
       <div className="modal-header">
@@ -414,5 +415,9 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
     </div>
   )
 }
-
+Navbar.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
 export default Navbar

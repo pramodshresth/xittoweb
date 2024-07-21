@@ -1,5 +1,4 @@
-import React from 'react'
-import NavLogo from './assets/navlogo.png';
+import { useEffect } from 'react';
 import './css/ContactUs.css';
 import Location from './assets/location.gif';
 import Mail from './assets/mail.gif';
@@ -8,17 +7,12 @@ import PanoramaFishEyeIcon from '@mui/icons-material/PanoramaFishEye';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
-import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from './nav/Navbar';
+import PropTypes from 'prop-types';
 const ContactUs = ({Isworker,setIsUser, IsUser}) => {
   useEffect(()=>{
     setIsUser(false);
 },[setIsUser])
-  const navigate=useNavigate();
-  const services=()=>{
-    navigate('/services');
-
-  }
   return (
     <div>
         <section> 
@@ -73,7 +67,7 @@ const ContactUs = ({Isworker,setIsUser, IsUser}) => {
 
     <div className='row'>
           <div className='col-md-6'>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6536.7771255022!2d85.52008745923969!3d27.629425215099236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb092b18791a8b%3A0x63c163e96e450ebe!2sEmerge%20Infosys%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1713767604299!5m2!1sen!2snp" width={'100%'} height="450" style={{ border: '0' }} allowfullscreen={true} loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6536.7771255022!2d85.52008745923969!3d27.629425215099236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb092b18791a8b%3A0x63c163e96e450ebe!2sEmerge%20Infosys%20Pvt.%20Ltd.!5e0!3m2!1sen!2snp!4v1713767604299!5m2!1sen!2snp" width={'100%'} height="450" style={{ border: '0' }} allowfullscreen={true} loading="lazy" referrerPolicy="no-referrer-when-downgrade"></iframe>
           </div>
 
           <div className='col-md-6'>
@@ -152,12 +146,11 @@ const ContactUs = ({Isworker,setIsUser, IsUser}) => {
   <div className='container-fluid footer'>
     <div className='row'>
   {/* <div className='col-md-4'> */}
-  <span className='mb-0'>"&copy;"
+  <span className='mb-0'>&copy;
   <a className='text-primary'href="#">Emerge Infosys</a>
-    ". All Rights Reserved."
+    <span>. All Rights Reserved.</span>
 
     <span className='design'>Designed by</span><span className='emerge-infosys'>Emerge Infosys</span>
-
   </span>
 
   {/* <div className='section-bg text-md-end'> */}
@@ -206,5 +199,10 @@ const ContactUs = ({Isworker,setIsUser, IsUser}) => {
     </div>
   )
 }
+ContactUs.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
 
 export default ContactUs

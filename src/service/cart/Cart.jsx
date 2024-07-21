@@ -1,11 +1,12 @@
-import React, { useEffect, useReducer, useState } from 'react'
+import {useReducer, useState } from 'react'
 import Navbar from '../nav/Navbar'
 import Slider1 from './assets/Slider1.jpg';
 import './Cart.css';
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import { CreateBooking } from '../../api/ApI.jsx';
-const cart = ({Isworker,IsUser}) => {
+import PropTypes from 'prop-types';
+const Cart = ({Isworker,IsUser}) => {
   // const[storedCart,setstoredCart]=useState('')
   let storedCart = JSON.parse(localStorage.getItem('cart')) || [];//this is total data from local storage for staying in cart
 
@@ -52,7 +53,7 @@ const cart = ({Isworker,IsUser}) => {
   let fixedprice;
   let ChangedPrice;
 
-  fixedprice = storedCart.map((item, index) => parseInt(item.paymentDetails.totalAmount));
+  fixedprice = storedCart.map((item) => parseInt(item.paymentDetails.totalAmount));
   // if(show===true)
   //   {
   ChangedPrice = intArray.map((count, index) => count * fixedprice[index]);
@@ -81,7 +82,7 @@ const cart = ({Isworker,IsUser}) => {
   // console.log("this is changedprice",ChangedPrice);
   console.log("this is fixed price", fixedprice);
   let [userAmount, setUserAmount] = useState([]);
-  const [clicked, setclicked] = useState(false);
+  
 
   const checkbox = (e, check) => {
     if (check) {
@@ -103,10 +104,10 @@ const cart = ({Isworker,IsUser}) => {
 
 
 
-  let finaloutput = userAmount.map((item, index) => {
+  let finaloutput = userAmount.map((item) => {
     const price = ChangedPrice[item.index]
 
-    return item.data.map((item, index) => {
+    return item.data.map((item) => {
       return { ...item, totalAmount: price }
     });
   })
@@ -116,21 +117,21 @@ const cart = ({Isworker,IsUser}) => {
   }
 
 
-  const Price = finaloutput.map((item, index) => {
-    return item.map((item, index) => {
+  const Price = finaloutput.map((item) => {
+    return item.map((item) => {
       return item.totalAmount;
     });
   })
   let TotalAmount = 0;
   const combinedArray = [].concat(...Price);
-  combinedArray.forEach((item, index) => {
+  combinedArray.forEach((item) => {
     TotalAmount += item;
   });
   let accessToken = localStorage.getItem('accessToken');
   console.log("this is combine", combinedArray);
   const placeorder = async () => {
-    const x = finaloutput.map((item, index) => {
-      return item.map((item, index) => {
+    const x = finaloutput.map((item) => {
+      return item.map((item) => {
         return item
       });
     })
@@ -189,7 +190,7 @@ const cart = ({Isworker,IsUser}) => {
 
     if(IsVisible===false)
       {
-        const data=successfullbooking.map((item,index)=>{return item.bookingDetails.bookedProblem})
+        const data=successfullbooking.map((item)=>{return item.bookingDetails.bookedProblem})
         const filtercart=storedCart.filter((item,index)=>item.bookingDetails.bookedProblem !== data[index])
         console.log("this is filtercart",filtercart);
         console.log("this is storedCart",storedCart);
@@ -208,7 +209,7 @@ const cart = ({Isworker,IsUser}) => {
     console.log("this is ", storedCart);
     // const x=storedCart.filter((item,index)=>item.data[0].bookedProblem !== deleteid);
     // console.log("this is x",x);
-    const remainingcart = storedCart.filter((item, index) => item.bookingDetails.bookedProblem !== deleteid);
+    const remainingcart = storedCart.filter((item) => item.bookingDetails.bookedProblem !== deleteid);
     console.log("this is x", remainingcart);
     localStorage.removeItem('cart');
     localStorage.setItem('cart', JSON.stringify(remainingcart));
@@ -229,12 +230,12 @@ const cart = ({Isworker,IsUser}) => {
       <section>
         <Navbar Isworker={Isworker} IsUser={IsUser}/>
         {
-            IsVisible ? <div class="alert alert-success" role="alert">
+            IsVisible ? <div className="alert alert-success" role="alert">
               Congratulations.Booked Succesfully
             </div> : ""
           }
           {
-            deletedsuccessfully?<div class="alert alert-success" role="alert">
+            deletedsuccessfully?<div className="alert alert-success" role="alert">
             Congratulations.Deleted Succesfully
           </div>:""
           }
@@ -261,18 +262,19 @@ const cart = ({Isworker,IsUser}) => {
               <h5>There are no items in your bag.</h5>
             </div> :
               storedCart.map((item, index) => (
+                <>
                 <div className='row cartpage'>
                   <div className='col-md-1'>
-                    <div class="form-check">
-                      <input class="form-check-input" type="checkbox" value="" onChange={(e) => checkbox(index, e.target.checked)} id="flexCheckChecked" />
-                      <label class="form-check-label" for="flexCheckChecked">
+                    <div className="form-check">
+                      <input className="form-check-input" type="checkbox" value="" onChange={(e) => checkbox(index, e.target.checked)} id="flexCheckChecked" />
+                      <label className="form-check-label" htmlFor="flexCheckChecked">
                         Checked checkbox
                       </label>
                     </div>
                   </div>
                   <div className='col-md-3 cartcard'>
 
-                    <img src={Slider1} class="cart-img-x card-img-top" alt="..." />
+                    <img src={Slider1} className="cart-img-x card-img-top" alt="..." />
                   </div>
 
                   <div className='col-md-5'>
@@ -294,8 +296,10 @@ const cart = ({Isworker,IsUser}) => {
                     </div>
                   </div>
                 </div>
-              ))
+                </>))
+            
             }
+          
           </div>
           <div className='col-md-5'>
             <div className='total'>
@@ -305,10 +309,10 @@ const cart = ({Isworker,IsUser}) => {
               <h3>Estimated Service charge:</h3>
               <h3>Discount:</h3>
               <label className='promocode'><h3>PromoCode:</h3>
-                <input type="text" class="promo form-control" />
+                <input type="text" className="promo form-control" />
               </label>
 
-              <button type="button" class="btn btn-warning mt-4 mb-4 " onClick={placeorder}>PlaceOrder</button>
+              <button type="button" className="btn btn-warning mt-4 mb-4 " onClick={placeorder}>PlaceOrder</button>
 
               <h4></h4>
             </div>
@@ -321,5 +325,9 @@ const cart = ({Isworker,IsUser}) => {
     </div>
   )
 }
-
-export default cart
+Cart.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool,
+  setIsUser:PropTypes.bool
+};
+export default Cart

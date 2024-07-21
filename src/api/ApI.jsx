@@ -1,5 +1,4 @@
-import React from 'react'
-import isJwtTokenExpired, { decode } from 'jwt-check-expiry';
+import isJwtTokenExpired, {  } from 'jwt-check-expiry';
 const url='http://68.183.85.139:9000/api/v1';
 let accessToken = localStorage.getItem('accessToken');
 
