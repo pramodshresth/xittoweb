@@ -54,13 +54,10 @@ const PublicRoutes = () => {
         <BrowserRouter>
         <Routes>
             <Route> 
-              {/* {
-                Is
-              }   */}
               {
                 IsUser?
                 <>
-                 <Route path='/'element={<Service IsUser={IsUser} Isworker={Isworker}/>}></Route>
+            <Route path='/'element={<Service IsUser={IsUser} Isworker={Isworker}/>}></Route>
             <Route path='/viewproblem/:id'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
             <Route path='/contactus'element={<ContactUs Isworker={Isworker}IsUser={IsUser}/>}></Route>
             <Route path='/register'element={<Register />}></Route>
@@ -68,21 +65,12 @@ const PublicRoutes = () => {
             <Route path='/registertoprofessional'element={<RegistertoProfessional IsUser={IsUser} Isworker={Isworker}/>}></Route>
             <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-             {/*<Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route> */}
-            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route> */}
             <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
-            <Route path='/Home'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
-
-            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route> */}
-           
-            {/* <Route path='/home'element={<Home/>}></Route> */}
-
+            <Route path='/Home/:category'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
               </>:
             <>
-            <Route path='/Home'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+            <Route path='/Home/:category'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
-            {/* <Route path='/workerview'element={<WorkerView Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>  */}
-            {/* <Route path='/onwork'element={<Onwork Isworker={Isworker} IsUser={IsUser} setIsUser={setIsUser}/>}></Route> */}
             <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             </>
               }

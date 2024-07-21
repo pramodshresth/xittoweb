@@ -4,10 +4,12 @@ import Navbar from '../nav/Navbar';
 import axios from 'axios';
 import './Home.css';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { useNavigate,useLocation} from 'react-router-dom';
+import { useNavigate,useLocation,useParams} from 'react-router-dom';
 // import Onwork from './Onwork';
 import PropTypes from 'prop-types';
+
 const Home = ({Isworker,IsUser,setIsUser}) => {
+  const{category}=useParams();
   const navigate=useNavigate();
   const {state}=useLocation();
   console.log("this is state",state);
@@ -141,12 +143,10 @@ const show=(item)=>{
 }
 
 console.log("this is pending",pending)
-const pendingaccordingtocategory=pending===undefined?"":pending.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-const onworkaccordingtocategory=onwork===undefined?"":onwork.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-const completedaccordingtocategory=completed===undefined?"":completed.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-// const completedaccordingtocategory=onwork===undefined?"":Completed.filter((item,index)=>{return JSON.parse(item.bookedProblem).categoryName===state})
-// console.log("This is data",pendingaccordingtocategory[0].bookedDate)
-// console.log("this is data",JSON.parse(pendingaccordingtocategory[0].bookedProblem).id);
+const pendingaccordingtocategory=pending===undefined?"":pending.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===category})
+const onworkaccordingtocategory=onwork===undefined?"":onwork.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===category})
+const completedaccordingtocategory=completed===undefined?"":completed.filter((item)=>{return JSON.parse(item.bookedProblem).categoryName===category})
+
 console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
 // const[hell,sethell]=useState()
 // useEffect(()=>{

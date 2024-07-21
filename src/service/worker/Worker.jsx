@@ -46,7 +46,7 @@ const Worker = ({Isworker,setIsUser,IsUser}) => {
     }
     const assistance=(categoryname)=>{
       console.log("this is category name",categoryname);
-      navigate('/home',{state:categoryname});
+      navigate(`/home/${categoryname}`,{state:categoryname});
 
     }
  
