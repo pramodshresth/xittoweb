@@ -61,8 +61,8 @@ const PublicRoutes = () => {
                 IsUser?
                 <>
                  <Route path='/'element={<Service IsUser={IsUser} Isworker={Isworker}/>}></Route>
-            <Route path='/viewproblem'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
-            <Route path='/contactus'element={<ContactUs Isworker={Isworker}/>}></Route>
+            <Route path='/viewproblem/:id'element={<Serviceprobem IsUser={IsUser}  Isworker={Isworker}/>}></Route>
+            <Route path='/contactus'element={<ContactUs Isworker={Isworker}IsUser={IsUser}/>}></Route>
             <Route path='/register'element={<Register />}></Route>
             <Route path='/login'element={<Login/>}></Route>
             <Route path='/registertoprofessional'element={<RegistertoProfessional IsUser={IsUser} Isworker={Isworker}/>}></Route>

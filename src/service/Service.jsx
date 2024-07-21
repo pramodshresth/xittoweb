@@ -31,7 +31,7 @@ const Service = ({Isworker,IsUser}) => {
 
   const navigate = useNavigate();
   const problem=(item)=>{
-    navigate("/viewproblem",{state:item});
+    navigate(`/viewproblem/${item}`,{state:item});
   
   }
   

@@ -10,7 +10,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import { useNavigate, useLocation } from "react-router-dom";
 import Navbar from './nav/Navbar';
-const ContactUs = ({Isworker}) => {
+const ContactUs = ({Isworker,setIsUser, IsUser}) => {
+  useEffect(()=>{
+    setIsUser(false);
+},[setIsUser])
   const navigate=useNavigate();
   const services=()=>{
     navigate('/services');
@@ -20,7 +23,7 @@ const ContactUs = ({Isworker}) => {
     <div>
         <section> 
         <div className='container-xxs'>
-          <Navbar Isworker={Isworker}/>
+          <Navbar Isworker={Isworker} IsUser={IsUser}/>
         
         
 

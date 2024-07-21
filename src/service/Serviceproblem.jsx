@@ -1,10 +1,8 @@
-import React, { useEffect, useContext } from 'react'
-import NavLogo from './assets/navlogo.png';
-import Slider1 from './assets/Slider1.jpg';
+import { useEffect, useContext } from 'react'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./Serviceproblem.css";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
 import SiteVisitor from './assets/Sitevisitor.svg';
@@ -18,12 +16,11 @@ import axios from 'axios';
 import Navbar from './nav/Navbar.jsx';
 import { Context } from '../App';
 import { CreateBooking } from '../api/ApI.jsx';
-
-// import 'bootstrap/dist/css/bootstrap.min.css';
-
-// import './viewmap.css'; // Ensure this path is correct
-// const CartContext = createContext();
-const serviceprobem = ({ Isworker, IsUser}) => {
+import Slider1 from './assets/Slider1.jpg';
+import PropTypes from 'prop-types';
+import AOS from 'aos';
+const Serviceprobem = ({ Isworker, IsUser}) => {
+  const { id } = useParams();
   
   useLayoutEffect(() => {
     window.scrollTo(0, 0);
@@ -37,7 +34,7 @@ const serviceprobem = ({ Isworker, IsUser}) => {
 
   const { setcartlength } = useContext(Context);
   let accessToken = localStorage.getItem('accessToken');
-  const { state } = useLocation();
+  // const { state } = useLocation();
   const navigate = useNavigate();
   const [Data, setData] = useState();
   // localStorage.setItem('state',state);
@@ -45,7 +42,7 @@ const serviceprobem = ({ Isworker, IsUser}) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${FetchProblem()}/${state}`, {
+        const response = await axios.get(`${FetchProblem()}/${id}`, {
           headers: {
             Authorization: `Bearer ${token}`,
             'Content-Type': 'application/json'
@@ -131,14 +128,6 @@ const serviceprobem = ({ Isworker, IsUser}) => {
     }
   }
   const [probleminterval, dispatch3] = useReducer(reducer3, initialState3);
-
- 
-  const services = () => {
-    navigate('/#services');
-  }
-  const contactus = () => {
-    navigate('/contactus');
-  }
   useEffect(() => {
     AOS.init();
   }, []);
@@ -213,7 +202,7 @@ const serviceprobem = ({ Isworker, IsUser}) => {
       setbooked(false);
     }
     else {
-      const data = await response.json();
+      // const data = await response.json();
 
      
       const timer = setTimeout(() => {
@@ -334,7 +323,7 @@ const serviceprobem = ({ Isworker, IsUser}) => {
     localStorage.setItem('cart', JSON.stringify(cart));
     setcartlength(cart.length);
    
-  }, [cart]);
+  }, [cart, setcartlength]);
 
   
 
@@ -408,7 +397,7 @@ const Problemlist=()=>{
     
     setShowModal(true)
 
-    const problemdetail = Data.filter((item, index) => {
+    const problemdetail = Data.filter((item) => {
       return item.id === bookid;
     })
     setproblemsdetail(problemdetail);
@@ -523,7 +512,7 @@ const Bookingmodal=()=>{
                     <option selected>Open this select menu</option>
                     {
                       problemsdetail[0].length === 1 ? "" : problemsdetail[0].brands.map((item, index) => (
-                        <option value={item.name}>{item.name}</option>
+                        <option key={index} value={item.name}>{item.name}</option>
                       ))
                     }
                     <select />
@@ -660,7 +649,7 @@ const Bookingmodal=()=>{
                 <div className="form-floating">
                   <p className='empty'>{emptydescription}</p>
                   <h1 className='prob-interval'>Description</h1>
-                  <input type="text" className="form-control" onChange={()=>setuserdescription(e.target.value)} placeholder="Write Here"  />
+                  <input type="text" className="form-control" onChange={()=>setuserdescription(event.target.value)} placeholder="Write Here"  />
                   {/* <label for="floatingTextarea">Comments</label> */}
                 </div>
 
@@ -814,5 +803,8 @@ const Bookingmodal=()=>{
     </div>
   )
 }
-
-export default serviceprobem
+Serviceprobem.propTypes = {
+  Isworker: PropTypes.bool,
+  IsUser: PropTypes.bool
+};
+export default Serviceprobem
