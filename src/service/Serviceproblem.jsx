@@ -54,80 +54,27 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
       }
     };
     fetchData();
-  }, []);
+  }, [id]);
   const [problemsdetail, setproblemsdetail] = useState(" ");
   const [gotocart, setgotocart] = useState(false)
+  const [booked, setbooked] = useState(false);
+  const [IsVisible, setIsVisible] = useState(null);
   // const [UserLocation, setUserLocation] = useState([]);
   
 
 
 
 
-  let [selectedDate, setSelectedDate] = useState('');
-  const initialState = {
-    count: 1
-  };
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'increment':
-        return { ...state, count: state.count + 1 };
-      case 'decrement':
-        return { ...state, count: state.count > 1 ? state.count - 1 : 1 };
-      default:
-        return state;
-    }
-  }
 
-  const [quantity, dispatch] = useReducer(reducer, initialState);
+  
  
 
 
-  const initialState2 = {
-    time: ""
-  }
-  const reducer2 = (state, action) => {
-    switch (action.type) {
-      case '9amto11pm':
-        return { ...state, time: '9amto11pm' }; // Return updated state object
-      case '12amto2pm':
-        return { ...state, time: '12amto2pm' };
-      case '2amto2pm':
-        return { ...state, time: '2amto2pm' };
-      case '2pmto4pm':
-        return { ...state, time: '2pmto4pm' };
-      case '4pmto6pm':
-        return { ...state, time: '4pmto6pm' };
-      case 'RESET_TIME':
-        return { ...state, time: '' }; // Reset time to empty string
-      default:
-        return state;
-    }
-  }
-
-
-  const [time, dispatch2] = useReducer(reducer2, initialState2);
+  
 
 
 
-  const initialState3 = {
-    probleminterval: ""
-  }
-  const reducer3 = (state, action) => {
-    switch (action.type) {
-      case 'Recently':
-        return { ...state, probleminterval: 'Recently' }; // Return updated state object
-      case 'Morethanmonth':
-        return { ...state, probleminterval: 'More than month' };
-      case 'Morethanyear':
-        return { ...state, probleminterval: 'More than year' };
-
-      case 'RESET_TIME':
-        return { ...state, probleminterval: '' }; // Reset time to empty string
-      default:
-        return state;
-    }
-  }
-  const [probleminterval, dispatch3] = useReducer(reducer3, initialState3);
+  
   useEffect(() => {
     AOS.init();
   }, []);
@@ -150,82 +97,233 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
     month.push(futureMonth);
     year.push(futureYear);
   }
-  const [selectedOption, setSelectedOption] = useState('');
-  const handleSelectChange = (event) => {
-
-    setSelectedOption(event.target.value);
-   
-  };
   
-  const [userdescription, setuserdescription] = useState('');
+  
+
   // const[data,setdata]=useState('');
   // const description = (e) => {
   //   // const x = e.target.value;
   //   // setuserdescription(x);
   //   setdata(e.target.value)
   // }
-  const [booked, setbooked] = useState(false);
-  const book = async () => {
-    const userdetails = {
-      bookingDetails: {
-        bookedProblem: problemsdetail[0].id,
-        selectedBrand: selectedOption,
-        bookedDate: `${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`,
-        itemCount: quantity.count,
-        timePeriod: time.time,
-        location: {
-          name: "panauti",
-          lat: "27.4345",
-          lng: "85.782"
-        },
-        problemInterval: probleminterval.probleminterval,
-        description: userdescription,
-      },
-      paymentDetails: {
-        totalAmount: parseInt(problemsdetail[0].price * quantity.count),
-        redeemAmount: 10
-
-      }
-
-    }
-    const response = await fetch(CreateBooking(), {
-      method: 'POST',
-      body: JSON.stringify(userdetails),
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    if (!response.ok) {
-     
-      setbooked(false);
-    }
-    else {
-      // const data = await response.json();
-
-     
-      const timer = setTimeout(() => {
-        setbooked(false);
-      }, 3000);
-      setbooked(true);
-      return () => {
-        clearTimeout(timer);
-      };
+  
+  
+ 
+  
+ 
 
 
-    }
+  useEffect(() => {
+    localStorage.setItem('cart', JSON.stringify(cart));
+    setcartlength(cart.length);
+   
+  }, [cart, setcartlength]);
 
+  
+
+  const goincart = () => {
+    navigate('/cart');
   }
+  
+
+const Problemlist=()=>{
+  const booknow = (bookid) => {
+
+    
+    setShowModal(true)
+
+    const problemdetail = Data.filter((item) => {
+      return item.id === bookid;
+    })
+    setproblemsdetail(problemdetail);
+
+
+    if (accessToken === null) {
+      navigate('/login');
+    }
+
+    for (let i = 0; i < cart.length; i++) {
+      if (cart[i].bookingDetails.bookedProblem === problemdetail[0].id) {
+
+        setgotocart(true);
+        break;
+      }
+      else {
+       
+        setgotocart(false);
+      }
+    }
+   
+
+     
+  }
+
+  return (
+    //  data-aos="zoom-in"
+    <div id="viewproblem"  className="container">
+          <div className="row">
+            <div className="col-md-12">
+              <div id="problem" className='serviceproblem' >
+                {
+                  Data === undefined ? "" : Data.map((item, index) => (
+
+                    <div key={index} className="card problemlist">
+                      <img src={Slider1} className="card-img-top" />
+                      <div className="card-body problem-body">
+                        <h5 className="card-title">{item.name}</h5>
+                        <a data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" className="btn btn-primary">Book Now</a>
+                      </div>
+
+                    </div>
+                  ))
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+
+  )
+}
+
+const Bookingmodal=()=>{
+    
+const handleCloseModal = () => setShowModal(false);
+const initialState = {
+  count: 1
+};
+const reducer = (state, action) => {
+  switch (action.type) {
+    case 'increment':
+      return { ...state, count: state.count + 1 };
+    case 'decrement':
+      return { ...state, count: state.count > 1 ? state.count - 1 : 1 };
+    default:
+      return state;
+  }
+}
+
+const [quantity, dispatch] = useReducer(reducer, initialState);
+
+const [selectedOption, setSelectedOption] = useState('');
+  const handleSelectChange = (event) => {
+
+    setSelectedOption(event.target.value);
+   
+  };
+let [selectedDate, setSelectedDate] = useState('');
+const initialState2 = {
+  time: ""
+}
+const reducer2 = (state, action) => {
+  switch (action.type) {
+    case '9amto11pm':
+      return { ...state, time: '9amto11pm' }; // Return updated state object
+    case '12amto2pm':
+      return { ...state, time: '12amto2pm' };
+    case '2amto2pm':
+      return { ...state, time: '2amto2pm' };
+    case '2pmto4pm':
+      return { ...state, time: '2pmto4pm' };
+    case '4pmto6pm':
+      return { ...state, time: '4pmto6pm' };
+    case 'RESET_TIME':
+      return { ...state, time: '' }; // Reset time to empty string
+    default:
+      return state;
+  }
+}
+
+
+const [time, dispatch2] = useReducer(reducer2, initialState2);
+
+const [lat, setLat] = useState(null);
+  const [lng, setLng] = useState(null);
+  const [UserLocation, setUserLocation] = useState('loading');
+
+  const getLocation = () => {
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+        setUserLocation('success');
+      },
+      (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            console.error('User denied the request for Geolocation.');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            console.error('Location information is unavailable.');
+            break;
+          case error.TIMEOUT:
+            console.error('The request to get user location timed out.');
+            break;
+          default:
+            console.error('An unknown error occurred.');
+            break;
+        }
+        setUserLocation('error');
+      }
+    );
+  };
+
+  useEffect(()=>{
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setLat(position.coords.latitude);
+        setLng(position.coords.longitude);
+        setUserLocation('success');
+      },
+      (error) => {
+        switch (error.code) {
+          case error.PERMISSION_DENIED:
+            console.error('User denied the request for Geolocation.');
+            break;
+          case error.POSITION_UNAVAILABLE:
+            console.error('Location information is unavailable.');
+            break;
+          case error.TIMEOUT:
+            console.error('The request to get user location timed out.');
+            break;
+          default:
+            console.error('An unknown error occurred.');
+            break;
+        }
+        setUserLocation('error');
+      }
+    );
+
+  },[])
+  const initialState3 = {
+    probleminterval: ""
+  }
+  const reducer3 = (state, action) => {
+    switch (action.type) {
+      case 'Recently':
+        return { ...state, probleminterval: 'Recently' }; // Return updated state object
+      case 'Morethanmonth':
+        return { ...state, probleminterval: 'More than month' };
+      case 'Morethanyear':
+        return { ...state, probleminterval: 'More than year' };
+
+      case 'RESET_TIME':
+        return { ...state, probleminterval: '' }; // Reset time to empty string
+      default:
+        return state;
+    }
+  }
+  const [probleminterval, dispatch3] = useReducer(reducer3, initialState3);
+  const [userdescription, setuserdescription] = useState('');
   const [emptybrand, setemptybrand] = useState('');
   const [emptydate, setemptydate] = useState('');
   const [emptytime, setemptytime] = useState('');
   const [emptyprobleminterval, setemptyprobleminterval] = useState('')
   const [emptydescription, setemptydescription] = useState('');
   // const [disabled, setdisabled] = useState(false);
-  const [IsVisible, setIsVisible] = useState(null);
+ 
 
   const [go, setgo] = useState(false);
+
   const addtocart = () => {
     
 
@@ -306,7 +404,6 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
       };
     }
   }
- 
   useEffect(() => {
     if (IsVisible === false) {
       setgo(true);
@@ -316,141 +413,59 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
     }
 
   }, [IsVisible])
- 
 
-
-  useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cart));
-    setcartlength(cart.length);
-   
-  }, [cart, setcartlength]);
-
-  
-
-  const goincart = () => {
-    navigate('/cart');
-  }
-  const [lat, setLat] = useState(null);
-  const [lng, setLng] = useState(null);
-  const [UserLocation, setUserLocation] = useState('loading');
-
-  const getLocation = () => {
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
-        setUserLocation('success');
+  const book = async () => {
+    const userdetails = {
+      bookingDetails: {
+        bookedProblem: problemsdetail[0].id,
+        selectedBrand: selectedOption,
+        bookedDate: `${selectedDate.year}-${selectedDate.month}-${selectedDate.day}`,
+        itemCount: quantity.count,
+        timePeriod: time.time,
+        location: {
+          name: "panauti",
+          lat: "27.4345",
+          lng: "85.782"
+        },
+        problemInterval: probleminterval.probleminterval,
+        description: userdescription,
       },
-      (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            console.error('User denied the request for Geolocation.');
-            break;
-          case error.POSITION_UNAVAILABLE:
-            console.error('Location information is unavailable.');
-            break;
-          case error.TIMEOUT:
-            console.error('The request to get user location timed out.');
-            break;
-          default:
-            console.error('An unknown error occurred.');
-            break;
-        }
-        setUserLocation('error');
-      }
-    );
-  };
+      paymentDetails: {
+        totalAmount: parseInt(problemsdetail[0].price * quantity.count),
+        redeemAmount: 10
 
-  useEffect(()=>{
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        setLat(position.coords.latitude);
-        setLng(position.coords.longitude);
-        setUserLocation('success');
+      }
+
+    }
+    const response = await fetch(CreateBooking(), {
+      method: 'POST',
+      body: JSON.stringify(userdetails),
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${accessToken}`,
       },
-      (error) => {
-        switch (error.code) {
-          case error.PERMISSION_DENIED:
-            console.error('User denied the request for Geolocation.');
-            break;
-          case error.POSITION_UNAVAILABLE:
-            console.error('Location information is unavailable.');
-            break;
-          case error.TIMEOUT:
-            console.error('The request to get user location timed out.');
-            break;
-          default:
-            console.error('An unknown error occurred.');
-            break;
-        }
-        setUserLocation('error');
-      }
-    );
+    });
 
-  },[])
-  
-const handleCloseModal = () => setShowModal(false);
-
-const Problemlist=()=>{
-  const booknow = (bookid) => {
-
-    
-    setShowModal(true)
-
-    const problemdetail = Data.filter((item) => {
-      return item.id === bookid;
-    })
-    setproblemsdetail(problemdetail);
-
-
-    if (accessToken === null) {
-      navigate('/login');
+    if (!response.ok) {
+     
+      setbooked(false);
     }
-
-    for (let i = 0; i < cart.length; i++) {
-      if (cart[i].bookingDetails.bookedProblem === problemdetail[0].id) {
-
-        setgotocart(true);
-        break;
-      }
-      else {
-       
-        setgotocart(false);
-      }
-    }
-   
+    else {
+      // const data = await response.json();
 
      
+      const timer = setTimeout(() => {
+        setbooked(false);
+      }, 3000);
+      setbooked(true);
+      return () => {
+        clearTimeout(timer);
+      };
+
+
+    }
+
   }
-
-  return (
-    //  data-aos="zoom-in"
-    <div id="viewproblem"  className="container">
-          <div className="row">
-            <div className="col-md-12">
-              <div id="problem" className='serviceproblem' >
-                {
-                  Data === undefined ? "" : Data.map((item, index) => (
-
-                    <div key={index} className="card problemlist">
-                      <img src={Slider1} className="card-img-top" />
-                      <div className="card-body problem-body">
-                        <h5 className="card-title">{item.name}</h5>
-                        <a data-bs-toggle="modal" onClick={() => booknow(item.id)} data-bs-target="#bookingexampleModal" className="btn btn-primary">Book Now</a>
-                      </div>
-
-                    </div>
-                  ))
-                }
-              </div>
-            </div>
-          </div>
-        </div>
-
-  )
-}
-
-const Bookingmodal=()=>{
   return (
     <div className="modal" tabIndex="-1"id={`${accessToken === null ? "" : "bookingexampleModal"}`} role="dialog" style={{ display: 'block' }}>
     <div className="modal-dialog modal-xl" role="document">

@@ -196,7 +196,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
      {/* <div className='nav-bar'></div> */}
        {/* {IsUser?} */}
        {!IsUser?<a className="nav-link register" onClick={switchtoUser} aria-current="page">SWITCH TO USER</a>:Isworker?<a className="nav-link register" onClick={switchtoworker} aria-current="page">SWITCH TO WORKER</a>:<a className="nav-link register" aria-current="page"onClick={register}>REGISTER TO PROFESSIONAL</a>}
-       <a className="nav-link about" href="#assistance"onClick={contactus}>ABOUT</a>
+       <a className="nav-link about"onClick={contactus}>ABOUT</a>
        
        <a className="nav-link" >
         
@@ -292,7 +292,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
             <div className='col-md-10 col-sm-10 col-10 '>
             <div className='profile'>
               {name===null?"":<p>{name}</p>}
-{phonenumber===null?"":<p>9823576196</p>}
+{phonenumber===null?"":<p>{phonenumber}</p>}
               </div>
             </div>
             {/* <hr></hr> */}

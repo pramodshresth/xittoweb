@@ -9,10 +9,10 @@ import InstagramIcon from '@mui/icons-material/Instagram';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import Navbar from './nav/Navbar';
 import PropTypes from 'prop-types';
-const ContactUs = ({Isworker,setIsUser, IsUser}) => {
-  useEffect(()=>{
-    setIsUser(false);
-},[setIsUser])
+const ContactUs = ({Isworker, IsUser}) => {
+//   useEffect(()=>{
+//     setIsUser(false);
+// },[setIsUser])
   return (
     <div>
         <section> 
@@ -202,7 +202,7 @@ const ContactUs = ({Isworker,setIsUser, IsUser}) => {
 ContactUs.propTypes = {
   Isworker: PropTypes.bool,
   IsUser: PropTypes.bool,
-  setIsUser:PropTypes.bool
+  // setIsUser:PropTypes.bool
 };
 
 export default ContactUs
