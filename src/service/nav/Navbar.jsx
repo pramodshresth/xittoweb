@@ -61,6 +61,8 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
           // navigate('/');
         }, 3000);
         setshowmessage(true)
+        // setIsUser(false);
+        
         
         return () => {
           clearTimeout(timer);

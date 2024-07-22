@@ -14,8 +14,10 @@
     /* margin-right:2%; */
     display:inline-block;
     background-color: #F5F5F7;
-    height:62vh;
-    width:95%;
+    padding:10px;
+    height:500px;
+    /* height:62vh;
+    width:95%; */
     /* border-bottom-left-radius: 25px; */
 }
 /* .card{
@@ -192,8 +194,8 @@ option:hover{
   }
   .card-body{
     /* background-color: #FFF; */
-    border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px;
+    /* border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px; */
     /* height:150px;
     width:195px; */
   }

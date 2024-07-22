@@ -86,23 +86,18 @@
         width:50px;
         height:50px;
     } */
-    .card{
-        height:72vh;
-    }
+    
 }
 
 @media (max-width:992px) {
-    .comma-img,.comma1{
-        width:35px !important;
-        /* padding:4px; */
-    }
+   
     .card-img-top{
         width:80px;
         height:80px;
     }
-    .card-text{
+    /* .card-text{
         padding:unset!important;
-    }
+    } */
     .ourprofile-num{
         font-size: 30px !important;
     }
@@ -249,9 +244,9 @@
     .navbar-nav{
         width:100% !important;
     }
-    .client-card{
+    /* .client-card{
         height:700px;
-    }
+    } */
 
 }
 
@@ -287,7 +282,7 @@
     display:flex;
     /* justify-content:end; */
     align-items: end;
-    width:60px;
+    /* width:60px; */
 }
 /* .what-our-client-say{
     padding:20px;
@@ -296,13 +291,13 @@
 {
     width:100%;
 } */
-.comma-img{
-    /* margin:14px; */
-    /* margin-top:23px; */
-    /* margin-left:10%; */
-    width:60px;
-    /* width:60px; */
-}
+.card-body{
+    /* background-color: #FFF; */
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+    /* height:150px;
+    width:195px; */
+  }
 .comma1-img{
     margin-bottom: -20px;
     /* margin-right: 16px; */
@@ -330,7 +325,9 @@
 }
 
 .em-2{
-    padding:10px;
+    /* padding-top:10px;
+    padding-left:10px; */
+    /* padding:10px; */
 }
 .swiper-slide{
     height:100% !important;
@@ -600,6 +597,10 @@ hr,.reg{
  }
  .notificationbody{
     color:black;
+ }
+ .d-3{
+    display: flex;
+    align-items:end;
  }
 .notificationmodel .modal-content {
     /* background-color: unset; */

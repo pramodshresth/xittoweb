@@ -135,6 +135,9 @@
   .img-section{
     position:unset !important;
   }
+  .card{
+    height: unset!important;
+  }
 }
 @media (max-width:1200px){
   
@@ -216,10 +219,11 @@
 
 .card-text{
   color:#612690;
-  padding:20px 60px;
+  font-size: 14px;
+  /* padding:20px 60px; */
   text-align: justify;
-  font-size: 12px;
-  padding: 0px 10px !important;
+  /* font-size: 12px;
+  padding: 0px 10px !important; */
   /* height:150px; */
   /* padding-bottom:80px; */
 }
