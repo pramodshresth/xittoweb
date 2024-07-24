@@ -31,3 +31,4 @@ export const UpdateStatus=()=>`${url}/booking`
 export const Ongoing=()=>`${url}/booking/assistance/filter?status=ongoing`
 export const Pending=()=>`${url}/booking/assistance/filter?status=pending`
 export const Completed=()=>`${url}/booking/assistance/filter?status=completed`
+export const Appoint=()=>`${url}/booking/assistance/filter?status=appoint`

@@ -12,12 +12,13 @@ import axios from "axios";
 // import Showserviceproblem  from "../service/Showserviceproblem";
 
 // import Map from "../service/map.jsx"
-import Nopage from "../pages/Nopage.jsx";
+import Nopageforworker from "../pages/Nopageforworker.jsx";
 // import Onwork from "../service/worker/Onwork.jsx";
 import Show from "../service/worker/show.jsx";
 import Worker from '../service/worker/Worker.jsx'
 // import Home from "../pages/Home.jsx";
 import Home from "../service/worker/Home.jsx";
+import Nopageforuser from '../pages/Nopageforuser.jsx';
 const PublicRoutes = () => {
 
   // console.log("this is public route userlocation",UserLocation);
@@ -67,14 +68,16 @@ const PublicRoutes = () => {
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
             <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             <Route path='/Home/:category'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+            <Route path='*' element={<Nopageforuser Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>} ></Route>
               </>:
             <>
             <Route path='/Home/:category'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
             <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+            <Route path='*' element={<Nopageforworker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>} />
             </>
               }
-              <Route path='*' element={<Nopage/>} />
+       
             </Route>
         </Routes>
         </BrowserRouter>

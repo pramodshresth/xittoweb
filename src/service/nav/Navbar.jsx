@@ -175,14 +175,6 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
   </div>
 </div>   
        </div>
-
-       <div className='mobile'>
-        
-       {/* <div onClick={user} className='mob-notification dd'>
-        
-        <img src={Xshape}/>
-       </div> */}
-       </div>
         </div>
    <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
      <span className="navbar-toggler-icon"></span>
@@ -245,35 +237,18 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
        </div>
        
        
-       
-       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-       </a>
-       <a className="navlink line" href="#contact">
       
        </a>
+       
+       
        <a className="nav-link">
 
        <div onClick={user} className='profile-dd dd'>
         <img src={Xshape}/>
        </div>
+       
+       
+     
        {
         name===null?"":
         <div className='small-size-details'>
@@ -281,6 +256,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
        <p>{name}</p>
        </div>
        }
+      
       
        
        {
@@ -339,8 +315,7 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
                 <LibraryBooksIcon className='login-icon'/>
                 <p className='reg padding-left'>ABOUT </p>
               </div>
-              {/* <hr></hr> */}
-            </div>
+       </div>
             {
               accessToken?"":<div className='row'>
               <div onClick={login} className='col-md-12 small-size-login'>
@@ -350,6 +325,8 @@ const Navbar = ({Isworker,setIsUser,IsUser}) => {
               {/* <hr></hr> */}
             </div>
             }
+
+
        
 {
   accessToken?<div className='row'>

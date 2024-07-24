@@ -249,52 +249,27 @@ Data === undefined ?"": Data.map((item,index)=>(
       >
        
         
+       <SwiperSlide>
+        <div className="card   client-card">
+  <div className="row card-body">
+  {/* <div className='row'> */}
+      <div className='client-image col-md-5'>
+  <img src={Slider1} className="card-img-top " alt="..."/>
+  
+  </div>
+  <div className='col-md-7 card-title'>
+  <h5 className="">Card title</h5>
+ 
+  </div>
 
-<SwiperSlide>
-        <div className="card   client-card">
-  <div className="row card-body">
-  {/* <div className='row'> */}
-      <div className='client-image col-md-5'>
-  <img src={Slider1} className="card-img-top " alt="..."/>
-  
-  </div>
-  <div className='col-md-7 card-title'>
-  <h5 className="">Card title</h5>
- 
-  </div>
-  {/* </div> */}
   
     </div>
     <div className='row em-2'>
-  <div className='col-md-2'>
-  <img  src={Comma} className='comma-img img-fluid'/>
-  </div>
-  <div className=" col-md-8 card-text">It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
-  </div>
-</div>
-</SwiperSlide>
-<SwiperSlide>
-        <div className="card   client-card">
-  <div className="row card-body">
-  {/* <div className='row'> */}
-      <div className='client-image col-md-5'>
-  <img src={Slider1} className="card-img-top " alt="..."/>
-  
-  </div>
-  <div className='col-md-7 card-title'>
-  <h5 className="">Card title</h5>
- 
-  </div>
-  {/* </div> */}
-  
-    </div>
-    <div className='row em-2'>
-  <div className='col-md-2'>
+  <div className='col-md-2 col-sm-1 col-2'>
   <img  src={Comma} className='comma-img img-fluid'/>
   </div>
   <div className=" col-md-8 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset </div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
+  <div className=' col-md-2 d-3 col-sm-1 col-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
   </div>
 </div>
 </SwiperSlide>
@@ -311,15 +286,15 @@ Data === undefined ?"": Data.map((item,index)=>(
   <h5 className="">Card title</h5>
  
   </div>
-  {/* </div> */}
+
   
     </div>
     <div className='row em-2'>
-  <div className='col-md-2'>
+  <div className='col-md-2 col-sm-1 col-2'>
   <img  src={Comma} className='comma-img img-fluid'/>
   </div>
   <div className=" col-md-8 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset </div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
+  <div className=' col-md-2 d-3 col-sm-1 col-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
   </div>
 </div>
 </SwiperSlide>
@@ -336,15 +311,15 @@ Data === undefined ?"": Data.map((item,index)=>(
   <h5 className="">Card title</h5>
  
   </div>
-  {/* </div> */}
+
   
     </div>
     <div className='row em-2'>
-  <div className='col-md-2'>
+  <div className='col-md-2 col-sm-1 col-2'>
   <img  src={Comma} className='comma-img img-fluid'/>
   </div>
   <div className=" col-md-8 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset </div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
+  <div className=' col-md-2 d-3 col-sm-1 col-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
   </div>
 </div>
 </SwiperSlide>
@@ -361,15 +336,15 @@ Data === undefined ?"": Data.map((item,index)=>(
   <h5 className="">Card title</h5>
  
   </div>
-  {/* </div> */}
+
   
     </div>
     <div className='row em-2'>
-  <div className='col-md-2'>
+  <div className='col-md-2 col-sm-1 col-2'>
   <img  src={Comma} className='comma-img img-fluid'/>
   </div>
   <div className=" col-md-8 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset </div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
+  <div className=' col-md-2 d-3 col-sm-1 col-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
   </div>
 </div>
 </SwiperSlide>
@@ -386,15 +361,15 @@ Data === undefined ?"": Data.map((item,index)=>(
   <h5 className="">Card title</h5>
  
   </div>
-  {/* </div> */}
+
   
     </div>
     <div className='row em-2'>
-  <div className='col-md-2'>
+  <div className='col-md-2 col-sm-1 col-2'>
   <img  src={Comma} className='comma-img img-fluid'/>
   </div>
   <div className=" col-md-8 card-text">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry&apos; standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset </div>
-  <div className=' col-md-2 d-3 col-sm-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
+  <div className=' col-md-2 d-3 col-sm-1 col-2'><img className='comma-img  img-fluid' src={Comma1}/></div>
   </div>
 </div>
 </SwiperSlide>

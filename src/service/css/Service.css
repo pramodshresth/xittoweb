@@ -136,9 +136,9 @@
     .navbar-nav{
         margin-right:50px !important;
     }
-    .register{
+    /* .register{
         display:none;
-    }
+    } */
    
 
 
@@ -301,6 +301,10 @@
 .comma1-img{
     margin-bottom: -20px;
     /* margin-right: 16px; */
+}
+.switching-page{
+    display:none;
+    color:#C84C20;
 }
 /* .partner-image::-webkit-scrollbar {
     width: 70px;

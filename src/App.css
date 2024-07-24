@@ -138,6 +138,10 @@
   .card{
     height: unset!important;
   }
+  .reg-dd{
+    padding-left:unset !important;
+    padding-right:unset !important;
+  }
 }
 @media (max-width:1200px){
   
@@ -407,7 +411,7 @@
 }
 .btn-close{
   background-color: #FFF;
-  /* display: none; */
+  display: none;
 }
 
 /* 

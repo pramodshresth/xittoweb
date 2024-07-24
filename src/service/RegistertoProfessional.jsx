@@ -261,7 +261,7 @@ const RegistertoProfessional = ({Isworker,IsUser}) => {
 
         </div>
 
-        <section data-aos="zoom-in" className='padding'>
+        <section data-aos="zoom-in" className=''>
           <div className='foot'>
             <div className='footter'>
               <div className='row footter-row'>
