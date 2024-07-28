@@ -74,6 +74,7 @@ const PublicRoutes = () => {
             <Route path='/Home/:category'element={<Home Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
             <Route path='/worker'element={<Worker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>}></Route>
             <Route path='/show'element={<Show Isworker={Isworker}IsUser={IsUser}setIsUser={setIsUser}/>}></Route>
+            <Route path='/cart'element={<Cart IsUser={IsUser} Isworker={Isworker}/>}></Route> 
             <Route path='*' element={<Nopageforworker Isworker={Isworker}IsUser={IsUser} setIsUser={setIsUser}/>} />
             </>
               }

@@ -155,6 +155,9 @@ option:hover{
     background-color:#cedbf6  !important;
     color:#FFF !important;
 }
+.clickeddate{
+  background-color:#cedbf6  !important;
+}
 
 .btn-primary:hover{
     background-color:#260536;
@@ -192,13 +195,7 @@ option:hover{
     border-top-right-radius:25px;
     border:none;
   }
-  .card-body{
-    /* background-color: #FFF; */
-    /* border-bottom-left-radius: 25px;
-    border-bottom-right-radius: 25px; */
-    /* height:150px;
-    width:195px; */
-  }
+  
   .problem-body{
     /* width: 231.5px; */
     height: 120px;
@@ -241,9 +238,9 @@ option:hover{
   .dayname{
     font-weight: bold;
   }
-  .day:hover{
+  /* .day:hover{
     background-color: #cedbf6;
-  }
+  } */
   .date-33{
     width:60px;
     height:100px;

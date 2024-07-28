@@ -179,10 +179,11 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
 // console.log("this is map",map)
   return (
     <div>
-       <Navbar setIsUser={setIsUser} Isworker={Isworker} IsUser={IsUser}/>
-       {
+      {
           IsVisible ? <div className="alert alert-success" role="alert">{message}</div> : ""
         }
+       <Navbar setIsUser={setIsUser} Isworker={Isworker} IsUser={IsUser}/>
+       
         <div className='container'>
         <ul className="status d-flex justify-content-center nav nav-tabs" id="myTab" role="tablist">
   <li className="nav-item" role="presentation">
@@ -217,7 +218,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
           <div className='col-xxl-6 col-xl-6 col-lg-6  col-md-5 worker-problem-description-section'>
               <div className='worker-problem-description'>
               <h4>Full Name:{JSON.parse(item.bookedProblem).categoryName}</h4>
-              <h4>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
+              <h4 className='fs-6'>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
               </div>
           </div>
 
@@ -286,7 +287,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
           <div className='col-xxl-6 col-xl-6 col-lg-6  col-md-5 worker-problem-description-section'>
               <div className='worker-problem-description'>
               <h4>Full Name:{JSON.parse(item.bookedProblem).categoryName}</h4>
-              <h4>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
+              <h4 className=''>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
               </div>
           </div>
 

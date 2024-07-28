@@ -1,4 +1,4 @@
-import  { useEffect, useState } from 'react';
+import  { useEffect, useState,useLayoutEffect } from 'react';
 import Navbar from './nav/Navbar'
 import './css/Registerprofessional.css';
 import LocalPostOfficeIcon from '@mui/icons-material/LocalPostOffice';
@@ -12,6 +12,9 @@ import PropTypes from 'prop-types';
 import AOS from 'aos';
 import { useNavigate} from "react-router-dom";
 const RegistertoProfessional = ({Isworker,IsUser}) => {
+  useLayoutEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   const navigate = useNavigate();
   useEffect(() => {
     AOS.init();

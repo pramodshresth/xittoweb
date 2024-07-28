@@ -97,7 +97,7 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
     month.push(futureMonth);
     year.push(futureYear);
   }
-  
+  console.log("this is dayname",dayname)
   
 
   // const[data,setdata]=useState('');
@@ -211,6 +211,7 @@ const [selectedOption, setSelectedOption] = useState('');
    
   };
 let [selectedDate, setSelectedDate] = useState('');
+console.log("this is selecteddate",selectedDate);
 const initialState2 = {
   time: ""
 }
@@ -412,7 +413,7 @@ const [lat, setLat] = useState(null);
       setgo(false);
     }
 
-  }, [IsVisible])
+  }, [])
 
   const book = async () => {
     const userdetails = {
@@ -552,7 +553,7 @@ const [lat, setLat] = useState(null);
                       />
                     </div>
 
-                    <div className={`day `} onClick={() => setSelectedDate({ dayname: dayname[0], day: day[0], month: month[0], year: year[0] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[0]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[0], day: day[0], month: month[0], year: year[0] })}>
 
 
                       <p className='date'>{day[0]}</p>
@@ -560,29 +561,29 @@ const [lat, setLat] = useState(null);
                     </div>
 
 
-                    <div className='day' onClick={() => setSelectedDate({ dayname: dayname[1], day: day[1], month: month[1], year: year[1] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[1]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[1], day: day[1], month: month[1], year: year[1] })}>
                       <p className='date'>{day[1]}</p>
                       <p className='dayname'>{dayname[1]}</p>
 
                     </div>
-                    <div className='day' onClick={() => setSelectedDate({ dayname: dayname[2], day: day[2], month: month[2], year: year[2] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[2]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[2], day: day[2], month: month[2], year: year[2] })}>
                       <p className='date'>{day[2]}</p>
                       <p className='dayname'>{dayname[2]}</p>
 
 
                     </div>
-                    <div className='day' onClick={() => setSelectedDate({ dayname: dayname[3], day: day[3], month: month[3], year: year[3] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[3]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[3], day: day[3], month: month[3], year: year[3] })}>
                       <p className='date'>{day[3]}</p>
                       <p className='dayname'>{dayname[3]}</p>
 
                     </div>
-                    <div className='day' onClick={() => setSelectedDate({ dayname: dayname[4], day: day[4], month: month[4], year: year[4] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[4]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[4], day: day[4], month: month[4], year: year[4] })}>
                       <p className='date'>{day[4]}</p>
                       <p className='dayname'>{dayname[4]}</p>
 
 
                     </div>
-                    <div className='day' onClick={() => setSelectedDate({ dayname: dayname[5], day: day[5], month: month[5], year: year[5] })}>
+                    <div className={`day ${selectedDate.dayname===dayname[5]?"clickeddate":""}`} onClick={() => setSelectedDate({ dayname: dayname[5], day: day[5], month: month[5], year: year[5] })}>
                       <p className='date'>{day[5]}</p>
                       <p className='dayname'>{dayname[5]}</p>
 
