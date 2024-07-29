@@ -231,12 +231,18 @@ option:hover{
   }
   .dateandtime::-webkit-scrollbar-thumb {
     /* background-color: rgba(255, 255, 255, 0.50);;  */
-    background-color:red;
+    /* background-color:red; */
     
     border-radius: 10px;
   }
   .dayname{
     font-weight: bold;
+  }
+  .close{
+    width:30px;
+  }
+  .empty{
+    color:#ff0000
   }
   /* .day:hover{
     background-color: #cedbf6;
@@ -281,10 +287,10 @@ option:hover{
 .form-floating{
   margin-top:10px;
 }
-.empty{
+/* .empty{
   color:red;
 }
-  
+   */
 /* .leaflet-container {
   height: 500px;
   width:100%;

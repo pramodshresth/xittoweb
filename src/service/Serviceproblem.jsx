@@ -19,6 +19,7 @@ import { CreateBooking } from '../api/ApI.jsx';
 import Slider1 from './assets/Slider1.jpg';
 import PropTypes from 'prop-types';
 import AOS from 'aos';
+import { keyframes } from '@emotion/react';
 const Serviceprobem = ({ Isworker, IsUser}) => {
   const { id } = useParams();
   
@@ -55,8 +56,10 @@ const Serviceprobem = ({ Isworker, IsUser}) => {
     };
     fetchData();
   }, [id]);
+  console.log("this is data",Data);
   const [problemsdetail, setproblemsdetail] = useState(" ");
   const [gotocart, setgotocart] = useState(false)
+  const [goto, setgoto] = useState(false);
   const [booked, setbooked] = useState(false);
   const [IsVisible, setIsVisible] = useState(null);
   // const [UserLocation, setUserLocation] = useState([]);
@@ -154,6 +157,8 @@ const Problemlist=()=>{
       }
     }
    
+    console.log("This is gotocart",gotocart)
+    console.log("This is go",go)
 
      
   }
@@ -187,7 +192,16 @@ const Problemlist=()=>{
 
 const Bookingmodal=()=>{
     
-const handleCloseModal = () => setShowModal(false);
+// const handleCloseModal = () => setShowModal(false);
+const handleCloseModal=()=>{
+  setShowModal(false)
+  setIsVisible(null)
+  
+  
+  // setgotocart(false);
+
+
+}
 const initialState = {
   count: 1
 };
@@ -323,10 +337,9 @@ const [lat, setLat] = useState(null);
   // const [disabled, setdisabled] = useState(false);
  
 
-  const [go, setgo] = useState(false);
+  
 
   const addtocart = () => {
-    
 
     const userdetails = {
       bookingDetails: {
@@ -407,14 +420,14 @@ const [lat, setLat] = useState(null);
   }
   useEffect(() => {
     if (IsVisible === false) {
-      setgo(true);
+      setgoto(true);
     }
     else {
-      setgo(false);
+      setgoto(false);
     }
-
   }, [])
-
+  console.log("this is go from booking",goto);
+  console.log("this is isvisible",IsVisible)
   const book = async () => {
     const userdetails = {
       bookingDetails: {
@@ -465,6 +478,9 @@ const [lat, setLat] = useState(null);
 
 
     }
+   
+
+   
 
   }
   return (
@@ -698,7 +714,7 @@ const [lat, setLat] = useState(null);
 
                   <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={book}><span className='book'>Book</span></button>
                   {
-                    gotocart || go ? <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={goincart}><span className='addtocart'>GO TO CART</span></button> : <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={addtocart} ><span className='addtocart'>ADD TO CART</span></button>
+                    gotocart || goto ? <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={goincart}><span className='addtocart'>GO TO CART</span></button> : <button type="button" className="col-md-6 col-sm-6 col-6 booked-btn btn-primary" onClick={addtocart} ><span className='addtocart'>ADD TO CART</span></button>
                   }
                 </div>
 
@@ -716,7 +732,10 @@ const [lat, setLat] = useState(null);
     </div>
   </div>
   )
+  
+  
 }
+
 
   return (
     <div>

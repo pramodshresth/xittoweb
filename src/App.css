@@ -367,9 +367,9 @@
   border-radius: 10px;
 } */
 .modal-header{
-  display:flex;
+  /* display:flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: column; */
   border-bottom: unset;
 }
 .modal-title{
