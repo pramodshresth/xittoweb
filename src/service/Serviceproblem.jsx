@@ -336,9 +336,9 @@ const [lat, setLat] = useState(null);
         itemCount: quantity.count,
         timePeriod: time.time,
         location: {
-          name: "panauti",
-          lat: "27.4345",
-          lng: "85.782"
+          // name: "panauti",
+          lat:lat,
+          lng:lng
         },
         problemInterval: probleminterval.probleminterval,
         description: userdescription,
@@ -425,8 +425,8 @@ const [lat, setLat] = useState(null);
         timePeriod: time.time,
         location: {
           name: "panauti",
-          lat: "27.4345",
-          lng: "85.782"
+          lat:lat,
+          lng:lng,
         },
         problemInterval: probleminterval.probleminterval,
         description: userdescription,

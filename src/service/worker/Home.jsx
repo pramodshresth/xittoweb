@@ -429,7 +429,7 @@ console.log("this is pendingaccordingtocategory",pendingaccordingtocategory)
           <div className='col-xxl-6 col-xl-6 col-lg-6  col-md-5 worker-problem-description-section'>
               <div className='worker-problem-description'>
               <h4>Full Name:{JSON.parse(item.bookedProblem).categoryName}</h4>
-              <h4>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
+              <h4 className='fs-6'>Order Date:{item.bookedDate}Time:{item.bookedDate}</h4>
               </div>
           </div>
 

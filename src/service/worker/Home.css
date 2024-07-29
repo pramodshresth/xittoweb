@@ -4,8 +4,12 @@
 .show-details{
     margin-top:100px;
 }
-
-
+.react-datepicker-popper{
+    z-index: 2;
+}
+.leaflet-container{
+    z-index: 1;
+}
 
 
 

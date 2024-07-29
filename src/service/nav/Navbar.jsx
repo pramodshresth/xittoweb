@@ -1,5 +1,5 @@
 import { useEffect, useState} from 'react'
-import NavLogo from '../assets/navlogo.png';
+import NavLogo from '../../assets/navlogo.png';
 
 import Cart from '../assets/Cart.svg';
 import NotificationsIcon from '@mui/icons-material/Notifications';
