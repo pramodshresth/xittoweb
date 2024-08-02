@@ -14,7 +14,7 @@ import axios from "axios";
 // import Map from "../service/map.jsx"
 import Nopageforworker from "../pages/Nopageforworker.jsx";
 // import Onwork from "../service/worker/Onwork.jsx";
-import Show from "service/worker/show.jsx";
+import Show from "../service/worker/show.jsx";
 import Worker from '../service/worker/Worker.jsx'
 // import Home from "../pages/Home.jsx";
 import Home from "../service/worker/Home.jsx";
